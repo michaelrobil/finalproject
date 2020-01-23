@@ -20,11 +20,7 @@ export default function Home() {
 
     return (
         <Container fluid>
-            <h1>Home Page!</h1>
             <Row>
-                <Col size="md-0.5">
-                </Col>
-
                 <Col size="md-4">
                     <Jumbotron >
                         <div style={{ backgroundColor: `${color}` }}>
@@ -33,17 +29,6 @@ export default function Home() {
                         </div>
                     </Jumbotron>
                 </Col>
-                <Col size="md-8">
-                    <Jumbotron >
-                        <div style={{ backgroundColor: `${color}` }}>
-                            <h3 style={{ color: `${fontColor}` }}>Second Box</h3>
-                            <Button className="btn btn-success" onClick={() => changeColor('green')} />
-                        </div>
-                    </Jumbotron>
-                </Col>
-                <Col size="md-0.5">
-                </Col>
-
             </Row>
         </Container>
     );

@@ -25,8 +25,8 @@ function Links() {
             <Collapse>
                 <List>
                     <Item>
-                        <Link style={{ color: "green" }} to="/" className="nav-link">
-                            Search Item
+                        <Link style={{ color: "green" }} to="/home" className="nav-link">
+                            Home
                         </Link>
                     </Item>
                 </List>
