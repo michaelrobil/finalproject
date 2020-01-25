@@ -8,6 +8,15 @@ export default function Home() {
     const [color, setColor] = useState('white');
     const [fontColor, setFontColor] = useState('black');
 
+    function encodeImageFileAsURL(element) {
+        var file = element.files[0];
+        var reader = new FileReader();
+        reader.onloadend = function() {
+          console.log('RESULT', reader.result)
+        }
+        reader.readAsDataURL(file);
+      }
+
     function changeColor(c) {
         Toast.info(`Painting ${c}!!`, 3000, () => {
             setColor(c)
@@ -26,6 +35,7 @@ export default function Home() {
                         <div style={{ backgroundColor: `${color}` }}>
                             <h3 style={{ color: `${fontColor}` }}>Second Box</h3>
                             <Button className="btn btn-success" onClick={() => changeColor('green')} />
+                            <input type="file" onChange={encodeImageFileAsURL(this)} />
                         </div>
                     </Jumbotron>
                 </Col>
