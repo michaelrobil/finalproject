@@ -1,25 +1,35 @@
 import axios from "axios";
 
 export default {
-    userLogin: function (data) {
-        return axios.post('/api/login', data)
-    },
-    userSignUp: function (data) {
-        return axios.post('/api/signup', data)
+
+    getPosts: function (data) {
+        return axios.get('/api/posts')
     },
 
-
-    getProducts: function () {
-        return axios.get('/api/products/cart')
+    getProviderPosts: function (id) {
+        return axios.get('/api/posts' + id)
     },
 
-    createProduct: function (data) {
-        return axios.post('/api/products', data)
+    addPost: function (data) {
+        return axios.post('/api/posts' + id)
     },
 
-    deleteProduct: function (id) {
-        return axios.delete('/api/products/' + id)
-    }
+    getAppts: function (id) {
+        return axios.get('/api/appts/' + id)
+    },
+
+    addAppt: function (id) {
+        return axios.post('/api/appts/' + id)
+    },
+
+//=========log in and sign up functions must be verified=================
+
+    // userLogin: function (id) {
+    //     return axios.post('/api/accounts/' + id, data)
+    // },
+
+    // userSignUp: function (data) {
+    //     return axios.post('/api/accounts', data)
+    // }
+
 }
-
-
