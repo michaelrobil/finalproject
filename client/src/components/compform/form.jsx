@@ -90,6 +90,16 @@ export default function SignUp() {
         <Grid item xs={12} sm={6}>
           <TextField id="state" name="state" label="State" fullWidth />
         </Grid>
+        <Grid item xs={12}>
+        <TextField
+          id="outlined-multiline-static"
+          multiline
+          fullWidth
+          rows="4"
+          defaultValue="Company Description"
+          variant="outlined"
+        /> </Grid>
+
         <Button variant="contained"
          color="primary"
          fullWidth>
@@ -106,11 +116,11 @@ export default function SignUp() {
             Sign Up
           </Button>
           <Grid container justify="flex-end">
-            <Grid item>
+            {/* <Grid item>
               <Link href="#" variant="body2">
                 Already have an account? Sign in
               </Link>
-            </Grid>
+            </Grid> */}
           </Grid>
         </form>
       </div>

@@ -27,7 +27,7 @@ function Links() {
                             Home
                         </Link>
 
-                        <Link style={{ color: "green" }} to="/companyform" className="nav-link">
+                        <Link style={{ color: "green" }} to="/signup" className="nav-link">
                             Sign Up
                         </Link>
                     </Item>
