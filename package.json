@@ -27,6 +27,7 @@
     "express-jwt": "^5.3.1",
     "if-env": "^1.0.4",
     "light-toast": "^0.2.3",
-    "mongoose": "^5.3.16"
+    "mongoose": "^5.3.16",
+    "mongoose-type-phone": "^1.0.1"
   }
 }

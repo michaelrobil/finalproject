@@ -1,0 +1,114 @@
+
+.nav-wrapper {
+    background-color: #4fa19a;
+}
+
+header {
+    background-color: white;
+    height: 10vh;
+}
+
+.floatR {
+    float: right;
+}
+
+.ICONS {
+    margin: 5%; 
+    font-size: 2rem;   
+}
+/* .TEMPborder{
+    border: red dashed 1px;
+}
+
+.TEMPborder2{
+    border: blue dashed 1px;
+} */
+
+.leftcol {
+    height: 85vh;
+}
+
+.rightcol {
+    height: 85vh;
+    overflow-y: scroll;
+    border: lightgray solid 1px;
+}
+
+.main {
+    margin-top: 0vh;
+    margin-bottom: 5vh;
+    height: 85vh;
+}
+
+.main-contents {
+    overflow-y: scroll;
+
+}
+
+.avatar {
+    width: 80%;
+    margin: auto;
+}
+
+.comapnyName {
+    text-align: left;
+}
+
+.comapnyDescription {
+    margin-top: 0;
+    
+}
+
+.scroller {
+    overflow-y: scroll;
+    height: 77vh;
+}
+
+.collection {
+    margin-top: 0px;
+}
+
+.collection-header {
+    height: 8vh;
+}
+
+.collection-item {
+    height: 5vh;
+}
+
+td {
+    height: 10vh;
+    width: fit-content;
+}
+
+@media (max-width:600px){
+    header {
+        height: 10vh;
+    }
+
+    .leftcol {
+        height: 20vh;
+        margin-bottom: 10vh;
+    }
+
+    .rightcol {
+        height: 52vh;
+    }
+
+    #search {
+        display: none;
+    }
+
+    .scroller {
+        height: 20vh;
+    }
+
+    .centerTables {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .ICONS {
+        margin: 5%; 
+        font-size: 1.5rem;   
+    }
+}
