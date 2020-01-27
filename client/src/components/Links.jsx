@@ -19,14 +19,16 @@ function Links() {
 
     return (
         <React.Fragment>
-            <h1 className="navbar-brand">
-                Final Project
-            </h1>
+            <h1 className="navbar-brand">Serv</h1>
             <Collapse>
                 <List>
                     <Item>
-                        <Link style={{ color: "green" }} to="/home" className="nav-link">
+                        <Link style={{ color: "green" }} to="/" className="nav-link">
                             Home
+                        </Link>
+
+                        <Link style={{ color: "green" }} to="/companyform" className="nav-link">
+                            Sign Up
                         </Link>
                     </Item>
                 </List>

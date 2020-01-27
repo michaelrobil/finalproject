@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Col, Row, Container } from "../components/Grid";
 import Jumbotron from "../components/Jumbotron";
 import Button from "../components/Button"
-import Toast from 'light-toast';
+import SignUp from "../components/compform/form"
 
 export default function CompanyForm() {
     useEffect(() => {
@@ -11,11 +11,9 @@ export default function CompanyForm() {
 
     return (
         <Container fluid>
-            <h1>Company Form Page!!</h1>
-            <Row>
+       <Row>
                 <Col size="md-8">
-                    <Jumbotron >
-                    </Jumbotron>
+                    <SignUp/>   
                 </Col>
             </Row>
         </Container>

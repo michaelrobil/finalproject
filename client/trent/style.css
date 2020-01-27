@@ -1,11 +1,11 @@
 
 .nav-wrapper {
-    background-color: #4fa19a;
+    background-color: #25c417;
 }
 
-header {
-    background-color: white;
-    height: 10vh;
+#header {
+    background-color: rgb(26, 236, 43);
+    height: 20vh;
 }
 
 .floatR {
