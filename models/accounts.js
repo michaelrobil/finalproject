@@ -15,8 +15,7 @@ const accountSchema = new Schema({
 
     accountType: {
         type: String,
-        required: "account type is required",
-        enum: ['provider', 'user']
+        default: "provider"
     },
 
     email: {
