@@ -21,6 +21,7 @@ import InfoIcon from '@material-ui/icons/Info';
 import SendIcon from '@material-ui/icons/Send';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import { AutoInit } from "materialize-css";
+import TextField from '@material-ui/core/TextField';
 
 const tileData = [
     {
@@ -67,7 +68,7 @@ const useStyles = makeStyles(theme => ({
         width: "100%",
         height: 250,
         margin: 10,
-        borderRadius: 200,
+        borderRadius: 400,
         overflow: "hidden"
     },
     coverImage: {
@@ -119,7 +120,9 @@ export default function Search() {
 
     const handleDateChange = date => {
         setSelectedDate(date);
+        const enteredName = prompt('Please enter your name')
         console.log(date)
+        console.log(enteredName)
     };
     useEffect(() => {
     }, [])
@@ -161,7 +164,7 @@ export default function Search() {
                                 onClick={event => handleListItemClick(event, 2)}
                             >
                                 <ListItemText primary="Three" />
-                                <ListItemIcon>
+                                <ListItemIcon className={classes.btnIcon}> 
                                     <SendIcon />
                                 </ListItemIcon>
                             </ListItem>
