@@ -30,7 +30,7 @@ const accountSchema = new Schema({
         validate: [({ length }) => length >= 6, "Password should be longer."]
     },
 
-    userImageURL: {
+    companyImageURL: {
         type: String,
         required: "",
         default: "https://image.shutterstock.com/image-vector/blank-avatar-photo-place-holder-600w-1095249842.jpg"
@@ -41,7 +41,7 @@ const accountSchema = new Schema({
         required: "company name is required"
     },
 
-    providerCategory: {
+    companyCategory: {
         type: String,
         enum: categories
     },
