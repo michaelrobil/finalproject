@@ -3,7 +3,10 @@ var Schema = mongoose.Schema;
 
 var userPostsSchema = {
 
-    accountID: String,
+    accountID: {
+        type: String,
+        required: true
+    },
     
     postImageCaption: {
         type: String,
