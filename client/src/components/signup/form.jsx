@@ -121,7 +121,12 @@ function submitSignup(e) {
           />
         </Grid>
         <Grid item xs={12} sm={6}>
-          <TextField id="state" name="state" label="State" fullWidth />
+          <TextField 
+          required
+          id="state"
+          name="state"
+          label="State"
+          fullWidth />
         </Grid>
         <Grid item xs={12}>
         <TextField
@@ -129,8 +134,8 @@ function submitSignup(e) {
           multiline
           fullWidth
           rows="4"
-          defaultValue="Company Description"
           variant="outlined"
+          label="Company Description"
           onChange={(e) => setSignUpCredentials({
             ...signUpCredentials,
             compDesc: e.target.value
