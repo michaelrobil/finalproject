@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Col, Row, Container } from "../components/Grid";
 import Jumbotron2 from "../components/Jumbotron2";
 import Button from "../components/Button"
-import SignUp from "../components/compform/form"
+import SignUp from "../components/signup/form"
 import SignIn from "../components/signin/signin"
 
 export default function CompanyForm() {
