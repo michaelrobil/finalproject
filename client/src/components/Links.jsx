@@ -13,6 +13,7 @@ const Item = styled.div.attrs({
 function Links() {
     return (
         <React.Fragment>
+
             <Collapse>
                 <List>
                     <Item >
@@ -20,6 +21,7 @@ function Links() {
                             Home
                         </Link>
                         <Link style={{ color: "white" }} to="/companyform" className={'d-inline p-2 text-white'}>
+
                             Sign Up
                         </Link>
                     </Item>

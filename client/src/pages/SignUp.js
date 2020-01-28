@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 import { Link } from 'react-router-dom'
-import Jumbotron from "../components/Jumbotron";
+import Jumbotron from "../components/Jumbotron2";
 import Button from "../components/Button"
 import Toast from 'light-toast';
 
@@ -17,7 +17,7 @@ export default function SignUp() {
             <Row>
 
                 <Col size="md-4">
-                    <Jumbotron >
+                    <Jumbotron >z
                     </Jumbotron>
                 </Col>
                 <Col size="md-8">
