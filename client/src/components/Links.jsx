@@ -1,32 +1,26 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
-
-
 const Collapse = styled.div.attrs({
     className: 'collpase navbar-collapse',
 })``
-
 const List = styled.div.attrs({
     className: 'navbar-nav mr-auto',
 })``
-
 const Item = styled.div.attrs({
     className: 'collpase navbar-collapse',
 })``
-
 function Links() {
-
     return (
         <React.Fragment>
-            <h1 className="navbar-brand">
-                Final Project
-            </h1>
             <Collapse>
                 <List>
-                    <Item>
-                        <Link style={{ color: "green" }} to="/home" className="nav-link">
+                    <Item >
+                        <Link style={{ color: "white" }} to="/" className={'d-inline p-2 text-white'}>
                             Home
+                        </Link>
+                        <Link style={{ color: "white" }} to="/companyform" className={'d-inline p-2 text-white'}>
+                            Sign Up
                         </Link>
                     </Item>
                 </List>
@@ -34,6 +28,4 @@ function Links() {
         </React.Fragment>
     )
 }
-
 export default Links;
-
