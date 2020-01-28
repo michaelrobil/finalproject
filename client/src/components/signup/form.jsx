@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
@@ -7,6 +7,7 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+
 
 
 const useStyles = makeStyles(theme => ({
@@ -31,6 +32,23 @@ const useStyles = makeStyles(theme => ({
 export default function SignUp() {
   const classes = useStyles();
 
+  const [signUpCredentials, setSignUpCredentials] = useState({
+    companyName: "",
+    email: "",
+    password:""
+  });
+
+
+function submitSignup(e) {
+  e.preventDefault();
+  console.log(signUpCredentials)
+  // API.apiSearch(searchTerm)
+  // .then(res => {
+  //   setProducts(res.data);
+  // });
+}
+
+
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
@@ -51,6 +69,10 @@ export default function SignUp() {
                 id="compName"
                 label="Company Name"
                 autoFocus
+                onChange={(e) => setSignUpCredentials({
+                  ...signUpCredentials,
+                  companyName: e.target.value
+                })}
               />
             </Grid>
             <Grid item xs={12}>
@@ -62,6 +84,10 @@ export default function SignUp() {
                 label="Email Address"
                 name="email"
                 autoComplete="email"
+                onChange={(e) => setSignUpCredentials({
+                  ...signUpCredentials,
+                  email: e.target.value
+                })}
               />
             </Grid>
             <Grid item xs={12}>
@@ -74,6 +100,10 @@ export default function SignUp() {
                 type="password"
                 id="password"
                 autoComplete="current-password"
+                onChange={(e) => setSignUpCredentials({
+                  ...signUpCredentials,
+                  password: e.target.value
+                })}
               />
             </Grid>
             <Grid item xs={12} sm={6}>
@@ -84,10 +114,19 @@ export default function SignUp() {
             label="City"
             fullWidth
             autoComplete="billing address-level2"
+            onChange={(e) => setSignUpCredentials({
+              ...signUpCredentials,
+              city: e.target.value
+            })}
           />
         </Grid>
         <Grid item xs={12} sm={6}>
-          <TextField id="state" name="state" label="State" fullWidth />
+          <TextField 
+          required
+          id="state"
+          name="state"
+          label="State"
+          fullWidth />
         </Grid>
         <Grid item xs={12}>
         <TextField
@@ -95,8 +134,12 @@ export default function SignUp() {
           multiline
           fullWidth
           rows="4"
-          defaultValue="Company Description"
           variant="outlined"
+          label="Company Description"
+          onChange={(e) => setSignUpCredentials({
+            ...signUpCredentials,
+            compDesc: e.target.value
+          })}
         /> </Grid>
 
         <Button variant="contained"
@@ -111,6 +154,7 @@ export default function SignUp() {
             variant="contained"
             color="primary"
             className={classes.submit}
+            onClick={(e) => submitSignup(e)}
           >
             Sign Up
           </Button>
