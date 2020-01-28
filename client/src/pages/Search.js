@@ -20,6 +20,7 @@ import IconButton from '@material-ui/core/IconButton';
 import InfoIcon from '@material-ui/icons/Info';
 import SendIcon from '@material-ui/icons/Send';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
+import { AutoInit } from "materialize-css";
 
 const tileData = [
     {
@@ -63,11 +64,17 @@ const useStyles = makeStyles(theme => ({
         flex: '1 0 auto',
     },
     cover: {
-        width: 300,
-        height: 300,
+        width: "100%",
+        height: 250,
         margin: 10,
-        borderRadius: 200
-
+        borderRadius: 200,
+        overflow: "hidden"
+    },
+    coverImage: {
+        height: "100%",
+        width: "auto",
+        transform: "translateX(-50%)",
+        marginLeft: "58%"
     },
     controls: {
         display: 'flex',
@@ -176,12 +183,13 @@ export default function Search() {
                     <Card className={classes.card}>
                         <Row>
                             <Col size='md-4'>
+                                <div className={classes.cover}>
                                 <img
-                                    className={classes.cover}
+                                    className={classes.coverImage}
                                     src="https://i.ytimg.com/vi/YviYufXRw0g/maxresdefault.jpg"
                                     title="Live from space album cover"
                                 />
-
+                                </div>
                             </Col>
                             <Col size='md-8'>
                                 <div className={classes.details}>
