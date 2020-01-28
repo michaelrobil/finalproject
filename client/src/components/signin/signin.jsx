@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
@@ -35,6 +35,22 @@ const useStyles = makeStyles(theme => ({
 export default function SignIn() {
   const classes = useStyles();
 
+  const [loginCreds, setLoginCreds] = useState({
+    email: "",
+    password:""
+  });
+
+
+function submitLogin(e) {
+  e.preventDefault();
+  console.log(loginCreds)
+  // API.apiSearch(searchTerm)
+  // .then(res => {
+  //   setProducts(res.data);
+  // });
+}
+
+
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
@@ -53,6 +69,10 @@ export default function SignIn() {
             name="email"
             autoComplete="email"
             autoFocus
+            onChange={(e) => setLoginCreds({
+              ...loginCreds,
+              email: e.target.value
+            })}
           />
           <TextField
             variant="outlined"
@@ -64,6 +84,10 @@ export default function SignIn() {
             type="password"
             id="password"
             autoComplete="current-password"
+            onChange={(e) => setLoginCreds({
+              ...loginCreds,
+              password: e.target.value
+            })}
           />
           <FormControlLabel
             control={<Checkbox value="remember" color="primary" />}
@@ -75,6 +99,8 @@ export default function SignIn() {
             variant="contained"
             color="primary"
             className={classes.submit}
+            onClick={(e) => submitLogin(e)}
+
           >
             Sign In
           </Button>
