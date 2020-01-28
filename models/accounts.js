@@ -33,12 +33,12 @@ const accountSchema = new Schema({
     userImageURL: {
         type: String,
         required: "",
-        default: "../assets/defaultUser.png"
+        default: "https://image.shutterstock.com/image-vector/blank-avatar-photo-place-holder-600w-1095249842.jpg"
     },
 
-    userName: {
+    companyName: {
         type: String,
-        required: "user name is required"
+        required: "company name is required"
     },
 
     providerCategory: {
@@ -46,11 +46,11 @@ const accountSchema = new Schema({
         enum: categories
     },
 
-    providerDescription: String,
+    companyDescription: String,
 
-    providerCity: String,
+    companyCity: String,
 
-    providerState: {
+    companyState: {
         type: String,
         enum: states
     },
