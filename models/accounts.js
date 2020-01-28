@@ -15,8 +15,7 @@ const accountSchema = new Schema({
 
     accountType: {
         type: String,
-        required: "account type is required",
-        enum: ['provider', 'user']
+        default: "provider"
     },
 
     email: {
@@ -31,27 +30,27 @@ const accountSchema = new Schema({
         validate: [({ length }) => length >= 6, "Password should be longer."]
     },
 
-    userImageURL: {
+    companyImageURL: {
         type: String,
         required: "",
-        default: "../assets/defaultUser.png"
+        default: "https://image.shutterstock.com/image-vector/blank-avatar-photo-place-holder-600w-1095249842.jpg"
     },
 
-    userName: {
+    companyName: {
         type: String,
-        required: "user name is required"
+        required: "company name is required"
     },
 
-    providerCategory: {
+    companyCategory: {
         type: String,
         enum: categories
     },
 
-    providerDescription: String,
+    companyDescription: String,
 
-    providerCity: String,
+    companyCity: String,
 
-    providerState: {
+    companyState: {
         type: String,
         enum: states
     },
