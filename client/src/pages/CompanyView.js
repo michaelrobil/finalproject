@@ -21,6 +21,23 @@ import InfoIcon from '@material-ui/icons/Info';
 import SendIcon from '@material-ui/icons/Send';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import { AutoInit } from "materialize-css";
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableContainer from '@material-ui/core/TableContainer';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import Paper from '@material-ui/core/Paper';
+import Button from '@material-ui/core/Button';
+import PhotoCamera from '@material-ui/icons/PhotoCamera';
+import ButtonBase from '@material-ui/core/ButtonBase';
+
+const image = [
+    {
+        url: 'https://cdn.shopify.com/s/files/1/0533/2089/files/placeholder-images-image_large.png?format=webp&v=1530129081',
+        title: 'Breakfast',
+    },
+]
 
 const tileData = [
     {
@@ -37,7 +54,7 @@ const tileData = [
         title: 'Image',
         author: 'author',
         img: "data:image/jpeg;base64,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"
-    }
+    },
 ];
 
 
@@ -52,6 +69,9 @@ const useStyles = makeStyles(theme => ({
         overflow: 'hidden',
         marginTop: 10
 
+    },
+    input: {
+        display: 'none',
     },
     card: {
         display: 'flex',
@@ -101,8 +121,88 @@ const useStyles = makeStyles(theme => ({
     nested: {
         paddingLeft: theme.spacing(4),
     },
+    table: {
+        minWidth: 650,
+    },
+    image: {
+        position: 'relative',
+        height: 200,
+        [theme.breakpoints.down('xs')]: {
+            width: '100% !important', // Overrides inline-style
+            height: 100,
+        },
+        '&:hover, &$focusVisible': {
+            zIndex: 1,
+            '& $imageBackdrop': {
+                opacity: 0.15,
+            },
+            '& $imageMarked': {
+                opacity: 0,
+            },
+            '& $imageTitle': {
+                border: '4px solid currentColor',
+            },
+        },
+    },
+    focusVisible: {},
+    imageButton: {
+        position: 'absolute',
+        left: 0,
+        right: 0,
+        top: 0,
+        bottom: 0,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        color: theme.palette.common.white,
+    },
+    imageSrc: {
+        position: 'absolute',
+        left: 0,
+        right: 0,
+        top: 0,
+        bottom: 0,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center 40%',
+    },
+    imageBackdrop: {
+        position: 'absolute',
+        left: 0,
+        right: 0,
+        top: 0,
+        bottom: 0,
+        backgroundColor: theme.palette.common.black,
+        opacity: 0.4,
+        transition: theme.transitions.create('opacity'),
+    },
+    imageTitle: {
+        position: 'relative',
+        padding: `${theme.spacing(2)}px ${theme.spacing(4)}px ${theme.spacing(1) + 6}px`,
+    },
+    imageMarked: {
+        height: 3,
+        width: 18,
+        backgroundColor: theme.palette.common.white,
+        position: 'absolute',
+        bottom: -2,
+        left: 'calc(50% - 9px)',
+        transition: theme.transitions.create('opacity'),
+    },
 
 }));
+
+function createData(name, day, date, time) {
+    return { name, day, date, time };
+}
+
+const rows = [
+    createData('Eric', 'Sat', '1/28/2020', '1:17 PM'),
+    createData('Mario', 'Fri', '1/28/2020', '1:17 PM'),
+    createData('Trent', 'Tus', '1/28/2020', '1:17 PM'),
+    createData('Alek', 'Fri', '1/28/2020', '1:17 PM'),
+    createData('Mike', 'Sat', '1/28/2020', '1:17 PM'),
+
+];
 
 export default function Search() {
     const NewBox = styled.div`
@@ -128,101 +228,114 @@ export default function Search() {
     return (
         <Container fluid>
             <h1>Company Page!</h1>
-            <Row>
-                <Col size="md-12">
-                    <Card className={classes.card}>
-                        <Row>
-                            <Col size='md-6'>
-                                <div className={classes.cover}>
-                                    <img
-                                        className={classes.coverImage}
-                                        src="https://i.ytimg.com/vi/YviYufXRw0g/maxresdefault.jpg"
-                                        title="Live from space album cover"
-                                    />
-                                </div>
-                            </Col>
-                            <Col size="md-6">
-                                <Typography component="h3" variant="h3">
-                                    Name
-                                </Typography>
+            <Grid>
+                <Row >
+                    <Col size='md-12'>
+                        <div className={classes.cover}>
+                            <img
+                                className={classes.coverImage}
+                                src="https://i.ytimg.com/vi/YviYufXRw0g/maxresdefault.jpg"
+                                title="Live from space album cover"
+                            />
+                        </div>
+                    </Col>
+                </Row>
+            </Grid>
+            <Grid>
+                <Row>
+                    <Col size='md-6'>
+                        <Typography component="h3" variant="h3">Name</Typography>
+                        <Typography variant="subtitle1" color="textSecondary">Category: Animals</Typography>
+                        <Typography variant="subtitle1" color="textSecondary">Location: Nashville, TN </Typography>
+                    </Col>
 
-                            </Col>
-                        </Row>
-                        <Row>
-                            <Col size='md-8'>
-                                <div className={classes.details}>
-                                    <CardContent className={classes.content}>
-
-                                        <Row>
-                                            <Col size='md-6'>
-                                                <Typography variant="subtitle1" color="textSecondary">Category: Animals</Typography>
-                                                <Typography variant="subtitle1" color="textSecondary">Location: Nashville, TN </Typography>
-
-                                            </Col>
-                                            <Col size='md-6'>
-                                                <MuiPickersUtilsProvider utils={DateFnsUtils}>
-                                                    <Grid container justify="space-around">
-                                                        <KeyboardDateTimePicker
-                                                            margin="normal"
-                                                            id="date-picker-dialog"
-                                                            label="Date picker dialog"
-                                                            format="MM/dd/yyyy"
-                                                            value={selectedDate}
-                                                            onChange={handleDateChange}
-                                                            KeyboardButtonProps={{
-                                                                'aria-label': 'change date',
-                                                            }}
-                                                        />
-                                                    </Grid>
-                                                </MuiPickersUtilsProvider>
-
-                                            </Col>
-                                        </Row>
-                                        <Row>
-                                            <Col size='md-12'>
-                                                <Typography variant="subtitle1" color="textSecondary">Description: Lorem ipsum dolor sit amet,
-                                             consectetur adipiscing elit. Nulla tristique in turpis sit amet congue. Nam rhoncus,
-                                              dolor vel faucibus facilisis, turpis leo maximus mi, vitae tristique dui est vel dui.
+                    <Col size='md-6'>
+                        <Typography variant="subtitle1" color="textSecondary">Description: Lorem ipsum dolor sit amet,
+                                                     consectetur adipiscing elit. Nulla tristique in turpis sit amet congue. Nam rhoncus,
+                                                      dolor vel faucibus facilisis, turpis leo maximus mi, vitae tristique dui est vel dui.
                                   Duis ligula tellus, venenatis a suscipit in, venenatis eu lectus. Donec eget ultrices tellus.</Typography>
+                    </Col>
+                </Row>
+            </Grid>
+            <Grid>
+                <Row>
+                    <Col size='md-12'>
+                        <TableContainer component={Paper}>
+                            <Table className={classes.table} aria-label="simple table">
+                                <TableHead>
+                                    <TableRow>
+                                        <TableCell>Name</TableCell>
+                                        <TableCell align="right">Day</TableCell>
+                                        <TableCell align="right">Date</TableCell>
+                                        <TableCell align="right">Time</TableCell>
+                                    </TableRow>
+                                </TableHead>
+                                <TableBody>
+                                    {rows.map(row => (
+                                        <TableRow key={row.name}>
+                                            <TableCell component="th" scope="row">
+                                                {row.name}
+                                            </TableCell>
+                                            <TableCell align="right">{row.day}</TableCell>
+                                            <TableCell align="right">{row.date}</TableCell>
+                                            <TableCell align="right">{row.time}</TableCell>
+                                        </TableRow>
+                                    ))}
+                                </TableBody>
+                            </Table>
+                        </TableContainer>
+                    </Col>
+                </Row>
+            </Grid>
+            <Grid>
+                <Row>
+                    <Col size='md-12'>
+                        <div className={classes.gridList}>
+                            <GridList cellHeight={250} cols={2} style={{ width: 1300 }}>
+                                {tileData.map(tile => (
+                                    <GridListTile key={tile.title} style={{ width: 300 }}>
+                                        <img className={classes.img} src={tile.img} alt={tile.title} />
+                                        <GridListTileBar
+                                            title={tile.title}
+                                            subtitle={<span>by: {tile.author}</span>}
+                                            actionIcon={
+                                                <IconButton aria-label={`info about ${tile.title}`} className={classes.icon}>
+                                                    <InfoIcon />
+                                                </IconButton>
+                                            }
+                                        />
 
-                                            </Col>
+                                    </GridListTile>
 
-                                        </Row>
-                                    </CardContent>
-                                </div>
-                            </Col>
-                            <Col size="md-12">
-                                <div className={classes.gridList}>
-                                    <GridList cellHeight={250} cols={2} style={{ width: 1300 }}>
-                                        {tileData.map(tile => (
-                                            <GridListTile key={tile.title} style={{ width: 300 }}>
-                                                <img className={classes.img} src={tile.img} alt={tile.title} />
-                                                <GridListTileBar
-                                                    title={tile.title}
-                                                    subtitle={<span>by: {tile.author}</span>}
-                                                    actionIcon={
-                                                        <IconButton aria-label={`info about ${tile.title}`} className={classes.icon}>
-                                                            <InfoIcon />
-                                                        </IconButton>
-                                                    }
-                                                />
-                                            </GridListTile>
-                                        ))}
-                                    </GridList>
-                                </div>
-                            </Col>
+                                ))}
+                                <GridListTile key={image[0].title} style={{ width: 300 }}>
+                                    <img className={classes.img} src={image[0].url} alt={image[0].title} />
+                                    <GridListTileBar
+                                        title={image[0].title}
+                                        subtitle={<span>Upload </span>}
+                                        actionIcon={
+                                            <IconButton aria-label={`info about ${image[0].title}`} className={classes.icon}>
+                                                <input accept="image/*" className={classes.input} id="icon-button-file" type="file" />
+                                                <label htmlFor="icon-button-file">
+                                                    <IconButton color="primary" aria-label="upload picture" component="span">
+                                                        <PhotoCamera />
+                                                    </IconButton>
+                                                </label>
+                                            </IconButton>
+                                        }
+                                    />
 
-                        </Row>
-
-                    </Card>
+                                </GridListTile>
 
 
-                </Col>
 
-                <Col size="md-0.5">
+                            </GridList>
 
-                </Col>
-            </Row>
+
+                        </div>
+                    </Col>
+                </Row>
+            </Grid>
         </Container>
     );
 }
