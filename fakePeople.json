@@ -1,551 +1,528 @@
-{
-    "users": [
-        {
-            "username":"ToasterStroodle",
-            "email": "Pasteryman@totallyrealemail.com",
-            "password": "Iamtherealgingerbreadman",
-            "profile": {
-                    "profilePicture": "",
-                    "companyName": "Bread Head",
-                    "catagory": "Salon",
-                    "description": "I will put yeast in your hair",
-                    "city": "Loaf Town",
-                    "state": "USA"
-            }
-        },
-        {
-            "username":"MrMcdingi",
-            "email": "Email@email.com",
-            "password": "Password123",
-            "profile": {
-                    "profilePicture": "",
-                    "companyName": "",
-                    "catagory": "Salon",
-                    "description": "",
-                    "city": "",
-                    "state": ""
-            }
-        },
-        {
-            "username":"genericUsername",
-            "email": "Email@email.com",
-            "password": "Password123",
-            "profile": {
-                    "profilePicture": "",
-                    "companyName": "",
-                    "catagory": "Salon",
-                    "description": "",
-                    "city": "",
-                    "state": ""
-            }
-        },
-        {
-            "username":"genericUsername",
-            "email": "Email@email.com",
-            "password": "Password123",
-            "profile": {
-                    "profilePicture": "",
-                    "companyName": "",
-                    "catagory": "Salon",
-                    "description": "",
-                    "city": "",
-                    "state": ""
-            }
-        },
-        {
-            "username":"genericUsername",
-            "email": "Email@email.com",
-            "password": "Password123",
-            "profile": {
-                    "profilePicture": "",
-                    "companyName": "",
-                    "catagory": "Salon",
-                    "description": "",
-                    "city": "",
-                    "state": ""
-            }
-        },
-        {
-            "username":"genericUsername",
-            "email": "Email@email.com",
-            "password": "Password123",
-            "profile": {
-                    "profilePicture": "",
-                    "companyName": "",
-                    "catagory": "Salon",
-                    "description": "",
-                    "city": "",
-                    "state": ""
-            }
-        },
-        {
-            "username":"K1TX3LL",
-            "email": "SleepyBoy@hotemail.com",
-            "password": "46920",
-            "profile": {
-                    "profilePicture": "",
-                    "companyName": "Clips and Snips",
-                    "catagory": "Barber",
-                    "description": "Very soft and sweet boy",
-                    "city": "Where I want to be",
-                    "state": "Iowa"
-            }
-        },
-        {
-            "username":"genericUsername",
-            "email": "Email@email.com",
-            "password": "Password123",
-            "profile": {
-                    "profilePicture": "",
-                    "companyName": "",
-                    "catagory": "Barber",
-                    "description": "",
-                    "city": "",
-                    "state": ""
-            }
-        },
-        {
-            "username":"genericUsername",
-            "email": "Email@email.com",
-            "password": "Password123",
-            "profile": {
-                    "profilePicture": "",
-                    "companyName": "",
-                    "catagory": "Barber",
-                    "description": "",
-                    "city": "",
-                    "state": ""
-            }
-        },
-        {
-            "username":"genericUsername",
-            "email": "Email@email.com",
-            "password": "Password123",
-            "profile": {
-                    "profilePicture": "",
-                    "companyName": "",
-                    "catagory": "Barber",
-                    "description": "",
-                    "city": "",
-                    "state": ""
-            }
-        },
-        {
-            "username":"genericUsername",
-            "email": "Email@email.com",
-            "password": "Password123",
-            "profile": {
-                    "profilePicture": "",
-                    "companyName": "",
-                    "catagory": "Barber",
-                    "description": "",
-                    "city": "",
-                    "state": ""
-            }
-        },
-        {
-            "username":"genericUsername",
-            "email": "Email@email.com",
-            "password": "Password123",
-            "profile": {
-                    "profilePicture": "",
-                    "companyName": "",
-                    "catagory": "Barber",
-                    "description": "",
-                    "city": "",
-                    "state": ""
-            }
-        },
-        {
-            "username":"genericUsername",
-            "email": "Email@email.com",
-            "password": "Password123",
-            "profile": {
-                    "profilePicture": "",
-                    "companyName": "",
-                    "catagory": "Beauty",
-                    "description": "",
-                    "city": "",
-                    "state": ""
-            }
-        },
-        {
-            "username":"genericUsername",
-            "email": "Email@email.com",
-            "password": "Password123",
-            "profile": {
-                    "profilePicture": "",
-                    "companyName": "",
-                    "catagory": "Beauty",
-                    "description": "",
-                    "city": "",
-                    "state": ""
-            }
-        },
-        {
-            "username":"genericUsername",
-            "email": "Email@email.com",
-            "password": "Password123",
-            "profile": {
-                    "profilePicture": "",
-                    "companyName": "",
-                    "catagory": "Beauty",
-                    "description": "",
-                    "city": "",
-                    "state": ""
-            }
-        },
-        {
-            "username":"genericUsername",
-            "email": "Email@email.com",
-            "password": "Password123",
-            "profile": {
-                    "profilePicture": "",
-                    "companyName": "",
-                    "catagory": "Beauty",
-                    "description": "",
-                    "city": "",
-                    "state": ""
-            }
-        },
-        {
-            "username":"genericUsername",
-            "email": "Email@email.com",
-            "password": "Password123",
-            "profile": {
-                    "profilePicture": "",
-                    "companyName": "",
-                    "catagory": "Beauty",
-                    "description": "",
-                    "city": "",
-                    "state": ""
-            }
-        },
-        {
-            "username":"genericUsername",
-            "email": "Email@email.com",
-            "password": "Password123",
-            "profile": {
-                    "profilePicture": "",
-                    "companyName": "",
-                    "catagory": "Beauty",
-                    "description": "",
-                    "city": "",
-                    "state": ""
-            }
-        },
-        {
-            "username":"SquishSquishCult",
-            "email": "Ieatchildren@tastychildren.com",
-            "password": "tits",
-            "profile": {
-                    "profilePicture": "",
-                    "companyName": "Dink it & Ink it",
-                    "catagory": "Tattoo",
-                    "description": "Dink Donk",
-                    "city": "Somewhere",
-                    "state": "Australia aint a state wtf"
-            }
-        },
-        {
-            "username":"genericUsername",
-            "email": "Email@email.com",
-            "password": "Password123",
-            "profile": {
-                    "profilePicture": "",
-                    "companyName": "",
-                    "catagory": "Tattoo",
-                    "description": "",
-                    "city": "",
-                    "state": ""
-            }
-        },
-        {
-            "username":"genericUsername",
-            "email": "Email@email.com",
-            "password": "Password123",
-            "profile": {
-                    "profilePicture": "",
-                    "companyName": "",
-                    "catagory": "Tattoo",
-                    "description": "",
-                    "city": "",
-                    "state": ""
-            }
-        },
-        {
-            "username":"genericUsername",
-            "email": "Email@email.com",
-            "password": "Password123",
-            "profile": {
-                    "profilePicture": "",
-                    "companyName": "",
-                    "catagory": "Tattoo",
-                    "description": "",
-                    "city": "",
-                    "state": ""
-            }
-        },
-        {
-            "username":"genericUsername",
-            "email": "Email@email.com",
-            "password": "Password123",
-            "profile": {
-                    "profilePicture": "",
-                    "companyName": "",
-                    "catagory": "Tattoo",
-                    "description": "",
-                    "city": "",
-                    "state": ""
-            }
-        },
-        {
-            "username":"genericUsername",
-            "email": "Email@email.com",
-            "password": "Password123",
-            "profile": {
-                    "profilePicture": "",
-                    "companyName": "",
-                    "catagory": "Tattoo",
-                    "description": "",
-                    "city": "",
-                    "state": ""
-            }
-        },
-        {
-            "username":"genericUsername",
-            "email": "Email@email.com",
-            "password": "Password123",
-            "profile": {
-                    "profilePicture": "",
-                    "companyName": "",
-                    "catagory": "Nails",
-                    "description": "",
-                    "city": "",
-                    "state": ""
-            }
-        },
-        {
-            "username":"genericUsername",
-            "email": "Email@email.com",
-            "password": "Password123",
-            "profile": {
-                    "profilePicture": "",
-                    "companyName": "",
-                    "catagory": "Nails",
-                    "description": "",
-                    "city": "",
-                    "state": ""
-            }
-        },
-        {
-            "username":"genericUsername",
-            "email": "Email@email.com",
-            "password": "Password123",
-            "profile": {
-                    "profilePicture": "",
-                    "companyName": "",
-                    "catagory": "Nails",
-                    "description": "",
-                    "city": "",
-                    "state": ""
-            }
-        },
-        {
-            "username":"genericUsername",
-            "email": "Email@email.com",
-            "password": "Password123",
-            "profile": {
-                    "profilePicture": "",
-                    "companyName": "",
-                    "catagory": "Nails",
-                    "description": "",
-                    "city": "",
-                    "state": ""
-            }
-        },
-        {
-            "username":"genericUsername",
-            "email": "Email@email.com",
-            "password": "Password123",
-            "profile": {
-                    "profilePicture": "",
-                    "companyName": "",
-                    "catagory": "Nails",
-                    "description": "",
-                    "city": "",
-                    "state": ""
-            }
-        },
-        {
-            "username":"genericUsername",
-            "email": "Email@email.com",
-            "password": "Password123",
-            "profile": {
-                    "profilePicture": "",
-                    "companyName": "",
-                    "catagory": "Nails",
-                    "description": "",
-                    "city": "",
-                    "state": ""
-            }
-        },
-        {
-            "username":"genericUsername",
-            "email": "Email@email.com",
-            "password": "Password123",
-            "profile": {
-                    "profilePicture": "",
-                    "companyName": "",
-                    "catagory": "Piercings",
-                    "description": "",
-                    "city": "",
-                    "state": ""
-            }
-        },
-        {
-            "username":"genericUsername",
-            "email": "Email@email.com",
-            "password": "Password123",
-            "profile": {
-                    "profilePicture": "",
-                    "companyName": "",
-                    "catagory": "Piercings",
-                    "description": "",
-                    "city": "",
-                    "state": ""
-            }
-        },
-        {
-            "username":"genericUsername",
-            "email": "Email@email.com",
-            "password": "Password123",
-            "profile": {
-                    "profilePicture": "",
-                    "companyName": "",
-                    "catagory": "Piercings",
-                    "description": "",
-                    "city": "",
-                    "state": ""
-            }
-        },
-        {
-            "username":"genericUsername",
-            "email": "Email@email.com",
-            "password": "Password123",
-            "profile": {
-                    "profilePicture": "",
-                    "companyName": "",
-                    "catagory": "Piercings",
-                    "description": "",
-                    "city": "",
-                    "state": ""
-            }
-        },
-        {
-            "username":"genericUsername",
-            "email": "Email@email.com",
-            "password": "Password123",
-            "profile": {
-                    "profilePicture": "",
-                    "companyName": "",
-                    "catagory": "Piercings",
-                    "description": "",
-                    "city": "",
-                    "state": ""
-            }
-        },
-        {
-            "username":"genericUsername",
-            "email": "Email@email.com",
-            "password": "Password123",
-            "profile": {
-                    "profilePicture": "",
-                    "companyName": "",
-                    "catagory": "Piercings",
-                    "description": "",
-                    "city": "",
-                    "state": ""
-            }
-        },
-        {
-            "username":"Megaronii",
-            "email": "Number1DekuFan@googlemail.com",
-            "password": "GiveMeSeafoam",
-            "profile": {
-                    "profilePicture": "",
-                    "companyName": "Snap & Smile",
-                    "catagory": "Photography",
-                    "description": "That sounds like a you problem",
-                    "city": "Somewhere over the rainbow",
-                    "state": "Wouldn't you like to know?"
-            }
-        },
-        {
-            "username":"genericUsername",
-            "email": "Email@email.com",
-            "password": "Password123",
-            "profile": {
-                    "profilePicture": "",
-                    "companyName": "",
-                    "catagory": "Photography",
-                    "description": "",
-                    "city": "",
-                    "state": ""
-            }
-        },
-        {
-            "username":"genericUsername",
-            "email": "Email@email.com",
-            "password": "Password123",
-            "profile": {
-                    "profilePicture": "",
-                    "companyName": "",
-                    "catagory": "Photography",
-                    "description": "",
-                    "city": "",
-                    "state": ""
-            }
-        },
-        {
-            "username":"genericUsername",
-            "email": "Email@email.com",
-            "password": "Password123",
-            "profile": {
-                    "profilePicture": "",
-                    "companyName": "",
-                    "catagory": "Photography",
-                    "description": "",
-                    "city": "",
-                    "state": ""
-            }
-        },
-        {
-            "username":"genericUsername",
-            "email": "Email@email.com",
-            "password": "Password123",
-            "profile": {
-                    "profilePicture": "",
-                    "companyName": "",
-                    "catagory": "Photography",
-                    "description": "",
-                    "city": "",
-                    "state": ""
-            }
-        },
-        {
-            "username":"A1EKTR1K",
-            "email": "IwontCheckThisEver@gmail.com",
-            "password": "sohowaboutthatthen",
-            "profile": {
-                    "profilePicture": "",
-                    "companyName": "Give me your money",
-                    "catagory": "Photography",
-                    "description": "Kinda alright at taking pictures ig",
-                    "city": "Constant Pain",
-                    "state": "Tennessee"
-            }
-        }
-        
-    ]
-}
+[
+    {
+        "email": "Pasteryman@totallyrealemail.com",
+        "password": "Iamtherealgingerbreadman",
+        "companyImageURL": "https://image.shutterstock.com/image-vector/blank-avatar-photo-place-holder-600w-1095249842.jpg",
+        "companyCategory": "salon",
+        "companyName": "Bread Head",
+        "companyDescription": "I will put yeast in your hair",
+        "companyCity": "Loaf Town",
+        "companyState": "TN"
+    },
+    // {
+    //     "username":"MrMcdingi",
+    //     "email": "Email@email.com",
+    //     "password": "Password123",
+    //     "profile": {
+    //             "profilePicture": "",
+    //             "companyName": "",
+    //             "catagory": "Salon",
+    //             "description": "",
+    //             "city": "",
+    //             "state": ""
+    //     }
+    // },
+    // {
+    //     "username":"genericUsername",
+    //     "email": "Email@email.com",
+    //     "password": "Password123",
+    //     "profile": {
+    //             "profilePicture": "",
+    //             "companyName": "",
+    //             "catagory": "Salon",
+    //             "description": "",
+    //             "city": "",
+    //             "state": ""
+    //     }
+    // },
+    // {
+    //     "username":"genericUsername",
+    //     "email": "Email@email.com",
+    //     "password": "Password123",
+    //     "profile": {
+    //             "profilePicture": "",
+    //             "companyName": "",
+    //             "catagory": "Salon",
+    //             "description": "",
+    //             "city": "",
+    //             "state": ""
+    //     }
+    // },
+    // {
+    //     "username":"genericUsername",
+    //     "email": "Email@email.com",
+    //     "password": "Password123",
+    //     "profile": {
+    //             "profilePicture": "",
+    //             "companyName": "",
+    //             "catagory": "Salon",
+    //             "description": "",
+    //             "city": "",
+    //             "state": ""
+    //     }
+    // },
+    // {
+    //     "username":"genericUsername",
+    //     "email": "Email@email.com",
+    //     "password": "Password123",
+    //     "profile": {
+    //             "profilePicture": "",
+    //             "companyName": "",
+    //             "catagory": "Salon",
+    //             "description": "",
+    //             "city": "",
+    //             "state": ""
+    //     }
+    // },
+    {
+        "email": "SleepyBoy@hotemail.com",
+        "password": "469205",
+        "companyImageURL": "https://image.shutterstock.com/image-vector/blank-avatar-photo-place-holder-600w-1095249842.jpg",
+        "companyCategory": "barbershop",
+        "companyName": "Clips and Snips",
+        "companyDescription": "Very soft and sweet boy",
+        "companyCity": "Middletown",
+        "companyState": "GA"
+    },
+    // {
+    //     "username":"genericUsername",
+    //     "email": "Email@email.com",
+    //     "password": "Password123",
+    //     "profile": {
+    //             "profilePicture": "",
+    //             "companyName": "",
+    //             "catagory": "Barber",
+    //             "description": "",
+    //             "city": "",
+    //             "state": ""
+    //     }
+    // },
+    // {
+    //     "username":"genericUsername",
+    //     "email": "Email@email.com",
+    //     "password": "Password123",
+    //     "profile": {
+    //             "profilePicture": "",
+    //             "companyName": "",
+    //             "catagory": "Barber",
+    //             "description": "",
+    //             "city": "",
+    //             "state": ""
+    //     }
+    // },
+    // {
+    //     "username":"genericUsername",
+    //     "email": "Email@email.com",
+    //     "password": "Password123",
+    //     "profile": {
+    //             "profilePicture": "",
+    //             "companyName": "",
+    //             "catagory": "Barber",
+    //             "description": "",
+    //             "city": "",
+    //             "state": ""
+    //     }
+    // },
+    // {
+    //     "username":"genericUsername",
+    //     "email": "Email@email.com",
+    //     "password": "Password123",
+    //     "profile": {
+    //             "profilePicture": "",
+    //             "companyName": "",
+    //             "catagory": "Barber",
+    //             "description": "",
+    //             "city": "",
+    //             "state": ""
+    //     }
+    // },
+    // {
+    //     "username":"genericUsername",
+    //     "email": "Email@email.com",
+    //     "password": "Password123",
+    //     "profile": {
+    //             "profilePicture": "",
+    //             "companyName": "",
+    //             "catagory": "Barber",
+    //             "description": "",
+    //             "city": "",
+    //             "state": ""
+    //     }
+    // },
+    {
+        "email": "Email123@email.com",
+        "password": "Password123",
+        "companyImageURL": "https://image.shutterstock.com/image-vector/blank-avatar-photo-place-holder-600w-1095249842.jpg",
+        "companyCategory": "beauty",
+        "companyName": "Beauty Inc",
+        "companyDescription": "High end beauty salon",
+        "companyCity": "Hollywood",
+        "companyState": "CA"
+    },
+    // {
+    //     "username":"genericUsername",
+    //     "email": "Email@email.com",
+    //     "password": "Password123",
+    //     "profile": {
+    //             "profilePicture": "",
+    //             "companyName": "",
+    //             "catagory": "Beauty",
+    //             "description": "",
+    //             "city": "",
+    //             "state": ""
+    //     }
+    // },
+    // {
+    //     "username":"genericUsername",
+    //     "email": "Email@email.com",
+    //     "password": "Password123",
+    //     "profile": {
+    //             "profilePicture": "",
+    //             "companyName": "",
+    //             "catagory": "Beauty",
+    //             "description": "",
+    //             "city": "",
+    //             "state": ""
+    //     }
+    // },
+    // {
+    //     "username":"genericUsername",
+    //     "email": "Email@email.com",
+    //     "password": "Password123",
+    //     "profile": {
+    //             "profilePicture": "",
+    //             "companyName": "",
+    //             "catagory": "Beauty",
+    //             "description": "",
+    //             "city": "",
+    //             "state": ""
+    //     }
+    // },
+    // {
+    //     "username":"genericUsername",
+    //     "email": "Email@email.com",
+    //     "password": "Password123",
+    //     "profile": {
+    //             "profilePicture": "",
+    //             "companyName": "",
+    //             "catagory": "Beauty",
+    //             "description": "",
+    //             "city": "",
+    //             "state": ""
+    //     }
+    // },
+    // {
+    //     "username":"genericUsername",
+    //     "email": "Email@email.com",
+    //     "password": "Password123",
+    //     "profile": {
+    //             "profilePicture": "",
+    //             "companyName": "",
+    //             "catagory": "Beauty",
+    //             "description": "",
+    //             "city": "",
+    //             "state": ""
+    //     }
+    // },
+    {
+        "email": "Ieatchildren@tastychildren.com",
+        "password": "123456",
+        "companyImageURL": "https://image.shutterstock.com/image-vector/blank-avatar-photo-place-holder-600w-1095249842.jpg",
+        "companyCategory": "tattoo",
+        "companyName": "Dink it & Ink it",
+        "companyDescription": "Dink Donk",
+        "companyCity": "Miami",
+        "companyState": "FL"
+    },
+    // {
+    //     "username":"genericUsername",
+    //     "email": "Email@email.com",
+    //     "password": "Password123",
+    //     "profile": {
+    //             "profilePicture": "",
+    //             "companyName": "",
+    //             "catagory": "Tattoo",
+    //             "description": "",
+    //             "city": "",
+    //             "state": ""
+    //     }
+    // },
+    // {
+    //     "username":"genericUsername",
+    //     "email": "Email@email.com",
+    //     "password": "Password123",
+    //     "profile": {
+    //             "profilePicture": "",
+    //             "companyName": "",
+    //             "catagory": "Tattoo",
+    //             "description": "",
+    //             "city": "",
+    //             "state": ""
+    //     }
+    // },
+    // {
+    //     "username":"genericUsername",
+    //     "email": "Email@email.com",
+    //     "password": "Password123",
+    //     "profile": {
+    //             "profilePicture": "",
+    //             "companyName": "",
+    //             "catagory": "Tattoo",
+    //             "description": "",
+    //             "city": "",
+    //             "state": ""
+    //     }
+    // },
+    // {
+    //     "username":"genericUsername",
+    //     "email": "Email@email.com",
+    //     "password": "Password123",
+    //     "profile": {
+    //             "profilePicture": "",
+    //             "companyName": "",
+    //             "catagory": "Tattoo",
+    //             "description": "",
+    //             "city": "",
+    //             "state": ""
+    //     }
+    // },
+    // {
+    //     "username":"genericUsername",
+    //     "email": "Email@email.com",
+    //     "password": "Password123",
+    //     "profile": {
+    //             "profilePicture": "",
+    //             "companyName": "",
+    //             "catagory": "Tattoo",
+    //             "description": "",
+    //             "city": "",
+    //             "state": ""
+    //     }
+    // },
+    {
+        "email": "Email456@email.com",
+        "password": "Password123",
+        "companyImageURL": "https://image.shutterstock.com/image-vector/blank-avatar-photo-place-holder-600w-1095249842.jpg",
+        "companyCategory": "nails",
+        "companyName": "Nail Salon",
+        "companyDescription": "We do nails",
+        "companyCity": "Antioch",
+        "companyState": "TN"
+    },
+    // {
+    //     "username":"genericUsername",
+    //     "email": "Email@email.com",
+    //     "password": "Password123",
+    //     "profile": {
+    //             "profilePicture": "",
+    //             "companyName": "",
+    //             "catagory": "Nails",
+    //             "description": "",
+    //             "city": "",
+    //             "state": ""
+    //     }
+    // },
+    // {
+    //     "username":"genericUsername",
+    //     "email": "Email@email.com",
+    //     "password": "Password123",
+    //     "profile": {
+    //             "profilePicture": "",
+    //             "companyName": "",
+    //             "catagory": "Nails",
+    //             "description": "",
+    //             "city": "",
+    //             "state": ""
+    //     }
+    // },
+    // {
+    //     "username":"genericUsername",
+    //     "email": "Email@email.com",
+    //     "password": "Password123",
+    //     "profile": {
+    //             "profilePicture": "",
+    //             "companyName": "",
+    //             "catagory": "Nails",
+    //             "description": "",
+    //             "city": "",
+    //             "state": ""
+    //     }
+    // },
+    // {
+    //     "username":"genericUsername",
+    //     "email": "Email@email.com",
+    //     "password": "Password123",
+    //     "profile": {
+    //             "profilePicture": "",
+    //             "companyName": "",
+    //             "catagory": "Nails",
+    //             "description": "",
+    //             "city": "",
+    //             "state": ""
+    //     }
+    // },
+    // {
+    //     "username":"genericUsername",
+    //     "email": "Email@email.com",
+    //     "password": "Password123",
+    //     "profile": {
+    //             "profilePicture": "",
+    //             "companyName": "",
+    //             "catagory": "Nails",
+    //             "description": "",
+    //             "city": "",
+    //             "state": ""
+    //     }
+    // },
+    {
+        "email": "Email789@email.com",
+        "password": "Password123",
+        "companyImageURL": "https://image.shutterstock.com/image-vector/blank-avatar-photo-place-holder-600w-1095249842.jpg",
+        "companyCategory": "piercings",
+        "companyName": "Body Piercing",
+        "companyDescription": "We do body piercings",
+        "companyCity": "Azusa",
+        "companyState": "CA"
+    },
+    // {
+    //     "username":"genericUsername",
+    //     "email": "Email@email.com",
+    //     "password": "Password123",
+    //     "profile": {
+    //             "profilePicture": "",
+    //             "companyName": "",
+    //             "catagory": "Piercings",
+    //             "description": "",
+    //             "city": "",
+    //             "state": ""
+    //     }
+    // },
+    // {
+    //     "username":"genericUsername",
+    //     "email": "Email@email.com",
+    //     "password": "Password123",
+    //     "profile": {
+    //             "profilePicture": "",
+    //             "companyName": "",
+    //             "catagory": "Piercings",
+    //             "description": "",
+    //             "city": "",
+    //             "state": ""
+    //     }
+    // },
+    // {
+    //     "username":"genericUsername",
+    //     "email": "Email@email.com",
+    //     "password": "Password123",
+    //     "profile": {
+    //             "profilePicture": "",
+    //             "companyName": "",
+    //             "catagory": "Piercings",
+    //             "description": "",
+    //             "city": "",
+    //             "state": ""
+    //     }
+    // },
+    // {
+    //     "username":"genericUsername",
+    //     "email": "Email@email.com",
+    //     "password": "Password123",
+    //     "profile": {
+    //             "profilePicture": "",
+    //             "companyName": "",
+    //             "catagory": "Piercings",
+    //             "description": "",
+    //             "city": "",
+    //             "state": ""
+    //     }
+    // },
+    // {
+    //     "username":"genericUsername",
+    //     "email": "Email@email.com",
+    //     "password": "Password123",
+    //     "profile": {
+    //             "profilePicture": "",
+    //             "companyName": "",
+    //             "catagory": "Piercings",
+    //             "description": "",
+    //             "city": "",
+    //             "state": ""
+    //     }
+    // },
+    {
+        "email": "Number1DekuFan@googlemail.com",
+        "password": "GiveMeSeafoam",
+        "companyImageURL": "https://image.shutterstock.com/image-vector/blank-avatar-photo-place-holder-600w-1095249842.jpg",
+        "companyCategory": "photography",
+        "companyName": "Snap & Smile",
+        "companyDescription": "That sounds like a you problem",
+        "companyCity": "Nashville",
+        "companyState": "TN"
+    }
+    // {
+    //     "username":"genericUsername",
+    //     "email": "Email@email.com",
+    //     "password": "Password123",
+    //     "profile": {
+    //             "profilePicture": "",
+    //             "companyName": "",
+    //             "catagory": "Photography",
+    //             "description": "",
+    //             "city": "",
+    //             "state": ""
+    //     }
+    // },
+    // {
+    //     "username":"genericUsername",
+    //     "email": "Email@email.com",
+    //     "password": "Password123",
+    //     "profile": {
+    //             "profilePicture": "",
+    //             "companyName": "",
+    //             "catagory": "Photography",
+    //             "description": "",
+    //             "city": "",
+    //             "state": ""
+    //     }
+    // },
+    // {
+    //     "username":"genericUsername",
+    //     "email": "Email@email.com",
+    //     "password": "Password123",
+    //     "profile": {
+    //             "profilePicture": "",
+    //             "companyName": "",
+    //             "catagory": "Photography",
+    //             "description": "",
+    //             "city": "",
+    //             "state": ""
+    //     }
+    // },
+    // {
+    //     "username":"genericUsername",
+    //     "email": "Email@email.com",
+    //     "password": "Password123",
+    //     "profile": {
+    //             "profilePicture": "",
+    //             "companyName": "",
+    //             "catagory": "Photography",
+    //             "description": "",
+    //             "city": "",
+    //             "state": ""
+    //     }
+    // },
+    // {
+    //     "username":"A1EKTR1K",
+    //     "email": "IwontCheckThisEver@gmail.com",
+    //     "password": "sohowaboutthatthen",
+    //     "profile": {
+    //             "profilePicture": "",
+    //             "companyName": "Give me your money",
+    //             "catagory": "Photography",
+    //             "description": "Kinda alright at taking pictures ig",
+    //             "city": "Constant Pain",
+    //             "state": "Tennessee"
+    //     }
+    // }
+    
+]
