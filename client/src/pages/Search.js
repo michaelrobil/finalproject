@@ -118,57 +118,33 @@ const useStyles = makeStyles(theme => ({
         // flex: '1 0 auto',
     },
     cover: {
-
         // width: "100%",
         // height: 250,
         // margin: 10,
-        // borderRadius: 200,
-        // overflow: "hidden"
-        // marginLeft: '20%',
-        // marginRight: '20%',
-
-        width: "100%",
-        height: 250,
-        margin: 10,
-        borderRadius: 400,
-        overflow: "hidden"
-
+        // borderRadius: 400,
+        // overflow: "hidden",
     },
     coverImage: {
-        // height: "100%",
         width: "60%",
         borderRadius: "360px",
-        margin: '10% 20%',
-        // marginRight: '20%',
-        // transform: "translateX(-50%)",
-        // marginLeft: "58%"
+        margin: '10% 20%',        
     },
     controls: {
-        // display: 'flex',
-        // alignItems: 'center',
-        // paddingLeft: theme.spacing(1),
-        // paddingBottom: theme.spacing(1),
+        
     },
-    gridList: {
-        // width: 800,
-        // margin: 10,
+    gridList: {        
         marginTop: '5%',
         marginBottom: '5%',
         overflowY: 'scroll',
 
     },
     icon: {
-        // color: 'rgba(255, 255, 255, 0.54)',
+        color: 'rgba(255, 255, 255, 0.54)',
     },
     img: {
-        // width: '100%',
-        // height: 250,
+       
     },
-    btn: {
-        // width: '100%',
-        // // maxWidth: 360,
-        // overflowY: 'scroll',
-        // height: '80vh',
+    btn: {       
         maxHeight: '80vh',
         // backgroundColor: theme.palette.background.paper,
     },
