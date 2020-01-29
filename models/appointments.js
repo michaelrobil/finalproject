@@ -10,10 +10,19 @@ const apptSchema = new Schema({
         required: "Name is required"
     },
     
-    apptTime: {
+    day: {
         type: String,
         required: "appt time is required",
     },
+    date: {
+        type: String,
+        required: "appt time is required",
+    },
+    time: {
+        type: String,
+        required: "appt time is required",
+    },
+
 
 });
 

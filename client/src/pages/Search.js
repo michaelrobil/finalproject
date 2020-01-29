@@ -122,8 +122,16 @@ export default function Search() {
     const handleDateChange = date => {
         setSelectedDate(date);
         const enteredName = prompt('Please enter your name')
-        console.log(date)
-        console.log(enteredName)
+        let dateString = date.toString()
+        let day = dateString.substring(0,3);
+        let dateOnly = dateString.substring(4,15);
+        let time = dateString.substring(16,21);
+        API.addAppt({
+            fullName: enteredName,
+            day: day,
+            date: dateOnly,
+            time: time,
+        })
     };
     function getposts() {
         API.getPosts()
@@ -252,7 +260,7 @@ export default function Search() {
                                 <div className={classes.gridList}>
                                     <GridList cellHeight={250} cols={2} style={{ width: 1300 }}>
                                         {tileData.map(tile => (
-                                            <GridListTile key={tile.title} style={{ width: 300 }}>
+                                            <GridListTile key={tile.img} style={{ width: 300 }}>
                                                 <img className={classes.img} src={tile.img} alt={tile.title} />
                                                 <GridListTileBar
                                                     title={tile.title}
