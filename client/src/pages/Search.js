@@ -362,11 +362,7 @@ export default function Search() {
                                 <div className={classes.gridList}>
                                     <GridList cellHeight={'auto'} cols={2} style={{ width: '100%' }}>
                                         {tileData.map(tile => (
-<<<<<<< HEAD
-                                            <GridListTile key={tile.img} style={{ width: 300 }}>
-=======
                                             <GridListTile key={tile.title} style={{ width: '20%' }}>
->>>>>>> 9f67406b4dc8c521130c85fc7bf7e7ace6203c3b
                                                 <img className={classes.img} src={tile.img} alt={tile.title} />
                                                 <GridListTileBar
                                                     title={tile.title}

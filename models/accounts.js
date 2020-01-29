@@ -13,10 +13,6 @@ const categories = [
 
 const accountSchema = new Schema({
 
-    accountType: {
-        type: String,
-        default: "provider"
-    },
 
     email: {
         type: String,
@@ -30,11 +26,6 @@ const accountSchema = new Schema({
         validate: [({ length }) => length >= 6, "Password should be longer."]
     },
 
-    companyImageURL: {
-        type: String,
-        required: "",
-        default: "https://image.shutterstock.com/image-vector/blank-avatar-photo-place-holder-600w-1095249842.jpg"
-    },
 
     companyName: {
         type: String,

@@ -3,7 +3,7 @@ const accountsController = require("../../controllers/accountsController");
 const auth = require("../../config/auth");
 
 router
-  .route("/")
+  .route("/signup")
   .post(accountsController.addAccount); // add an account record to accounts model
 
   router.route("/login").post((req, res) => {

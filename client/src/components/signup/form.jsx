@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import API from "../../utils/API";
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
@@ -35,17 +36,19 @@ export default function SignUp() {
   const [signUpCredentials, setSignUpCredentials] = useState({
     companyName: "",
     email: "",
-    password:""
+    password:"",
+    companyDescription: "",
+    companyCategory: "",
+    companyCity: "",
+    companyState: "",
   });
 
 
 function submitSignup(e) {
   e.preventDefault();
   console.log(signUpCredentials)
-  // API.apiSearch(searchTerm)
-  // .then(res => {
-  //   setProducts(res.data);
-  // });
+  API.userSignUp(signUpCredentials)
+  .then(console.log("created !"));
 }
 
 function uploadImage(e){
@@ -153,6 +156,23 @@ function uploadImage(e){
           fullWidth />
         </Grid>
         <Grid item xs={12}>
+              <TextField
+                autoComplete="fname"
+                name="firstName"
+                variant="outlined"
+                required
+                fullWidth
+                id="compName"
+                label="Company Category"
+                autoFocus
+                onChange={(e) => setSignUpCredentials({
+                  ...signUpCredentials,
+                  companyCategory: e.target.value
+                })}
+              />
+            </Grid>
+
+        <Grid item xs={12}>
         <TextField
           id="outlined-multiline-static"
           multiline
@@ -162,17 +182,10 @@ function uploadImage(e){
           label="Company Description"
           onChange={(e) => setSignUpCredentials({
             ...signUpCredentials,
-            compDesc: e.target.value
+            companyDescription: e.target.value
           })}
         /> </Grid>
 
-        <Button variant="contained"
-         color="primary"
-         fullWidth
-         onClick={(e) => uploadImage(e)}
-         >
-                    Upload Company Image
-                  </Button>
           </Grid>
           <Button
             type="submit"

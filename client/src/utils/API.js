@@ -34,7 +34,7 @@ export default {
     },
 
     userSignUp: function (data) {
-        return axios.post('/api/accounts', data)
+        return axios.post('/api/accounts/signup', data)
     }
 
 }

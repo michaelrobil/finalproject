@@ -7,6 +7,12 @@ var userPostsSchema = new Schema({
         type: String,
         required: true
     },
+    companyImageURL: {
+        type: String,
+        required: "",
+        default: "https://image.shutterstock.com/image-vector/blank-avatar-photo-place-holder-600w-1095249842.jpg"
+    },
+
     
     postImageCaption: {
         type: String,

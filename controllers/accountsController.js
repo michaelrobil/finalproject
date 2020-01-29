@@ -5,7 +5,7 @@ module.exports = {
 
   addAccount: function(req, res) {
     console.log(req.body)
-    db.Account // use "accounts" model
+    db.Accounts // use "accounts" model
       .create(req.body) // body requires:
                           // accountType (fixed to "provider"), email, password, userImageURL, userName, providerCategory, providerDescription, providerCity, providerState
                           // this should come from sign up form
