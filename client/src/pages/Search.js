@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import API from "../utils/API";
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import { Col, Row, Container } from "../components/Grid";
 import styled from 'styled-components';
@@ -21,8 +22,12 @@ import InfoIcon from '@material-ui/icons/Info';
 import SendIcon from '@material-ui/icons/Send';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import { AutoInit } from "materialize-css";
+
 // @MEDIA 
 import useMediaQuery from '@material-ui/core/useMediaQuery';
+
+import TextField from '@material-ui/core/TextField';
+
 
 const tileData = [
     {
@@ -113,6 +118,7 @@ const useStyles = makeStyles(theme => ({
         // flex: '1 0 auto',
     },
     cover: {
+
         // width: "100%",
         // height: 250,
         // margin: 10,
@@ -120,6 +126,13 @@ const useStyles = makeStyles(theme => ({
         // overflow: "hidden"
         // marginLeft: '20%',
         // marginRight: '20%',
+
+        width: "100%",
+        height: 250,
+        margin: 10,
+        borderRadius: 400,
+        overflow: "hidden"
+
     },
     coverImage: {
         // height: "100%",
@@ -191,9 +204,19 @@ export default function Search() {
 
     const handleDateChange = date => {
         setSelectedDate(date);
+        const enteredName = prompt('Please enter your name')
         console.log(date)
+        console.log(enteredName)
     };
+    function getposts() {
+        API.getPosts()
+        .then(res=> {
+            console.log(res.data)
+        }).catch(err => console.log(err));
+    } 
+
     useEffect(() => {
+        getposts();
     }, [])
 
 
@@ -234,7 +257,7 @@ export default function Search() {
                                 onClick={event => handleListItemClick(event, 2)}
                             >
                                 <ListItemText primary="Three" />
-                                <ListItemIcon>
+                                <ListItemIcon className={classes.btnIcon}> 
                                     <SendIcon />
                                 </ListItemIcon>
                             </ListItem>

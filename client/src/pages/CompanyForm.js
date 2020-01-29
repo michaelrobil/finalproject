@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Col, Row, Container } from "../components/Grid";
-import Jumbotron from "../components/Jumbotron2";
+import Jumbotron2 from "../components/Jumbotron2";
 import Button from "../components/Button"
-import SignUp from "../components/compform/form"
+import SignUp from "../components/signup/form"
 import SignIn from "../components/signin/signin"
 
 export default function CompanyForm() {
@@ -14,15 +14,15 @@ export default function CompanyForm() {
         <Container fluid>
        <Row>
                  <Col size="md-6">
-                    <Jumbotron >
+                    <Jumbotron2 >
                     <SignUp/>   
 
-                    </Jumbotron>
+                    </Jumbotron2>
                 </Col>
                 <Col size="md-6">
-                    <Jumbotron >
+                    <Jumbotron2 >
                         <SignIn/>
-                    </Jumbotron>
+                    </Jumbotron2>
                 </Col>
             </Row>
         </Container>

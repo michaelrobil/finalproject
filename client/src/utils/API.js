@@ -2,34 +2,39 @@ import axios from "axios";
 
 export default {
 
-    getPosts: function (data) {
+    getPosts: function () {
         return axios.get('/api/posts')
     },
 
-    getProviderPosts: function (id) {
-        return axios.get('/api/posts' + id)
+    removePost: function (id) {
+        return axios.delete('/api/posts/' + id)
     },
+
+    editPost: function (id) {
+        return axios.put('/api/posts/' + id)
+    },
+
 
     addPost: function (data) {
-        return axios.post('/api/posts' + id)
+        return axios.post('/api/posts', data)
     },
 
-    getAppts: function (id) {
-        return axios.get('/api/appts/' + id)
+    getAppts: function () {
+        return axios.get('/api/appts')
     },
 
-    addAppt: function (id) {
-        return axios.post('/api/appts/' + id)
+    addAppt: function (data) {
+        return axios.post('/api/appts',data)
     },
 
 //=========log in and sign up functions must be verified=================
 
-    // userLogin: function (id) {
-    //     return axios.post('/api/accounts/' + id, data)
-    // },
+    userLogin: function (data) {
+        return axios.post('/api/accounts/login' , data)
+    },
 
-    // userSignUp: function (data) {
-    //     return axios.post('/api/accounts', data)
-    // }
+    userSignUp: function (data) {
+        return axios.post('/api/accounts', data)
+    }
 
 }

@@ -1,9 +1,12 @@
 var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 
-var userPostsSchema = {
+var userPostsSchema = new Schema({
 
-    accountID: String,
+    accountID: {
+        type: String,
+        required: true
+    },
     
     postImageCaption: {
         type: String,
@@ -20,8 +23,8 @@ var userPostsSchema = {
         default: Date.now
     }
 
-}
+});
 
-var posts = mongoose.model("userPosts", userPostsSchema);
+var Posts = mongoose.model("userPosts", userPostsSchema);
 
-module.exports = posts;
+module.exports = Posts;

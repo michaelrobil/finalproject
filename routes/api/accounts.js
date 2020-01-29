@@ -1,12 +1,18 @@
 const router = require("express").Router();
 const accountsController = require("../../controllers/accountsController");
+const auth = require("../../config/auth");
 
 router
-  .route("/api/accounts")
+  .route("/")
   .post(accountsController.addAccount); // add an account record to accounts model
 
-  router
-  .route("/api/accounts/id:")
-  .get(accountsController.getAccount) // get account record that matches user name and password from accounts model
-
+  router.route("/login").post((req, res) => {
+    auth
+      .logUserIn(req.body.email, req.body.password)
+      .then(dbUser => {res.json(dbUser)
+      console.log(dbUser)
+      })
+      .catch(err => res.status(400).json(err));
+  });
+  
 module.exports = router;
