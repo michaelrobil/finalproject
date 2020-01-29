@@ -14,15 +14,27 @@ import Menu from '@material-ui/core/Menu';
 
 const useStyles = makeStyles(theme => ({
   root: {
-    flexGrow: 1,
+    // flexGrow: 1,
+    backgroundColor: 'white',
   },
   menuButton: {
-    marginRight: theme.spacing(2),
+    // marginRight: theme.spacing(2),
   },
   title: {
-    flexGrow: 1,
-    marginRight:'50%',
+    // flexGrow: 1,
+    // marginRight:'50%',
   },
+  bar: {
+    // flexGrow: 1,
+    // marginRight:'50%',
+    backgroundColor: '#394d8e',
+    marginBottom: '5vh',
+  },
+  logo: {
+    height: '8vh',    
+    float: "left",
+  },
+
 }));
 
 export default function MenuAppBar() {
@@ -46,17 +58,26 @@ export default function MenuAppBar() {
   return (
     <div className={classes.root}>
       <FormGroup>
+        {/* LOGINSWITCH */}
         <FormControlLabel
           control={<Switch checked={auth} onChange={handleChange} aria-label="login switch" />}
           label={auth ? 'Logout' : 'Login'}
         />
       </FormGroup>
-      <AppBar position="static">
+      <AppBar className={classes.bar} position="static">
         <Toolbar>
-            <Links />
+          {/* SIGN UP/HOME  */}
+          <Links />
+          {/* TITLE */}
           <Typography variant="h6" className={classes.title}>
-            SERV
+            
+            <img
+              className={classes.logo}
+              src="./servICON.png"
+              title="Live from space album cover"
+            />
           </Typography>
+
           {auth && (
             <div>
               <IconButton

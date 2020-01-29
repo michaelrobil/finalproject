@@ -16,8 +16,10 @@ export default function SignUp() {
             <h1>SignUp Page!!</h1>
             <Row>
 
-                <Col size="md-5">
-                    <Jumbotron >z
+
+                <Col size="md-4">
+                    <Jumbotron >
+
                     </Jumbotron>
                 </Col>
                 <Col size="md-5">
