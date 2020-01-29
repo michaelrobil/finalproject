@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import API from "../../utils/API";
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
@@ -44,10 +45,10 @@ export default function SignIn() {
 function submitLogin(e) {
   e.preventDefault();
   console.log(loginCreds)
-  // API.apiSearch(searchTerm)
-  // .then(res => {
-  //   setProducts(res.data);
-  // });
+  API.userLogin(loginCreds)
+  .then(result => {
+    localStorage.setItem('user', JSON.stringify(result))
+  }).then(res => window.location.href = '/companyview' );
 }
 
 
