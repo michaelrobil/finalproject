@@ -63,27 +63,26 @@ const useStyles = makeStyles(theme => ({
         display: 'none',
     },
     card: {
-        display: 'flex',
+        // display: 'flex',
     },
     details: {
-        display: 'flex',
-        flexDirection: 'column',
+        // display: 'flex',
+        // flexDirection: 'column',
     },
     content: {
         flex: '1 0 auto',
     },
     cover: {
-        width: "100%",
-        height: 250,
-        margin: 10,
-        borderRadius: 400,
-        overflow: "hidden"
+        width: "60%",
+        // height: 250,
+        margin: '0% 20%',
+        // borderRadius: 400,
+        // overflow: "hidden"
     },
     coverImage: {
-        height: "100%",
-        width: "auto",
-        transform: "translateX(-50%)",
-        marginLeft: "58%"
+        width: "60%",
+        borderRadius: "360px",
+        margin: '10% 20%',
     },
     controls: {
         display: 'flex',
@@ -99,8 +98,8 @@ const useStyles = makeStyles(theme => ({
         color: 'rgba(255, 255, 255, 0.54)',
     },
     img: {
-        width: '100%',
-        height: 250,
+        // width: '100%',
+        // height: 250,
     },
     btn: {
         width: '100%',
@@ -111,14 +110,24 @@ const useStyles = makeStyles(theme => ({
         paddingLeft: theme.spacing(4),
     },
     table: {
-        minWidth: 650,
+        // minWidth: 650,
+        overflowY: 'scroll',
+        // maxHeight: '5vh',
+    },
+    companyINFO: {
+        marginBottom: '2vh',
+    },
+    companyDescription: {
+        overflowY: 'scroll',
+        height: '20vh',
+        marginBottom: '2vh',
     },
     image: {
         position: 'relative',
         height: 200,
         [theme.breakpoints.down('xs')]: {
             width: '100% !important', // Overrides inline-style
-            height: 100,
+            height: 'auto',
         },
         '&:hover, &$focusVisible': {
             zIndex: 1,
@@ -200,7 +209,11 @@ export default function Search() {
     function getAppointments() {
         API.getAppts()
             .then(res => {
+
+                console.log(res.data)
+
                 setAppointments(res.data)
+
             }).catch(err => console.log(err));
     }
 
@@ -224,14 +237,14 @@ export default function Search() {
     console.log(appointments)
     return (
         <Container fluid>
-            <h1>Company Page!</h1>
+            {/* <h1>Company Page!</h1> */}
             <Grid>
                 <Row >
-                    <Col size='md-12'>
+                    <Col size='xs-12 sm-12 md-12 lg-12'>
                         <div className={classes.cover}>
                             <img
                                 className={classes.coverImage}
-                                src="https://i.ytimg.com/vi/YviYufXRw0g/maxresdefault.jpg"
+                                src="https://cdn.archpaper.com/wp-content/uploads/2018/09/portland_building_reconstruction-preview.jpg"
                                 title="Live from space album cover"
                             />
                         </div>
@@ -240,17 +253,15 @@ export default function Search() {
             </Grid>
             <Grid>
                 <Row>
-                    <Col size='md-6'>
-                        <Typography component="h3" variant="h3">Name</Typography>
-                        <Typography variant="subtitle1" color="textSecondary">Category: Animals</Typography>
-                        <Typography variant="subtitle1" color="textSecondary">Location: Nashville, TN </Typography>
+                    <Col size='xs-12 xs-12 md-6 lg-6'>
+                        <Typography component="h3" variant="h3">Long Name Incorporated</Typography>
+                        <Typography variant="subtitle1" color="textSecondary" className={classes.companyINFO}>Category: Animals</Typography>
+                        <Typography variant="subtitle1" color="textSecondary" className={classes.companyINFO}>Location: Nashville, TN </Typography>
                     </Col>
 
-                    <Col size='md-6'>
-                        <Typography variant="subtitle1" color="textSecondary">Description: Lorem ipsum dolor sit amet,
-                                                     consectetur adipiscing elit. Nulla tristique in turpis sit amet congue. Nam rhoncus,
-                                                      dolor vel faucibus facilisis, turpis leo maximus mi, vitae tristique dui est vel dui.
-                                  Duis ligula tellus, venenatis a suscipit in, venenatis eu lectus. Donec eget ultrices tellus.</Typography>
+                    <Col size='xs-12 xs-12 md-6 lg-6'>
+                        <Typography variant="subtitle1" color="textSecondary" className={classes.companyDescription}>
+                            Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla tristique in turpis sit amet congue. Nam rhoncus, dolor vel faucibus facilisis, turpis leo maximus mi, vitae tristique dui est vel dui. Duis ligula tellus, venenatis a suscipit in, venenatis eu lectus. Donec eget ultrices tellus.</Typography>
                     </Col>
                 </Row>
             </Grid>
