@@ -7,9 +7,6 @@ const states = [
     "MT","NE","NV","NH","NJ","NM","NY","NC","ND","OH","OK","OR","PA","RI","SC","SD","TN","TX","UT","VT","VA","WA","WV","WI","WY"
 ];
 
-const categories = [
-    "barbershop", "salon", "beauty", "tattoo", "nails", "piercings", "photography"
-];
 
 const accountSchema = new Schema({
 
@@ -34,7 +31,6 @@ const accountSchema = new Schema({
 
     companyCategory: {
         type: String,
-        enum: categories
     },
 
     companyDescription: String,
@@ -43,7 +39,6 @@ const accountSchema = new Schema({
 
     companyState: {
         type: String,
-        enum: states
     },
 
     createdDate: {

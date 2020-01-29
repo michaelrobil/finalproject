@@ -8,7 +8,15 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
+import FormHelperText from '@material-ui/core/FormHelperText';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
 
+const categories = [
+  "barbershop", "salon", "beauty", "tattoo", "nails", "piercings", "photography"
+];
 
 
 const useStyles = makeStyles(theme => ({
@@ -28,17 +36,24 @@ const useStyles = makeStyles(theme => ({
   submit: {
     margin: theme.spacing(3, 0, 2),
   },
+  formControl: {
+    margin: theme.spacing(1),
+    minWidth: 120,
+  },
+  selectEmpty: {
+    marginTop: theme.spacing(2),
+  },
 }));
 
 export default function SignUp() {
   const classes = useStyles();
 
   const [signUpCredentials, setSignUpCredentials] = useState({
-    companyName: "",
     email: "",
     password:"",
-    companyDescription: "",
+    companyName: "",
     companyCategory: "",
+    companyDescription: "",
     companyCity: "",
     companyState: "",
   });
@@ -50,6 +65,11 @@ function submitSignup(e) {
   API.userSignUp(signUpCredentials)
   .then(console.log("created !"));
 }
+const inputLabel = React.useRef(null);
+  const [labelWidth, setLabelWidth] = React.useState(0);
+  React.useEffect(() => {
+    setLabelWidth(inputLabel.current.offsetWidth);
+  }, []);
 
 function uploadImage(e){
   e.preventDefault();
@@ -143,7 +163,7 @@ function uploadImage(e){
             autoComplete="billing address-level2"
             onChange={(e) => setSignUpCredentials({
               ...signUpCredentials,
-              city: e.target.value
+              companyCity: e.target.value
             })}
           />
         </Grid>
@@ -153,23 +173,35 @@ function uploadImage(e){
           id="state"
           name="state"
           label="State"
+          onChange={(e) => setSignUpCredentials({
+            ...signUpCredentials,
+            companyState: e.target.value
+          })}
+
           fullWidth />
         </Grid>
         <Grid item xs={12}>
-              <TextField
-                autoComplete="fname"
-                name="firstName"
-                variant="outlined"
-                required
-                fullWidth
-                id="compName"
-                label="Company Category"
-                autoFocus
-                onChange={(e) => setSignUpCredentials({
-                  ...signUpCredentials,
-                  companyCategory: e.target.value
-                })}
-              />
+        <FormControl variant="outlined" className={classes.formControl}>
+        <InputLabel ref={inputLabel} id="demo-simple-select-outlined-label">
+          Categories
+        </InputLabel>
+        <Select
+          labelId="demo-simple-select-outlined-label"
+          id="demo-simple-select-outlined"
+          value={signUpCredentials.companyCategory}
+          onChange={(e) => setSignUpCredentials({
+            ...signUpCredentials,
+            companyCategory: e.target.value
+          })}
+    labelWidth={labelWidth}
+        >
+          <MenuItem value="">
+            <em>None</em>
+          </MenuItem>
+          {categories.map(o=>{ return<MenuItem value={o}>{o}</MenuItem>
+          })}
+        </Select>
+      </FormControl>
             </Grid>
 
         <Grid item xs={12}>
