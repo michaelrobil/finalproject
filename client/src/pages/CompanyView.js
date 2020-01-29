@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import API from "../utils/API";
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import { Col, Row, Container } from "../components/Grid";
@@ -204,11 +204,16 @@ const rows = [
 
 export default function Search() {
     const classes = useStyles();
+    const [appointments, setAppointments] = useState([])
 
     function getAppointments() {
         API.getAppts()
             .then(res => {
+
                 console.log(res.data)
+
+                setAppointments(res.data)
+
             }).catch(err => console.log(err));
     }
 
@@ -216,7 +221,20 @@ export default function Search() {
         getAppointments();
     }, [])
 
+    function renderRows() {
+        return appointments.map(o => (
+            <TableRow key={o._id}>
+                <TableCell component="th" scope="row">
+                    {o.fullName}
+                </TableCell>
+                <TableCell align="right">{o.day}</TableCell>
+                <TableCell align="right">{o.date}</TableCell>
+                <TableCell align="right">{o.time}</TableCell>
+            </TableRow>
+        ));
+    }
 
+    console.log(appointments)
     return (
         <Container fluid>
             {/* <h1>Company Page!</h1> */}
@@ -261,16 +279,7 @@ export default function Search() {
                                     </TableRow>
                                 </TableHead>
                                 <TableBody>
-                                    {rows.map(row => (
-                                        <TableRow key={row.name}>
-                                            <TableCell component="th" scope="row">
-                                                {row.name}
-                                            </TableCell>
-                                            <TableCell align="right">{row.day}</TableCell>
-                                            <TableCell align="right">{row.date}</TableCell>
-                                            <TableCell align="right">{row.time}</TableCell>
-                                        </TableRow>
-                                    ))}
+                                    {renderRows()}
                                 </TableBody>
                             </Table>
                         </TableContainer>
@@ -283,7 +292,7 @@ export default function Search() {
                         <div className={classes.gridList}>
                             <GridList cellHeight={250} cols={2} style={{ width: 1300 }}>
                                 {tileData.map(tile => (
-                                    <GridListTile key={tile.title} style={{ width: 300 }}>
+                                    <GridListTile key={tile.img} style={{ width: 300 }}>
                                         <img className={classes.img} src={tile.img} alt={tile.title} />
                                         <GridListTileBar
                                             title={tile.title}
