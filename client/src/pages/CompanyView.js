@@ -1,26 +1,16 @@
 import React, { useEffect } from "react";
+import API from "../utils/API";
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import { Col, Row, Container } from "../components/Grid";
 import styled from 'styled-components';
 import { palette, spacing } from '@material-ui/system';
 import Grid from '@material-ui/core/Grid';
-import DateFnsUtils from '@date-io/date-fns';
-import { MuiPickersUtilsProvider, KeyboardDateTimePicker } from '@material-ui/pickers';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
-import Divider from '@material-ui/core/Divider';
-import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
 import GridListTileBar from '@material-ui/core/GridListTileBar';
 import IconButton from '@material-ui/core/IconButton';
 import InfoIcon from '@material-ui/icons/Info';
-import SendIcon from '@material-ui/icons/Send';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import { AutoInit } from "materialize-css";
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -30,7 +20,6 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 import PhotoCamera from '@material-ui/icons/PhotoCamera';
-import ButtonBase from '@material-ui/core/ButtonBase';
 
 const image = [
     {
@@ -205,23 +194,17 @@ const rows = [
 ];
 
 export default function Search() {
-    const NewBox = styled.div`
-  ${palette}
-  ${spacing}`;
-    const [selectedDate, setSelectedDate] = React.useState(new Date());
     const classes = useStyles();
-    const theme = useTheme();
-    const [selectedIndex, setSelectedIndex] = React.useState(1);
 
-    const handleListItemClick = (event, index) => {
-        setSelectedIndex(index);
-    };
+    function getAppointments() {
+        API.getAppts()
+        .then(res=> {
+            console.log(res.data)
+        }).catch(err => console.log(err));
+    } 
 
-    const handleDateChange = date => {
-        setSelectedDate(date);
-        console.log(date)
-    };
     useEffect(() => {
+        getAppointments();
     }, [])
 
 

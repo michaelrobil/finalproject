@@ -5,7 +5,7 @@ const mongoose = require("mongoose");
 const routes = require("./routes");
 const app = express();
 require("dotenv").config();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5000;
 
 // Define middleware here
 app.use(cors());
@@ -31,7 +31,7 @@ app.use(function(err, req, res, next) {
 });
 
 // Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/project");
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/servproject");
 
 // Start the API server
 app.listen(PORT, function() {

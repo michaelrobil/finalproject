@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import API from "../utils/API";
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import { Col, Row, Container } from "../components/Grid";
 import styled from 'styled-components';
@@ -124,7 +125,15 @@ export default function Search() {
         console.log(date)
         console.log(enteredName)
     };
+    function getposts() {
+        API.getPosts()
+        .then(res=> {
+            console.log(res.data)
+        }).catch(err => console.log(err));
+    } 
+
     useEffect(() => {
+        getposts();
     }, [])
 
 

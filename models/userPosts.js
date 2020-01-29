@@ -1,7 +1,7 @@
 var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 
-var userPostsSchema = {
+var userPostsSchema = new Schema({
 
     accountID: {
         type: String,
@@ -23,8 +23,8 @@ var userPostsSchema = {
         default: Date.now
     }
 
-}
+});
 
-var posts = mongoose.model("userPosts", userPostsSchema);
+var Posts = mongoose.model("userPosts", userPostsSchema);
 
-module.exports = posts;
+module.exports = Posts;

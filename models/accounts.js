@@ -81,13 +81,13 @@ accountSchema.pre("save", function(callback) {
     });
   });
   
-  UserSchema.methods.verifyPassword = function(password, cb) {
+  accountSchema.methods.verifyPassword = function(password, cb) {
     bcrypt.compare(password, this.password, function(err, isMatch) {
       if (err) return cb(err);
       cb(null, isMatch);
     });
   };
 
-var account = mongoose.model("account", accountSchema);
+var Account = mongoose.model("account", accountSchema);
 
-module.exports = account;
+module.exports = Account;
