@@ -17,7 +17,7 @@ export default function SignUp() {
             <Row>
 
                 <Col size="md-4">
-                    <Jumbotron >z
+                    <Jumbotron >
                     </Jumbotron>
                 </Col>
                 <Col size="md-8">
