@@ -191,18 +191,24 @@ export default function Search() {
     const [selectedDate, setSelectedDate] = useState(new Date());
     const classes = useStyles();
     const [backBtn, setBackBtn] = useState('none');
+    const [servInfo, setServInfo] = useState();
 
 
     function handleListItemClick(value) {
+        console.log(value)
         if(value === 'back') {
             setBackBtn('none');
             let CategoryList = accounts.map(o=>{ return o.companyCategory })
             setSideBar(CategoryList)
-        } else {
+        } else if(value === "barbershop"|| "salon"|| "beauty"|| "tattoo"|| "nails"|| "piercings" ||"photography") {
             setBackBtn('block');
             let selectedCategory = accounts.filter(o=> o.companyCategory === value)
             let companyList = selectedCategory.map(o=>{ return o.companyName })
             setSideBar(companyList)
+        } else {
+            setBackBtn('block');
+            let selectedCompany = accounts.filter(o => o.companyName === value)
+            setServInfo(selectedCompany); 
         }
     };
 
@@ -241,7 +247,7 @@ export default function Search() {
 
     }, [])
 
-
+console.log(servInfo)
     return (
         <Container fluid>
             {/* <h1>Search Page!</h1> */}
