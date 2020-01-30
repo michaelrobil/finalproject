@@ -206,18 +206,6 @@ export default function Search() {
 
     function handleListItemClick(value) {
         console.log(value)
-        // switch(value) {
-        //     case 'back':
-        //       return one();
-        //     case "barbershop"|| "salon"|| "beauty"|| "tattoo"|| "nails"|| "piercings" ||"photography":
-        //         setBackBtn('block');
-        //         let selectedCategory = accounts.filter(o=> o.companyCategory === value)
-        //         let companyList = selectedCategory.map(o=>{ return o.companyName })
-        //         setSideBar(companyList)
-        //       break;
-        //     default:
-        //         console.log(accounts)
-        //   }        
           if(value === 'back') {
             setBackBtn('none');
             let categoryList = accounts.map(o=>{ return o.companyCategory})
@@ -284,6 +272,19 @@ console.log(servInfo)
                     {sideBar?
                     <div className={classes.btn}>
                         <List component="nav" aria-label="main mailbox folders">
+                        <ListItem style={{display:backBtn}}
+                                key={1}
+
+                                button
+                                onClick={()=>handleListItemClick('back')}
+                            >
+                                <ListItemText primary={'Categories'} />
+
+                                <ListItemIcon>
+                                    <SendIcon />
+                                </ListItemIcon>
+                            </ListItem>
+
                             {sideBar.map(o=>
                             <ListItem
                                 key={o}
@@ -297,18 +298,6 @@ console.log(servInfo)
                             </ListItem>
 
                             )}
-                                <ListItem style={{display:backBtn}}
-                                key={1}
-
-                                button
-                                onClick={()=>handleListItemClick('back')}
-                            >
-                                <ListItemText primary={'Categories'} />
-
-                                <ListItemIcon>
-                                    <SendIcon />
-                                </ListItemIcon>
-                            </ListItem>
 
 
 
