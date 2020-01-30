@@ -189,17 +189,12 @@ const useStyles = makeStyles(theme => ({
         marginBottom: '5vh',
         
     },
-<<<<<<< HEAD
-
-
-=======
     // dater : MuiPickersToolbar-toolbar: {
     //     backgroundColor: 'black',
     // },
     MuiPickersToolbar: {
         backgroundColor: 'black',
     }
->>>>>>> ce938e218e322a999ea10cedb083c52a80216366
 }));
 
 export default function Search() {
