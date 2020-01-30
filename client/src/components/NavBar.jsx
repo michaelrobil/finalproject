@@ -13,7 +13,7 @@ import Menu from '@material-ui/core/Menu';
 const useStyles = makeStyles(theme => ({
   root: {
     // flexGrow: 1,
-    backgroundColor: 'white',
+    backgroundColor: 'red',
   },
   menuButton: {
     // marginRight: theme.spacing(2),
@@ -25,25 +25,21 @@ const useStyles = makeStyles(theme => ({
   bar: {
     // flexGrow: 1,
     // marginRight:'50%',
-    backgroundColor: '#394d8e',
-    marginBottom: '5vh',
-  },
-  // logo: {
-  //   height: '8vh',       
-  // }, 
-  logo: {
+    backgroundColor: '#1f3236',
+    boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)',
 
+    // marginBottom: '5vh',
+  },
+  logo: {
     margin: 'auto',
     textAlign: 'center',    
-    height: '8vh',   
-
+    height: '8vh',  
   },
   logoHorizontallyCenter: {
     position: 'absolute', 
     left: '50%', 
     top: '50%',
-    transform: 'translate(-50%, -50%)',
-    
+    transform: 'translate(-50%, -50%)',    
   } 
 
 }));

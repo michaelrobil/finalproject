@@ -102,6 +102,10 @@ const tileData = [
 ];
 
 
+
+
+
+
 const useStyles = makeStyles(theme => ({
     
 
@@ -114,16 +118,22 @@ const useStyles = makeStyles(theme => ({
         // justifyContent: 'space-around',
         // overflow: 'hidden',
         // marginTop: 10
+        // marginTop: '5vh',
+        
 
     },
     card: {
         // display: 'flex',
-        maxHeight: '80vh',
+        paddingTop: '5vh',
+        maxHeight: '90vh',
         overflowY: 'scroll',
+        backgroundColor: 'rgba(187,208,213,0)',
     },
     details: {
         // display: 'flex',
         // flexDirection: 'column',
+        color: 'white',
+        
     },
     content: {
         // flex: '1 0 auto',
@@ -131,11 +141,13 @@ const useStyles = makeStyles(theme => ({
     cover: {
         width: "100%",
         height: '100%',
+        
         // margin: '5vh',
         // borderRadius: 400,
         // overflow: "hidden",
     },
     coverImage: {
+        boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)',
         width: "90%",
         borderRadius: "360px",
         margin: '5% 5%',
@@ -145,17 +157,19 @@ const useStyles = makeStyles(theme => ({
     },
     gridList: {
         margin: '5vh auto',
+        backgroundColor: 'rgba(255, 255, 255, 0)',
+        width: '100%',
         
     },
     icon: {
         color: 'rgba(255, 255, 255, 0.54)',
     },
     img: {
-
+        margin: 'auto',
     },
     btn: {
-        maxHeight: '80vh',
-        backgroundColor: theme.palette.background.paper,
+        maxHeight: '85vh',
+        // backgroundColor: theme.palette.background.paper,
 
     },
     nested: {
@@ -177,8 +191,14 @@ const useStyles = makeStyles(theme => ({
     },
     dater: {
         marginBottom: '5vh',
+        
     },
-
+    // dater : MuiPickersToolbar-toolbar: {
+    //     backgroundColor: 'black',
+    // },
+    MuiPickersToolbar: {
+        backgroundColor: 'black',
+    }
 }));
 
 export default function Search() {
@@ -249,6 +269,7 @@ export default function Search() {
 
 console.log(servInfo)
     return (
+        <div className={classes.root}>
         <Container fluid>
             {/* <h1>Search Page!</h1> */}
             <Row>
@@ -374,9 +395,9 @@ console.log(servInfo)
                             <Row>
                                 <Col size="md-12">
                                     <div className={classes.gridList}>
-                                        <GridList cellHeight={160} cols={2} style={{ width: '100%' }}>
+                                        <GridList cellHeight={300} cols={2} style={{ width: 'auto' }}>
                                             {tileData.map(tile => (
-                                                <GridListTile key={tile.img} style={{ width: 300 }}>
+                                                <GridListTile key={tile.img} style={{ width: 'auto' }}>
                                                     <img className={classes.img} src={tile.img} alt={tile.title} />
                                                     <GridListTileBar
                                                         title={tile.title}
@@ -400,6 +421,7 @@ console.log(servInfo)
                 </Col>
             </Row>
         </Container>
+        </div>
     );
 }
 
