@@ -3,7 +3,11 @@ import PhotoCamera from '@material-ui/icons/PhotoCamera';
 import API from '../../utils/API';
 
 
+
+//this file will add new pictures to the companies list of pictures
 export default function Main() {
+
+const user = JSON.parse(localStorage.getItem('user'))
 
 //     useEffect(() => {
 // API.getPosts()
@@ -20,7 +24,7 @@ export default function Main() {
             if (error) {
                 console.log(error);
             } else {
-                API.addPost({
+                API.editPost(user.data.user._id, {
                   postImageURL: result[0].url,
                   })
             }

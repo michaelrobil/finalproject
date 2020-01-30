@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PhotoCamera from '@material-ui/icons/PhotoCamera';
 import API from '../../utils/API';
 
-
+//this file is for the companies profile image
 export default function Main2() {
     const [image, setImage] = useState({url: ""});
 
