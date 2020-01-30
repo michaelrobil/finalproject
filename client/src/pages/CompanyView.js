@@ -20,8 +20,6 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 import PhotoCamera from '@material-ui/icons/PhotoCamera';
-import Main from "../components/cloudinary/cloudtwo"
-
 
 const image = [
     {
@@ -289,41 +287,12 @@ export default function Search() {
         ));
     }
 
-   
     console.log(appointments)
     return (
         <Container>
             {/* <h1>Company Page!</h1> */}
             <Grid>
                 <Row >
-
-                    <Col size='md-3'>
-                        <img className={classes.img} src={image[0].url} alt={image[0].title} />
-                        <GridListTileBar
-                            title={image[0].title}
-                            subtitle={<span>Upload </span>}
-                            actionIcon={
-                                <IconButton
-                                    aria-label={`info about ${image[0].title}`} className={classes.icon}
-                                >
-
-
-                                    <IconButton color="primary" aria-label="upload picture"
-                                        component="span">
-                                            
-                                           {/* <input
-                                        type="file"
-                                        onChange={fileSelectedHandler}
-                                        title=""
-                                        style={{width:"20px",height:"20px",overflow:"hidden"}}
-                                        />  */}
-                                      <Main/>
-                                        
-                                    </IconButton>
-                                </IconButton>
-                            }
-                        />
-
                     <Col size='xs-12 sm-12 md-12 lg-12'>
                         <div className={classes.cover}>
                             <img
@@ -332,7 +301,6 @@ export default function Search() {
                                 title="Live from space album cover"
                             />
                         </div>
-
                     </Col>
                 </Row>
             </Grid>
@@ -416,6 +384,4 @@ export default function Search() {
             </Container> 
 
     )};
-
-
 
