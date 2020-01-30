@@ -28,6 +28,10 @@ export default {
     },
 
 //=========log in and sign up functions must be verified=================
+    getAccounts: function () {
+        return axios.get('/api/accounts')
+    },
+
 
     userLogin: function (data) {
         return axios.post('/api/accounts/login' , data)
