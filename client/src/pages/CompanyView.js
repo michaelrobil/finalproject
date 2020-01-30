@@ -138,7 +138,7 @@ const useStyles = makeStyles(theme => ({
         // paddingBottom: theme.spacing(1),
     },
     gridList: {
-        margin:'5vh auto',    
+        margin:'5vh auto',
     },
     icon: {
         color: 'rgba(255, 255, 255, 0.54)',
@@ -165,7 +165,7 @@ const useStyles = makeStyles(theme => ({
     },
     TOTtable: {
         marginBottom: '5vh',
-    },    
+    },
     companyINFO: {
         marginBottom: '2vh',
     },
@@ -295,6 +295,7 @@ export default function Search() {
             {/* <h1>Company Page!</h1> */}
             <Grid>
                 <Row >
+
                     <Col size='xs-12 sm-12 md-12 lg-12'>
                         <div className={classes.cover}>
                             <img
@@ -308,85 +309,85 @@ export default function Search() {
                         </div>
                     </Col>
                 </Row>
-            </Grid>
-            <Grid>
-                <Row>
-                    <Col size='xs-12 xs-12 md-6 lg-6'>
-                        <Typography component="h3" variant="h3">Long Name Incorporated</Typography>
-                        <Typography variant="subtitle1" color="textSecondary" className={classes.companyINFO}>Category: Animals</Typography>
-                        <Typography variant="subtitle1" color="textSecondary" className={classes.companyINFO}>Location: Nashville, TN </Typography>
-                    </Col>
 
-                    <Col size='xs-12 xs-12 md-6 lg-6'>
-                        <Typography variant="subtitle1" color="textSecondary" className={classes.description}>
-                            Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla tristique in turpis sit amet congue. Nam rhoncus, dolor vel faucibus facilisis, turpis leo maximus mi, vitae tristique dui est vel dui. Duis ligula tellus, venenatis a suscipit in, venenatis eu lectus. Donec eget ultrices tellus.</Typography>
-                    </Col>
-                </Row>
             </Grid>
-            <Grid>
-                <Row>
-                    <Col size='md-12'>
-                        <TableContainer component={Paper} className={classes.TOTtable}>
-                            <Table className={classes.table} aria-label="simple table">
-                                <TableHead>
-                                    <TableRow>
-                                        <TableCell>Name</TableCell>
-                                        <TableCell align="right">Day</TableCell>
-                                        <TableCell align="right">Date</TableCell>
-                                        <TableCell align="right">Time</TableCell>
-                                    </TableRow>
-                                </TableHead>
-                                <TableBody>
-                                    {renderRows()}
-                                </TableBody>
-                            </Table>
-                        </TableContainer>
-                    </Col>
-                </Row>
-            </Grid>
-            <Grid>
-                <Row>
-                    <Col size="md-12">
-                        <div className={classes.gridList}>
-                            <GridList cellHeight={160} cols={2} style={{ width: '100%'}}>
-                                <GridListTile key={image[0].title} style={{ width: 300 }}>
-                                    <img className={classes.img} src={image[0].url} alt={image[0].title} />
-                                    <GridListTileBar
-                                        title={image[0].title}
-                                        subtitle={<span>Upload </span>}
-                                        actionIcon={
-                                            <IconButton aria-label={`info about ${image[0].title}`} className={classes.icon}>
-                                                <input accept="image/*" className={classes.input} id="icon-button-file" type="file" />
-                                                <label htmlFor="icon-button-file">
-                                                    <IconButton color="primary" aria-label="upload picture" component="span">
-                                                        <PhotoCamera />
+                    <Grid>
+                        <Row>
+                            <Col size='xs-12 xs-12 md-6 lg-6'>
+                                <Typography component="h3" variant="h3">Long Name Incorporated</Typography>
+                                <Typography variant="subtitle1" color="textSecondary" className={classes.companyINFO}>Category: Animals</Typography>
+                                <Typography variant="subtitle1" color="textSecondary" className={classes.companyINFO}>Location: Nashville, TN </Typography>
+                            </Col>
+
+                            <Col size='xs-12 xs-12 md-6 lg-6'>
+                                <Typography variant="subtitle1" color="textSecondary" className={classes.description}>
+                                    Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla tristique in turpis sit amet congue. Nam rhoncus, dolor vel faucibus facilisis, turpis leo maximus mi, vitae tristique dui est vel dui. Duis ligula tellus, venenatis a suscipit in, venenatis eu lectus. Donec eget ultrices tellus.</Typography>
+                            </Col>
+                        </Row>
+                    </Grid>
+                    <Grid>
+                        <Row>
+                            <Col size='md-12'>
+                                <TableContainer component={Paper} className={classes.TOTtable}>
+                                    <Table className={classes.table} aria-label="simple table">
+                                        <TableHead>
+                                            <TableRow>
+                                                <TableCell>Name</TableCell>
+                                                <TableCell align="right">Day</TableCell>
+                                                <TableCell align="right">Date</TableCell>
+                                                <TableCell align="right">Time</TableCell>
+                                            </TableRow>
+                                        </TableHead>
+                                        <TableBody>
+                                            {renderRows()}
+                                        </TableBody>
+                                    </Table>
+                                </TableContainer>
+                            </Col>
+                        </Row>
+                    </Grid>
+                    <Grid>
+                        <Row>
+                            <Col size="md-12">
+                                <div className={classes.gridList}>
+                                    <GridList cellHeight={160} cols={2} style={{ width: '100%'}}>
+                                        <GridListTile key={image[0].title} style={{ width: 300 }}>
+                                            <img className={classes.img} src={image[0].url} alt={image[0].title} />
+                                            <GridListTileBar
+                                                title={image[0].title}
+                                                subtitle={<span>Upload </span>}
+                                                actionIcon={
+                                                    <IconButton aria-label={`info about ${image[0].title}`} className={classes.icon}>
+                                                        <input accept="image/*" className={classes.input} id="icon-button-file" type="file" />
+                                                        <label htmlFor="icon-button-file">
+                                                            <IconButton color="primary" aria-label="upload picture" component="span">
+                                                                <PhotoCamera />
+                                                            </IconButton>
+                                                        </label>
                                                     </IconButton>
-                                                </label>
-                                            </IconButton>
-                                        }
-                                    />
+                                                }
+                                            />
 
-                                </GridListTile>
-                                {tileData.map(tile => (
-                                    <GridListTile key={tile.img} style={{ width: 300 }}>
-                                        <img className={classes.img} src={tile.img} alt={tile.title} />
-                                        <GridListTileBar
-                                            title={tile.title}
-                                            subtitle={<span>by: {tile.author}</span>}
-                                            actionIcon={
-                                                <IconButton aria-label={`info about ${tile.title}`} className={classes.icon}>
-                                                    <InfoIcon />
-                                                </IconButton>
-                                            }
-                                        />
-                                    </GridListTile>
-                                ))}
-                            </GridList>
-                        </div>
-                    </Col>
-                </Row>
-            </Grid>
-            </Container> 
+                                        </GridListTile>
+                                        {tileData.map(tile => (
+                                            <GridListTile key={tile.img} style={{ width: 300 }}>
+                                                <img className={classes.img} src={tile.img} alt={tile.title} />
+                                                <GridListTileBar
+                                                    title={tile.title}
+                                                    subtitle={<span>by: {tile.author}</span>}
+                                                    actionIcon={
+                                                        <IconButton aria-label={`info about ${tile.title}`} className={classes.icon}>
+                                                            <InfoIcon />
+                                                        </IconButton>
+                                                }/>
+                                            </GridListTile>
+                                        ))}
+                                    </GridList>
+                                </div>
+                            </Col>
+                        </Row>
+                    </Grid>
+        </Container>
 
-    )};
-
+                )};
+            
