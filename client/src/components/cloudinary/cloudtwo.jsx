@@ -1,8 +1,15 @@
 import React, { useState } from 'react';
+import PhotoCamera from '@material-ui/icons/PhotoCamera';
+import API from '../../utils/API';
 
 
 export default function Main() {
     const [image, setImage] = useState({url: ""});
+
+    function uploadImage(){
+        console.log(image)
+        API.addPost({companyImageURL:image})
+    }
     
     const uploadWidget = () => {
         const config = {
@@ -15,6 +22,7 @@ export default function Main() {
                 console.log(error);
             } else {
                 setImage(result[0]);
+                uploadImage()
             }
         });
     };
@@ -23,8 +31,7 @@ export default function Main() {
         <div className="main">
             <div className="upload">
                 <button onClick={uploadWidget} className="upload-button">
-                    Add Image
-            </button>
+<PhotoCamera/>            </button>
             </div>
         </div>
     );
