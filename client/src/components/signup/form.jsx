@@ -59,7 +59,6 @@ export default function SignUp() {
 
 function submitSignup(e) {
   e.preventDefault();
-  console.log(signUpCredentials)
   API.userSignUp(signUpCredentials)
   .then(console.log("created !"));
 }

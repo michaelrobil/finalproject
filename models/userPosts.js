@@ -4,8 +4,7 @@ var Schema = mongoose.Schema;
 var userPostsSchema = new Schema({
 
     accountID: {
-        type: String,
-        // required: true
+        type: String
     },
     companyImageURL: {
         type: String,

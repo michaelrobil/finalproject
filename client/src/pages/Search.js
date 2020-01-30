@@ -30,6 +30,7 @@ import { AutoInit } from "materialize-css";
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 
 import TextField from '@material-ui/core/TextField';
+import { set } from "date-fns";
 
 const categories = [
     "barbershop", "salon", "beauty", "tattoo", "nails", "piercings", "photography"
@@ -101,7 +102,6 @@ const categories = [
 ];
 
 
-
 const useStyles = makeStyles(theme => ({
     
 
@@ -114,16 +114,22 @@ const useStyles = makeStyles(theme => ({
         // justifyContent: 'space-around',
         // overflow: 'hidden',
         // marginTop: 10
+        // marginTop: '5vh',
+        
 
     },
     card: {
         // display: 'flex',
-        maxHeight: '80vh',
+        paddingTop: '5vh',
+        maxHeight: '90vh',
         overflowY: 'scroll',
+        backgroundColor: 'rgba(187,208,213,0)',
     },
     details: {
         // display: 'flex',
         // flexDirection: 'column',
+        color: 'white',
+        
     },
     content: {
         // flex: '1 0 auto',
@@ -131,11 +137,13 @@ const useStyles = makeStyles(theme => ({
     cover: {
         width: "100%",
         height: '100%',
+        
         // margin: '5vh',
         // borderRadius: 400,
         // overflow: "hidden",
     },
     coverImage: {
+        boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)',
         width: "90%",
         borderRadius: "360px",
         margin: '5% 5%',
@@ -145,17 +153,19 @@ const useStyles = makeStyles(theme => ({
     },
     gridList: {
         margin: '5vh auto',
+        backgroundColor: 'rgba(255, 255, 255, 0)',
+        width: '100%',
         
     },
     icon: {
         color: 'rgba(255, 255, 255, 0.54)',
     },
     img: {
-
+        margin: 'auto',
     },
     btn: {
-        maxHeight: '80vh',
-        backgroundColor: theme.palette.background.paper,
+        maxHeight: '85vh',
+        // backgroundColor: theme.palette.background.paper,
 
     },
     nested: {
@@ -177,8 +187,19 @@ const useStyles = makeStyles(theme => ({
     },
     dater: {
         marginBottom: '5vh',
+        
     },
+<<<<<<< HEAD
 
+
+=======
+    // dater : MuiPickersToolbar-toolbar: {
+    //     backgroundColor: 'black',
+    // },
+    MuiPickersToolbar: {
+        backgroundColor: 'black',
+    }
+>>>>>>> ce938e218e322a999ea10cedb083c52a80216366
 }));
 
 export default function Search() {
@@ -187,26 +208,37 @@ export default function Search() {
   ${palette}
   ${spacing}`;
     const [accounts, setAccounts] = useState([])
-    const [sideBar, setSideBar] = useState([])
+    const [sideBar, setSideBar] = useState()
     const [selectedDate, setSelectedDate] = useState(new Date());
     const classes = useStyles();
     const [backBtn, setBackBtn] = useState('none');
     const [servInfo, setServInfo] = useState();
 
+    function one(){
+        setBackBtn('none');
+        let categoryList = accounts.map(o=> o.companyCategory)
+        let newArray = categoryList.filter(function(item, pos, self) {
+            return self.indexOf(item) == pos;
+        })
+        setSideBar(newArray);
+    }
+
 
     function handleListItemClick(value) {
         console.log(value)
-        if(value === 'back') {
+          if(value === 'back') {
             setBackBtn('none');
-            let CategoryList = accounts.map(o=>{ return o.companyCategory })
-            setSideBar(CategoryList)
-        } else if(value === "barbershop"|| "salon"|| "beauty"|| "tattoo"|| "nails"|| "piercings" ||"photography") {
+            let categoryList = accounts.map(o=>{ return o.companyCategory})
+            let newArray = categoryList.filter(function(item, pos, self) {
+                return self.indexOf(item) == pos;
+            })
+            setSideBar(newArray)
+        } else if(categories.includes(value)) {
             setBackBtn('block');
             let selectedCategory = accounts.filter(o=> o.companyCategory === value)
             let companyList = selectedCategory.map(o=>{ return o.companyName })
             setSideBar(companyList)
         } else {
-            setBackBtn('block');
             let selectedCompany = accounts.filter(o => o.companyName === value)
             setServInfo(selectedCompany); 
         }
@@ -228,15 +260,18 @@ export default function Search() {
     };
     function getposts() {
         API.getPosts()
-        .then(res=> console.log(res.data))
-        .catch(err => console.log(err));
+        // .then(res=> console.log(res.data))
+        // .catch(err => console.log(err));
     }
     function getAccounts() {
         API.getAccounts()
         .then(res=> {
          setAccounts(res.data)
-         let CategorysList = res.data.map(o => o.companyCategory)
-         setSideBar(CategorysList)
+         let categorysList = res.data.map(o => o.companyCategory)
+            let newArray = categorysList.filter(function(item, pos, self) {
+                return self.indexOf(item) == pos;
+            })
+            setSideBar(newArray)
         })
         .catch(err => console.log(err));
     } 
@@ -246,9 +281,10 @@ export default function Search() {
         getposts();
 
     }, [])
-
 console.log(servInfo)
+
     return (
+        <div className={classes.root}>
         <Container fluid>
             {/* <h1>Search Page!</h1> */}
             <Row>
@@ -257,34 +293,32 @@ console.log(servInfo)
                     {sideBar?
                     <div className={classes.btn}>
                         <List component="nav" aria-label="main mailbox folders">
-                            {sideBar.map(o=>
-                            <ListItem
-                                key={o}
-                                button
-
-                                onClick={()=>handleListItemClick(o)}
-                            >
-                                <ListItemText primary={o} />
-
-                                <ListItemIcon>
-                                    <SendIcon />
-                                </ListItemIcon>
-                            </ListItem>
-
-                            )}
-                                <ListItem style={{display:backBtn}}
+                        <ListItem style={{display:backBtn}}
                                 key={1}
 
                                 button
                                 onClick={()=>handleListItemClick('back')}
                             >
-
                                 <ListItemText primary={'Categories'} />
 
                                 <ListItemIcon>
                                     <SendIcon />
                                 </ListItemIcon>
                             </ListItem>
+
+                            {sideBar.map(o=>
+                            <ListItem
+                                key={o}
+                                button
+                                onClick={()=>handleListItemClick(o)}
+                            >
+                                <ListItemText primary={o} />
+                                <ListItemIcon>
+                                    <SendIcon />
+                                </ListItemIcon>
+                            </ListItem>
+
+                            )}
 
 
 
@@ -374,9 +408,9 @@ console.log(servInfo)
                             <Row>
                                 <Col size="md-12">
                                     <div className={classes.gridList}>
-                                        <GridList cellHeight={160} cols={2} style={{ width: '100%' }}>
+                                        <GridList cellHeight={300} cols={2} style={{ width: 'auto' }}>
                                             {tileData.map(tile => (
-                                                <GridListTile key={tile.img} style={{ width: 300 }}>
+                                                <GridListTile key={tile.img} style={{ width: 'auto' }}>
                                                     <img className={classes.img} src={tile.img} alt={tile.title} />
                                                     <GridListTileBar
                                                         title={tile.title}
@@ -400,6 +434,7 @@ console.log(servInfo)
                 </Col>
             </Row>
         </Container>
+        </div>
     );
 }
 
