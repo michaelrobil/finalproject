@@ -5,11 +5,9 @@ var userPostsSchema = new Schema({
 
     accountID: {
         type: String,
-        required: true
     },
     companyImageURL: {
         type: String,
-        required: "",
         default: "https://image.shutterstock.com/image-vector/blank-avatar-photo-place-holder-600w-1095249842.jpg"
     },
 
@@ -21,7 +19,6 @@ var userPostsSchema = new Schema({
 
     postImageURL: {
         type: String,  
-        required: true,
     },
 
     postedDate: {
