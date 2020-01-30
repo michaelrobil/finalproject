@@ -296,7 +296,7 @@ export default function Search() {
             {/* <h1>Company Page!</h1> */}
             <Grid>
                 <Row >
-<<<<<<< HEAD
+
                     <Col size='md-3'>
                         <img className={classes.img} src={image[0].url} alt={image[0].title} />
                         <GridListTileBar
@@ -323,7 +323,7 @@ export default function Search() {
                                 </IconButton>
                             }
                         />
-=======
+
                     <Col size='xs-12 sm-12 md-12 lg-12'>
                         <div className={classes.cover}>
                             <img
@@ -332,7 +332,7 @@ export default function Search() {
                                 title="Live from space album cover"
                             />
                         </div>
->>>>>>> f89897247d7eb590f5db3cf62141453087c3418a
+
                     </Col>
                 </Row>
             </Grid>
