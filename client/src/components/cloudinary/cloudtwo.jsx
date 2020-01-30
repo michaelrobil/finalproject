@@ -3,14 +3,14 @@ import PhotoCamera from '@material-ui/icons/PhotoCamera';
 import API from '../../utils/API';
 
 
-export default function Main() {
+export default function Main2() {
     const [image, setImage] = useState({url: ""});
 
     function uploadImage(){
         console.log(image)
-        API.addPost({companyImageURL:image})
     }
-    
+    const user = JSON.parse(localStorage.getItem('user'))
+
     const uploadWidget = () => {
         const config = {
             cloud_name: 'ericnrgnash',
@@ -21,8 +21,11 @@ export default function Main() {
             if (error) {
                 console.log(error);
             } else {
-                setImage(result[0]);
+                setImage(result[0].url);
                 uploadImage()
+                API.addPost({
+                    accountID: user.data.user._id,
+                    companyImageURL:result[0].url})
             }
         });
     };

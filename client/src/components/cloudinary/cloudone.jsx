@@ -1,52 +1,39 @@
-import React, { useState } from "react";
-import { InputAdornment } from "@material-ui/core";
+import React, { useState, useEffect } from 'react';
 import PhotoCamera from '@material-ui/icons/PhotoCamera';
-
-function Cloud() {
-
-  const [image, setImage] = useState('')
-  const [loading, setLoading] = useState(false)
-
-  const uploadImage = async e => {
-    const files = e.target.files
-    const data = new FormData()
-    data.append('file', files[0])
-    data.append('upload_preset', 'Erics-preset-serv')
-    setLoading(true)
-    const res = await fetch(
-      'https://api.cloudinary.com/v1_1/ericnrgnash/image/upload', {
-      method: 'POST',
-      body: data
-    }
-    )
-    const file = await res.json()
-    setImage(file.secure_url)
-    setLoading(false)
-  };
-
-  
-
-  return (
-    <div className="App">
-
-<PhotoCamera onClick={uploadImage}/>
-      {/* <input type="file"
-        name="file"
-        placeholder="Upload An Image"
-        onChange={uploadImage}
-      />
-    {loading ? (
-      <h3>Loading...</h3>
-    ) : (
-      <img src={image} style={{width:'300px'}}/>
-    )} */}
+import API from '../../utils/API';
 
 
+export default function Main() {
 
+//     useEffect(() => {
+// API.getPosts()
+// .then(res => res.data)
+//     },[])
 
-    </div>
-  );
+    const uploadWidget = () => {
+        const config = {
+            cloud_name: 'ericnrgnash',
+            upload_preset: 'Erics-preset-serv', 
+            tags:['company']
+        };
+        window.cloudinary.openUploadWidget(config, (error, result) => {
+            if (error) {
+                console.log(error);
+            } else {
+                API.addPost({
+                  postImageURL: result[0].url,
+                  })
+            }
+        });
+    };
 
+    return (
+        <div className="main">
+            <div className="upload">
+                <button onClick={uploadWidget} className="upload-button">
+<PhotoCamera/>            </button>
+            </div>
+        </div>
+    );
 }
 
-export default Cloud;
