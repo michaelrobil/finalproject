@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Links from './Links'
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
@@ -6,9 +6,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import AccountCircle from '@material-ui/icons/AccountCircle';
-import Switch from '@material-ui/core/Switch';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import FormGroup from '@material-ui/core/FormGroup';
+import { Link } from 'react-router-dom'
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 
@@ -31,7 +29,7 @@ const useStyles = makeStyles(theme => ({
     marginBottom: '5vh',
   },
   logo: {
-    height: '8vh',    
+    height: '8vh',
     float: "left",
   },
 
@@ -39,17 +37,32 @@ const useStyles = makeStyles(theme => ({
 
 export default function MenuAppBar() {
   const classes = useStyles();
-  const [auth, setAuth] = React.useState(true);
+  const [isLogin, setIsLogin] = useState(false);
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
+  const user = JSON.parse(localStorage.getItem('user'))
+  useEffect(() => {
+    if (user === null) {
+      return setIsLogin(false)
+    } else {
+      return setIsLogin(true)
+    }
+  }, [])
 
-  const handleChange = event => {
-    setAuth(event.target.checked);
-  };
+
 
   const handleMenu = event => {
     setAnchorEl(event.currentTarget);
   };
+
+  function logOut() {
+    localStorage.removeItem("user")
+    window.location.href = '/'
+  }
+  function profile() {
+    window.location.href = '/companyView'
+  }
+
 
   const handleClose = () => {
     setAnchorEl(null);
@@ -57,20 +70,13 @@ export default function MenuAppBar() {
 
   return (
     <div className={classes.root}>
-      <FormGroup>
-        {/* LOGINSWITCH */}
-        <FormControlLabel
-          control={<Switch checked={auth} onChange={handleChange} aria-label="login switch" />}
-          label={auth ? 'Logout' : 'Login'}
-        />
-      </FormGroup>
       <AppBar className={classes.bar} position="static">
         <Toolbar>
           {/* SIGN UP/HOME  */}
           <Links />
           {/* TITLE */}
           <Typography variant="h6" className={classes.title}>
-            
+
             <img
               className={classes.logo}
               src="./servICON.png"
@@ -78,7 +84,7 @@ export default function MenuAppBar() {
             />
           </Typography>
 
-          {auth && (
+          {isLogin ?
             <div>
               <IconButton
                 aria-label="account of current user"
@@ -104,11 +110,16 @@ export default function MenuAppBar() {
                 open={open}
                 onClose={handleClose}
               >
-                <MenuItem onClick={handleClose}>Profile</MenuItem>
-                <MenuItem onClick={handleClose}>Log Out</MenuItem>
+                <MenuItem onClick={()=> profile()}>Profile</MenuItem>
+                <MenuItem onClick={() => logOut()}>Log Out</MenuItem>
               </Menu>
             </div>
-          )}
+            :
+            <div>
+              <Link style={{ color: "white" }} to="/signin" className={'d-inline p-2 text-white'}>
+                Sign
+              </Link>
+            </div>}
         </Toolbar>
       </AppBar>
     </div>

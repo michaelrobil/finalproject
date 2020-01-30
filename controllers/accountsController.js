@@ -13,4 +13,14 @@ module.exports = {
       .catch(err => res.status(400).json(err));
   },
 
+  getAccounts: function(req, res) {
+    console.log(req.query)
+    db.Accounts // use "appointments" model
+      .find(req.query)
+      .sort({ date: -1 })
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
+
+
 };

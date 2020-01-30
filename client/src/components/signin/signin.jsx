@@ -44,7 +44,6 @@ export default function SignIn() {
 
 function submitLogin(e) {
   e.preventDefault();
-  console.log(loginCreds)
   API.userLogin(loginCreds)
   .then(result => {
     localStorage.setItem('user', JSON.stringify(result))

@@ -205,6 +205,9 @@ const rows = [
 export default function Search() {
     const classes = useStyles();
     const [appointments, setAppointments] = useState([])
+    // const user = JSON.parse(localStorage.getItem('user'))
+    // const userID = user.data.user._id
+
 
     function getAppointments() {
         API.getAppts()

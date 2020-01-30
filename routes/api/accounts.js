@@ -3,6 +3,9 @@ const isAuthenticated = require("../../config/isAuthenticated");
 const accountsController = require("../../controllers/accountsController");
 const auth = require("../../config/auth");
 
+router.route("/").get(accountsController.getAccounts)
+
+
 router.route("/login").post((req, res) => {
   console.log(req.body)
 
