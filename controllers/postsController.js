@@ -22,7 +22,7 @@ module.exports = {
   },
 
     getPosts: function(req, res) {
-      console.log("get all posts")
+      console.log(req.query)
       db.UserPosts
         .find(req.query)
         .sort({ date: -1 })
@@ -30,7 +30,7 @@ module.exports = {
         .catch(err => res.status(422).json(err));
     },
     remove: function(req, res) {
-      db.UserPosts.findById({ _id: req.params.id })
+      db.UserPosts.findById({ _id: req.params.id },(req.body))
         .then(dbModel => dbModel.remove())
         .then(dbModel => res.json(dbModel))
         .catch(err => res.status(422).json(err));

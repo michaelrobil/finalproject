@@ -21,6 +21,8 @@ import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 import PhotoCamera from '@material-ui/icons/PhotoCamera';
 import Main from '../components/cloudinary/cloudtwo';
+import Main2 from '../components/cloudinary/cloudone';
+
 import Greentrees from '../components/images/greentrees.jpg'
 
 const image = [
@@ -257,8 +259,24 @@ const rows = [
 export default function Search() {
     const classes = useStyles();
     const [appointments, setAppointments] = useState([])
+    const [pageImages, setPageImages] = useState()
+
     // const user = JSON.parse(localStorage.getItem('user'))
     // const userID = user.data.user._id
+    // useEffect(() => {
+    //     getProfile()
+    // })
+    
+
+
+    function getProfile(){
+        console.log(image)
+        API.getPosts()
+        .then(res => {
+            setPageImages(res.data)
+            console.log(res.data)
+        })
+    }
 
 
     function getAppointments() {
@@ -301,7 +319,7 @@ export default function Search() {
                                 className={classes.coverImage}
                                 src="https://cdn.archpaper.com/wp-content/uploads/2018/09/portland_building_reconstruction-preview.jpg"
                                 title="Live from space album cover"
-                                
+                                //{pageImages.companyImageURL}
                             /> 
                             
                             <Main/>                       
@@ -358,9 +376,7 @@ export default function Search() {
                                             <IconButton aria-label={`info about ${image[0].title}`} className={classes.icon}>
                                                 <input accept="image/*" className={classes.input} id="icon-button-file" type="file" />
                                                 <label htmlFor="icon-button-file">
-                                                    <IconButton color="primary" aria-label="upload picture" component="span">
-                                                        <PhotoCamera />
-                                                    </IconButton>
+                                                <Main2/>
                                                 </label>
                                             </IconButton>
                                         }
