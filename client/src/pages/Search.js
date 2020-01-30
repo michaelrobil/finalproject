@@ -30,6 +30,7 @@ import { AutoInit } from "materialize-css";
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 
 import TextField from '@material-ui/core/TextField';
+import { set } from "date-fns";
 
 const categories = [
     "barbershop", "salon", "beauty", "tattoo", "nails", "piercings", "photography"
@@ -187,26 +188,49 @@ export default function Search() {
   ${palette}
   ${spacing}`;
     const [accounts, setAccounts] = useState([])
-    const [sideBar, setSideBar] = useState([])
+    const [sideBar, setSideBar] = useState()
     const [selectedDate, setSelectedDate] = useState(new Date());
     const classes = useStyles();
     const [backBtn, setBackBtn] = useState('none');
     const [servInfo, setServInfo] = useState();
 
+    function one(){
+        setBackBtn('none');
+        let categoryList = accounts.map(o=> o.companyCategory)
+        let newArray = categoryList.filter(function(item, pos, self) {
+            return self.indexOf(item) == pos;
+        })
+        setSideBar(newArray);
+    }
+
 
     function handleListItemClick(value) {
         console.log(value)
-        if(value === 'back') {
+        // switch(value) {
+        //     case 'back':
+        //       return one();
+        //     case "barbershop"|| "salon"|| "beauty"|| "tattoo"|| "nails"|| "piercings" ||"photography":
+        //         setBackBtn('block');
+        //         let selectedCategory = accounts.filter(o=> o.companyCategory === value)
+        //         let companyList = selectedCategory.map(o=>{ return o.companyName })
+        //         setSideBar(companyList)
+        //       break;
+        //     default:
+        //         console.log(accounts)
+        //   }        
+          if(value === 'back') {
             setBackBtn('none');
-            let CategoryList = accounts.map(o=>{ return o.companyCategory })
-            setSideBar(CategoryList)
-        } else if(value === "barbershop"|| "salon"|| "beauty"|| "tattoo"|| "nails"|| "piercings" ||"photography") {
+            let categoryList = accounts.map(o=>{ return o.companyCategory})
+            let newArray = categoryList.filter(function(item, pos, self) {
+                return self.indexOf(item) == pos;
+            })
+            setSideBar(newArray)
+        } else if(categories.includes(value)) {
             setBackBtn('block');
             let selectedCategory = accounts.filter(o=> o.companyCategory === value)
             let companyList = selectedCategory.map(o=>{ return o.companyName })
             setSideBar(companyList)
         } else {
-            setBackBtn('block');
             let selectedCompany = accounts.filter(o => o.companyName === value)
             setServInfo(selectedCompany); 
         }
@@ -228,15 +252,18 @@ export default function Search() {
     };
     function getposts() {
         API.getPosts()
-        .then(res=> console.log(res.data))
-        .catch(err => console.log(err));
+        // .then(res=> console.log(res.data))
+        // .catch(err => console.log(err));
     }
     function getAccounts() {
         API.getAccounts()
         .then(res=> {
          setAccounts(res.data)
-         let CategorysList = res.data.map(o => o.companyCategory)
-         setSideBar(CategorysList)
+         let categorysList = res.data.map(o => o.companyCategory)
+            let newArray = categorysList.filter(function(item, pos, self) {
+                return self.indexOf(item) == pos;
+            })
+            setSideBar(newArray)
         })
         .catch(err => console.log(err));
     } 
@@ -246,8 +273,8 @@ export default function Search() {
         getposts();
 
     }, [])
-
 console.log(servInfo)
+
     return (
         <Container fluid>
             {/* <h1>Search Page!</h1> */}
@@ -261,11 +288,9 @@ console.log(servInfo)
                             <ListItem
                                 key={o}
                                 button
-
                                 onClick={()=>handleListItemClick(o)}
                             >
                                 <ListItemText primary={o} />
-
                                 <ListItemIcon>
                                     <SendIcon />
                                 </ListItemIcon>
@@ -278,7 +303,6 @@ console.log(servInfo)
                                 button
                                 onClick={()=>handleListItemClick('back')}
                             >
-
                                 <ListItemText primary={'Categories'} />
 
                                 <ListItemIcon>
