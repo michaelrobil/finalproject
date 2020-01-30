@@ -30,10 +30,21 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: '#394d8e',
     marginBottom: '5vh',
   },
+  // logo: {
+  //   height: '8vh',       
+  // }, 
   logo: {
-    height: '8vh',    
-    float: "left",
+    margin: 'auto',
+    textAlign: 'center',    
+    height: '8vh',   
   },
+  logoHorizontallyCenter: {
+    position: 'absolute', 
+    left: '50%', 
+    top: '50%',
+    transform: 'translate(-50%, -50%)',
+    
+  } 
 
 }));
 
@@ -69,14 +80,15 @@ export default function MenuAppBar() {
           {/* SIGN UP/HOME  */}
           <Links />
           {/* TITLE */}
-          <Typography variant="h6" className={classes.title}>
+          <div className={classes.logoHorizontallyCenter}>
             
             <img
               className={classes.logo}
               src="./servICON.png"
-              title="Live from space album cover"
+              title="Logo"
             />
-          </Typography>
+
+          </div>
 
           {auth && (
             <div>
