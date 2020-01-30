@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import API from "../utils/API";
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import { Col, Row, Container } from "../components/Grid";
@@ -10,7 +10,6 @@ import { MuiPickersUtilsProvider, KeyboardDateTimePicker } from '@material-ui/pi
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
-import Divider from '@material-ui/core/Divider';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
@@ -23,13 +22,18 @@ import IconButton from '@material-ui/core/IconButton';
 import InfoIcon from '@material-ui/icons/Info';
 
 import ListItemIcon from '@material-ui/core/ListItemIcon';
-import StarBorderIcon from '@material-ui/icons/StarBorder';
 import { AutoInit } from "materialize-css";
+
 
 // @MEDIA 
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 
 import TextField from '@material-ui/core/TextField';
+
+const categories = [
+    "barbershop", "salon", "beauty", "tattoo", "nails", "piercings", "photography"
+  ];
+  
 
 
 const tileData = [
@@ -178,16 +182,28 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function Search() {
+
     const NewBox = styled.div`
   ${palette}
   ${spacing}`;
-    const [selectedDate, setSelectedDate] = React.useState(new Date());
+    const [accounts, setAccounts] = useState([])
+    const [sideBar, setSideBar] = useState([])
+    const [selectedDate, setSelectedDate] = useState(new Date());
     const classes = useStyles();
-    const theme = useTheme();
-    const [selectedIndex, setSelectedIndex] = React.useState(1);
+    const [backBtn, setBackBtn] = useState('none');
 
-    const handleListItemClick = (event, index) => {
-        setSelectedIndex(index);
+
+    function handleListItemClick(value) {
+        if(value === 'back') {
+            setBackBtn('none');
+            let CategoryList = accounts.map(o=>{ return o.companyCategory })
+            setSideBar(CategoryList)
+        } else {
+            setBackBtn('block');
+            let selectedCategory = accounts.filter(o=> o.companyCategory === value)
+            let companyList = selectedCategory.map(o=>{ return o.companyName })
+            setSideBar(companyList)
+        }
     };
 
     const handleDateChange = date => {
@@ -206,13 +222,23 @@ export default function Search() {
     };
     function getposts() {
         API.getPosts()
-            .then(res => {
-                console.log(res.data)
-            }).catch(err => console.log(err));
+        .then(res=> console.log(res.data))
+        .catch(err => console.log(err));
     }
-
+    function getAccounts() {
+        API.getAccounts()
+        .then(res=> {
+         setAccounts(res.data)
+         let CategorysList = res.data.map(o => o.companyCategory)
+         setSideBar(CategorysList)
+        })
+        .catch(err => console.log(err));
+    } 
+ 
     useEffect(() => {
+        getAccounts()
         getposts();
+
     }, [])
 
 
@@ -222,74 +248,43 @@ export default function Search() {
             <Row>
                 {/* left col  */}
                 <Col size="xs-12 sm-4 md-4 lg-2">
+                    {sideBar?
                     <div className={classes.btn}>
                         <List component="nav" aria-label="main mailbox folders">
+                            {sideBar.map(o=>
                             <ListItem
+                                key={o}
                                 button
-                                selected={selectedIndex === 0}
-                                onClick={event => handleListItemClick(event, 0)}
-                            >
-                                <ListItemText primary="salon" />
-                                <ListItemIcon className={classes.senders}>
-                                    <SendIcon />
-                                </ListItemIcon>
-                            </ListItem>
-                            <ListItem
-                                button
-                                selected={selectedIndex === 1}
-                                onClick={event => handleListItemClick(event, 1)}
-                            >
-                                <ListItemText primary='barbershop' />
-                                <ListItemIcon>
-                                    <SendIcon />
-                                </ListItemIcon>
-                            </ListItem>
-                        </List>
 
-                        <List component="nav" aria-label="secondary mailbox folder">
-                            <ListItem
-                                button
-                                selected={selectedIndex === 2}
-                                onClick={event => handleListItemClick(event, 2)}
+                                onClick={()=>handleListItemClick(o)}
                             >
-                                <ListItemText primary="beauty" />
-                                <ListItemIcon className={classes.btnIcon}>
-                                    <SendIcon />
-                                </ListItemIcon>
-                            </ListItem>
-                            <ListItem
-                                button
-                                selected={selectedIndex === 3}
-                                onClick={event => handleListItemClick(event, 3)}
-                            >
-                                <ListItemText primary="tattoo" />
+                                <ListItemText primary={o} />
+
                                 <ListItemIcon>
                                     <SendIcon />
                                 </ListItemIcon>
                             </ListItem>
-                            <ListItem
+
+                            )}
+                                <ListItem style={{display:backBtn}}
+                                key={1}
+
                                 button
-                                selected={selectedIndex === 4}
-                                onClick={event => handleListItemClick(event, 4)}
+                                onClick={()=>handleListItemClick('back')}
                             >
-                                <ListItemText primary="nails" />
+
+                                <ListItemText primary={'Categories'} />
+
                                 <ListItemIcon>
                                     <SendIcon />
                                 </ListItemIcon>
                             </ListItem>
-                            <ListItem
-                                button
-                                selected={selectedIndex === 5}
-                                onClick={event => handleListItemClick(event, 5)}
-                            >
-                                <ListItemText primary="photography" />
-                                <ListItemIcon>
-                                    <SendIcon />
-                                </ListItemIcon>
-                            </ListItem>
-                            <Divider />
+
+
+
                         </List>
-                    </div>
+                    </div> 
+                    :<div>Not</div>}
                 </Col>
                 {/* right col */}
 
@@ -367,6 +362,7 @@ export default function Search() {
 
                                 </div>
                             </Col>
+
                             </Row>
                         {/* <Container> */}
                             <Row>
@@ -392,6 +388,7 @@ export default function Search() {
                                 </Col>
                             
                         {/* </Container> */}
+
                         </Row>
                     </Card>
                 </Col>

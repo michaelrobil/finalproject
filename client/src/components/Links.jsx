@@ -20,9 +20,6 @@ function Links() {
                         <Link style={{ color: "white" }} to="/" className={'d-inline p-2 text-white'}>
                             Home
                         </Link>
-                        <Link style={{ color: "white" }} to="/signin" className={'d-inline p-2 text-white'}>
-                            Sign Up
-                        </Link>
                         <Link style={{ color: "white" }} to="/companyView" className={'d-inline p-2 text-white'}>
                             Company
                         </Link>

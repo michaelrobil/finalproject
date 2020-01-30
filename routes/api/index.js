@@ -5,6 +5,6 @@ const accountsRoute = require('./accounts');
 
 router.use('/appts',appointmentsRoute);
 router.use('/posts',postsRoute);
-router.use('accounts',accountsRoute);
+router.use('/accounts',accountsRoute);
 
 module.exports = router;

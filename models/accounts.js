@@ -7,16 +7,9 @@ const states = [
     "MT","NE","NV","NH","NJ","NM","NY","NC","ND","OH","OK","OR","PA","RI","SC","SD","TN","TX","UT","VT","VA","WA","WV","WI","WY"
 ];
 
-const categories = [
-    "barbershop", "salon", "beauty", "tattoo", "nails", "piercings", "photography"
-];
 
 const accountSchema = new Schema({
 
-    accountType: {
-        type: String,
-        default: "provider"
-    },
 
     email: {
         type: String,
@@ -30,11 +23,6 @@ const accountSchema = new Schema({
         validate: [({ length }) => length >= 6, "Password should be longer."]
     },
 
-    companyImageURL: {
-        type: String,
-        required: "",
-        default: "https://image.shutterstock.com/image-vector/blank-avatar-photo-place-holder-600w-1095249842.jpg"
-    },
 
     companyName: {
         type: String,
@@ -43,7 +31,6 @@ const accountSchema = new Schema({
 
     companyCategory: {
         type: String,
-        enum: categories
     },
 
     companyDescription: String,
@@ -52,7 +39,6 @@ const accountSchema = new Schema({
 
     companyState: {
         type: String,
-        enum: states
     },
 
     createdDate: {
