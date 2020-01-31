@@ -26,7 +26,16 @@ const image = [
         url: 'https://cdn.shopify.com/s/files/1/0533/2089/files/placeholder-images-image_large.png?format=webp&v=1530129081',
         title: 'Breakfast',
     },
+    
 ]
+const images = [
+    {
+        url: 'https://cdn.shopify.com/s/files/1/0533/2089/files/placeholder-images-image_large.png?format=webp&v=1530129081',
+        title: 'Breakfast',
+        width: '40%',
+    },
+]
+
 
 const useStyles = makeStyles(theme => ({
     root: {
