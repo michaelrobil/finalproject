@@ -28,7 +28,6 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/servproject");
 {
   email: "Email123@email.com",
   password: "Password123",
-  companyImageURL: "https://image.shutterstock.com/image-vector/blank-avatar-photo-place-holder-600w-1095249842.jpg",
   companyCategory: "beauty",
   companyName: "Beauty Inc",
   companyDescription: "High end beauty salon",
@@ -38,7 +37,6 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/servproject");
 {
   email: "Ieatchildren@tastychildren.com",
   password: "123456",
-  companyImageURL: "https://image.shutterstock.com/image-vector/blank-avatar-photo-place-holder-600w-1095249842.jpg",
   companyCategory: "tattoo",
   companyName: "Dink it & Ink it",
   companyDescription: "Dink Donk",
@@ -46,18 +44,56 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/servproject");
   companyState: "FL"
 },
 {
+  email: "Ieatchildren@one.com",
+  password: "123456",
+  companyCategory: "tattoo",
+  companyName: "Ink it",
+  companyDescription: "Ink it",
+  companyCity: "Nashville",
+  companyState: "TN"
+},
+
+{
   email: "one@tastychildren.com",
   password: "123456",
-  companyImageURL: "https://image.shutterstock.com/image-vector/blank-avatar-photo-place-holder-600w-1095249842.jpg",
   companyCategory: "tattoo",
-  companyName: "one",
+  companyName: "Dink Donk",
   companyDescription: "Dink Donk",
   companyCity: "Miami",
   companyState: "FL"
+},    {
+  email: "Email456@email.com",
+  password: "Password123",
+  companyCategory: "nails",
+  companyName: "Nail Salon",
+  companyDescription: "We do nails",
+  companyCity: "Antioch",
+  companyState: "TN"
+},    {
+  email: "Email789@email.com",
+  password: "Password123",
+  companyCategory: "piercings",
+  companyName: "Body Piercing",
+  companyDescription: "We do body piercings",
+  companyCity: "Azusa",
+  companyState: "CA"
+},    {
+  email: "Number1DekuFan@googlemail.com",
+  password: "GiveMeSeafoam",
+  companyCategory: "photography",
+  companyName: "Snap & Smile",
+  companyDescription: "That sounds like a you problem",
+  companyCity: "Nashville",
+  companyState: "TN"
+},{
+  email: "fan@googlemail.com",
+  password: "GiveMeSeafoam",
+  companyCategory: "photography",
+  companyName: "Smile",
+  companyDescription: "That sounds like a you problem",
+  companyCity: "Murfreesboro",
+  companyState: "TN"
 },
-
-
-
 
  ]
  const apptsSeed =[{
