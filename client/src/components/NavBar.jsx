@@ -3,7 +3,6 @@ import Links from './Links'
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import { Link } from 'react-router-dom'
@@ -13,7 +12,7 @@ import Menu from '@material-ui/core/Menu';
 const useStyles = makeStyles(theme => ({
   root: {
     // flexGrow: 1,
-    backgroundColor: 'white',
+    backgroundColor: 'red',
   },
   menuButton: {
     // marginRight: theme.spacing(2),
@@ -25,25 +24,21 @@ const useStyles = makeStyles(theme => ({
   bar: {
     // flexGrow: 1,
     // marginRight:'50%',
-    backgroundColor: '#394d8e',
-    marginBottom: '5vh',
-  },
-  // logo: {
-  //   height: '8vh',       
-  // }, 
-  logo: {
+    backgroundColor: '#1f3236',
+    boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)',
 
+    // marginBottom: '5vh',
+  },
+  logo: {
     margin: 'auto',
     textAlign: 'center',    
-    height: '8vh',   
-
+    height: '8vh',  
   },
   logoHorizontallyCenter: {
     position: 'absolute', 
     left: '50%', 
     top: '50%',
-    transform: 'translate(-50%, -50%)',
-    
+    transform: 'translate(-50%, -50%)',    
   } 
 
 }));
@@ -60,9 +55,7 @@ export default function MenuAppBar() {
     } else {
       return setIsLogin(true)
     }
-  }, [])
-
-
+  }, [user])
 
   const handleMenu = event => {
     setAnchorEl(event.currentTarget);
@@ -88,17 +81,14 @@ export default function MenuAppBar() {
           {/* SIGN UP/HOME  */}
           <Links />
           {/* TITLE */}
-
           <div className={classes.logoHorizontallyCenter}>
-            
             <img
+              alt='logo'
               className={classes.logo}
               src="./servICON.png"
               title="Logo"
             />
-
           </div>
-
           {isLogin ?
             <div>
               <IconButton
@@ -128,8 +118,7 @@ export default function MenuAppBar() {
                 <MenuItem onClick={()=> profile()}>Profile</MenuItem>
                 <MenuItem onClick={() => logOut()}>Log Out</MenuItem>
               </Menu>
-            </div>
-            :
+            </div>:
             <div>
               <Link style={{ color: "white" }} to="/signin" className={'d-inline p-2 text-white'}>
                 Sign

@@ -69,7 +69,11 @@ This is a full MERN app. (Mongo, Express, React, Node)
 - Eric Simmons
   * [GitHub](https://github.com/EricEnergy)
 - Trent Stokes
-- Kayleigh Thomas
+
+  * [GitHub]()
+- Alek Thomas
+  * [GitHub](https://github.com/Hi-It-Sky/)
+
 - Mario Cortes
   * [GitHub](https://github.com/mcortes-1113)
 
