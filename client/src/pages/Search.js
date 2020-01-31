@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import API from "../utils/API";
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, useTheme } from '@material-ui/core/styles';
 import { Col, Row, Container } from "../components/Grid";
+import styled from 'styled-components';
+import { palette, spacing } from '@material-ui/system';
 import Grid from '@material-ui/core/Grid';
 import DateFnsUtils from '@date-io/date-fns';
 import { MuiPickersUtilsProvider, KeyboardDateTimePicker } from '@material-ui/pickers';
@@ -12,7 +14,6 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import SendIcon from '@material-ui/icons/Send';
-import Avatar from '@material-ui/core/Avatar';
 // IMGs
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
@@ -20,34 +21,25 @@ import GridListTileBar from '@material-ui/core/GridListTileBar';
 import IconButton from '@material-ui/core/IconButton';
 import InfoIcon from '@material-ui/icons/Info';
 import Greentrees from '../components/images/greentrees.jpg'
+
 import ListItemIcon from '@material-ui/core/ListItemIcon';
-
-import { withStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
-import Dialog from '@material-ui/core/Dialog';
-import MuiDialogTitle from '@material-ui/core/DialogTitle';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogActions from '@material-ui/core/DialogActions';
-import CloseIcon from '@material-ui/icons/Close';
-import TextField from '@material-ui/core/TextField';
-import PhotoCamera from '@material-ui/icons/PhotoCamera';
-
+import { AutoInit } from "materialize-css";
 
 
 // @MEDIA 
-// import useMediaQuery from '@material-ui/core/useMediaQuery';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
 
-// import TextField from '@material-ui/core/TextField';
-// import { set } from "date-fns";
+import TextField from '@material-ui/core/TextField';
+import { set } from "date-fns";
 
 
 const categories = [
     "barbershop", "salon", "beauty", "tattoo", "nails", "piercings", "photography"
-];
+  ];
+  
 
 
-
-const tileData = [
+  const tileData = [
     {
         img: Greentrees,
         title: 'Image',
@@ -76,7 +68,7 @@ const tileData = [
     {
         title: 'Image',
         author: 'author',
-        img: Greentrees
+        img:Greentrees
     },
     {
         img: Greentrees,
@@ -112,7 +104,7 @@ const tileData = [
 
 
 const useStyles = makeStyles(theme => ({
-
+    
 
     root: {
         // width: '100%',
@@ -124,7 +116,7 @@ const useStyles = makeStyles(theme => ({
         // overflow: 'hidden',
         // marginTop: 10
         // marginTop: '5vh',
-
+        
 
         },
     card: {
@@ -139,8 +131,8 @@ const useStyles = makeStyles(theme => ({
     details: {
         // display: 'flex',
         // flexDirection: 'column',
-        color: 'white',
-
+        // color: 'white',
+        
     },
     content: {
         // flex: '1 0 auto',
@@ -148,7 +140,7 @@ const useStyles = makeStyles(theme => ({
     cover: {
         width: "100%",
         height: '100%',
-
+        
         // margin: '5vh',
         // borderRadius: 400,
         // overflow: "hidden",
@@ -166,7 +158,7 @@ const useStyles = makeStyles(theme => ({
         margin: '5vh auto',
         backgroundColor: 'rgba(255, 255, 255, 0)',
         width: '100%',
-
+        
     },
     icon: {
         color: 'rgba(255, 255, 255, 0.54)',
@@ -198,115 +190,65 @@ const useStyles = makeStyles(theme => ({
         color: '#4fa19a',
     },
     dater: {
-
-        marginBottom: '5vh',
-
+        marginBottom: '5vh',        
     },
-    // dater : MuiPickersToolbar-toolbar: {
-    //     backgroundColor: 'black',
-    // },
-    MuiPickersToolbar: {
-        backgroundColor: 'black',
-    },
-    small: {
-        width: theme.spacing(3),
-        height: theme.spacing(3),
-    },
-    large: {
-        width: theme.spacing(7),
-        height: theme.spacing(7),
-    },
-    closeButton: {
-        position: 'absolute',
-        right: theme.spacing(1),
-        top: theme.spacing(1),
-        color: theme.palette.grey[500],
-    },
-
 }));
 
-const styles = theme => ({
-    root: {
-        margin: 0,
-        padding: theme.spacing(2),
-    },
-    closeButton: {
-        position: 'absolute',
-        right: theme.spacing(1),
-        top: theme.spacing(1),
-        color: theme.palette.grey[500],
-    },
-});
-
 export default function Search() {
+
+    const NewBox = styled.div`
+  ${palette}
+  ${spacing}`;
     const [accounts, setAccounts] = useState([])
     const [sideBar, setSideBar] = useState()
     const [selectedDate, setSelectedDate] = useState(new Date());
     const classes = useStyles();
     const [backBtn, setBackBtn] = useState('none');
     const [servInfo, setServInfo] = useState();
-    const [avatar, setAvatar] = useState('none')
-    const [appointName, setAppointName] = useState()
-    const [open, setOpen] = React.useState(false);
+
+    function one(){
+        setBackBtn('none');
+        let categoryList = accounts.map(o=> o.companyCategory)
+        let newArray = categoryList.filter(function(item, pos, self) {
+            return self.indexOf(item) == pos;
+        })
+        setSideBar(newArray);
+    }
 
 
     function handleListItemClick(value) {
         console.log(value)
-        if (value === 'back') {
+          if(value === 'back') {
             setBackBtn('none');
-            setAvatar('none');
-            let categoryList = accounts.map(o => { return o.companyCategory })
-            let newArray = categoryList.filter(function (item, pos, self) {
+            let categoryList = accounts.map(o=>{ return o.companyCategory})
+            let newArray = categoryList.filter(function(item, pos, self) {
                 return self.indexOf(item) == pos;
             })
             setSideBar(newArray)
-        } else if (categories.includes(value)) {
+        } else if(categories.includes(value)) {
             setBackBtn('block');
-            setAvatar('block');
-            let selectedCategory = accounts.filter(o => o.companyCategory === value)
-            let companyList = selectedCategory.map(o => { return o.companyName })
+            let selectedCategory = accounts.filter(o=> o.companyCategory === value)
+            let companyList = selectedCategory.map(o=>{ return o.companyName })
             setSideBar(companyList)
         } else {
             let selectedCompany = accounts.filter(o => o.companyName === value)
-            setServInfo(selectedCompany);
+            setServInfo(selectedCompany); 
         }
-    };
-    const DialogTitle = withStyles(styles)(props => {
-        const { children, classes, onClose, ...other } = props;
-        return (
-            <MuiDialogTitle disableTypography className={classes.root} {...other}>
-                <Typography variant="h6">{children}</Typography>
-                {onClose ? (
-                    <IconButton aria-label="close" className={classes.closeButton} onClick={onClose}>
-                        <CloseIcon />
-                    </IconButton>
-                ) : null}
-            </MuiDialogTitle>
-        );
-    });
-
-    const handleClickOpen = () => {
-        setOpen(true);
-    };
-    const handleClose = () => {
-        setOpen(false);
-            let dateString = selectedDate.toString()
-            let day = dateString.substring(0, 3);
-            let dateOnly = dateString.substring(4, 15);
-            let time = dateString.substring(16, 21);
-            if (servInfo) {
-                API.addAppt({
-                    fullName: appointName,
-                    day: day,
-                    date: dateOnly,
-                    time: time,
-                    accountID: servInfo[0]._id
-                })
-            }
     };
 
     const handleDateChange = date => {
         setSelectedDate(date);
+        const enteredName = prompt('Please enter your name')
+        let dateString = date.toString()
+        let day = dateString.substring(0, 3);
+        let dateOnly = dateString.substring(4, 15);
+        let time = dateString.substring(16, 21);
+        API.addAppt({
+            fullName: enteredName,
+            day: day,
+            date: dateOnly,
+            time: time,
+        })
     };
     function getposts() {
         API.getPosts()
@@ -315,176 +257,147 @@ export default function Search() {
     }
     function getAccounts() {
         API.getAccounts()
-            .then(res => {
-                setAccounts(res.data)
-                let categorysList = res.data.map(o => o.companyCategory)
-                let newArray = categorysList.filter(function (item, pos, self) {
-                    return self.indexOf(item) == pos;
-                })
-                setSideBar(newArray)
+        .then(res=> {
+         setAccounts(res.data)
+         let categorysList = res.data.map(o => o.companyCategory)
+            let newArray = categorysList.filter(function(item, pos, self) {
+                return self.indexOf(item) == pos;
             })
-            .catch(err => console.log(err));
-    }
-
+            setSideBar(newArray)
+        })
+        .catch(err => console.log(err));
+    } 
+ 
     useEffect(() => {
         getAccounts()
         getposts();
 
     }, [])
+console.log(servInfo)
 
     return (
-       
-   
-    
-    
-
         <div className={classes.root}>
-                <label htmlFor="outlined-button-file">
-        <Button variant="outlined" component="span">
-          Upload
-        </Button>
-      </label>
-      <input accept="image/*" className={classes.input} id="icon-button-file" type="file" />
-      <label htmlFor="icon-button-file">
-        <IconButton color="primary" aria-label="upload picture" component="span">
-          <PhotoCamera />
-        </IconButton>
-      </label>
-            <Container fluid>
-                {/* <h1>Search Page!</h1> */}
-                <Row>
-                    {/* left col  */}
-                    <Col size="xs-12 sm-4 md-4 lg-2">
-                        {sideBar ?
-                            <div className={classes.btn}>
-                                <List component="nav" aria-label="main mailbox folders">
-                                    <ListItem style={{ display: backBtn }}
-                                        key={1}
-                                        button
-                                        onClick={() => handleListItemClick('back')}
-                                    >
-                                        <ListItemText primary={'Categories'} />
-                                        <ListItemIcon>
-                                            <SendIcon />
-                                        </ListItemIcon>
-                                    </ListItem>
-                                    {sideBar.map(o =>
-                                        <ListItem
-                                            key={o}
-                                            button
-                                            onClick={() => handleListItemClick(o)}
-                                        >
-                                            <Avatar style={{ display: avatar }} alt="Remy Sharp" src="https://www.pinclipart.com/picdir/big/97-976108_face-clipart-minion-minion-avatar-png-download.png" className={classes.small} />
-                                            <ListItemText primary={o} />
-                                            <ListItemIcon>
-                                                <SendIcon />
-                                            </ListItemIcon>
-                                        </ListItem>
-                                    )}
-                                </List>
-                            </div>
-                            : <div>Not</div>}
-                    </Col>
-                    {/* right col */}
-                    <Col size="xs-12 sm-8 md-8 lg-10">
-                        <Card className={classes.card}>
-                            <Row>
-                                {/* Company img */}
-                                <Col size='xs-12 sm-12 md-12 lg-4 xl-4'>
-                                    <div className={classes.cover}>
-                                        <img
-                                            className={classes.coverImage}
-                                            src="https://cdn.archpaper.com/wp-content/uploads/2018/09/portland_building_reconstruction-preview.jpg"
-                                            title="Live from space album cover"
-                                        />
-                                    </div>
-                                </Col>
-                                <Col size='xs-12 sm-12 md-12 lg-8'>
-                                    <div className={classes.details}>
-                                        <CardContent className={classes.content}>
-                                            <Row>
-                                                <Col size='xs-6 md-6'>
-                                                    <Typography component="h3" variant="h3" className={classes.companyName}>
-                                                        {servInfo ? servInfo[0].companyName : 'Long Name Incorporated'}
-                                                    </Typography>
-                                                    <Typography variant="subtitle1" color="textSecondary" className={classes.companyINFO}>
-                                                        Category: {servInfo ? servInfo[0].companyCategory : 'Animals'}
-                                                    </Typography>
-                                                    <Typography variant="subtitle1" color="textSecondary" className={classes.companyINFO}>
-                                                        Location: {servInfo ? `${servInfo[0].companyCity}, ${servInfo[0].companyState}` : 'Nashville, TN'}
-                                                    </Typography>
-                                                </Col>
-                                                <Col size='xs-6 md-6'>
-                                                    <div>
-                                                        <Button variant="outlined" color="primary" onClick={handleClickOpen}>
-                                                            Appointment
-                                                        </Button>
-                                                        <Dialog onClose={handleClose} aria-labelledby="customized-dialog-title" open={open}>
-                                                            <DialogTitle id="customized-dialog-title" onClose={handleClose}>
-                                                                Set Appointment
-                                                            </DialogTitle>
-                                                            <DialogContent dividers>
+        <Container fluid>
+            {/* <h1>Search Page!</h1> */}
+            <Row>
+                {/* left col  */}
+                <Col size="xs-12 sm-4 md-4 lg-2">
+                    {sideBar?
+                    <div className={classes.btn}>
+                        <List component="nav" aria-label="main mailbox folders">
+                        <ListItem style={{display:backBtn}}
+                                key={1}
 
-                                                                <MuiPickersUtilsProvider utils={DateFnsUtils}>
-                                                                    <Grid container justify="space-around" className={classes.dater}>
-                                                                        <KeyboardDateTimePicker
-                                                                            margin="normal"
-                                                                            id="date-picker-dialog"
-                                                                            label="Date picker dialog"
-                                                                            format="MM/dd/yyyy"
-                                                                            value={selectedDate}
-                                                                            onChange={handleDateChange}
-                                                                            KeyboardButtonProps={{
-                                                                                'aria-label': 'change date',
-                                                                            }}
-                                                                        />
-                                                                    </Grid>
-                                                                </MuiPickersUtilsProvider>
-                                                                <form className={classes.root} noValidate autoComplete="off">
-                                                                    <TextField onChange={(e) => setAppointName(e.target.value)}
-                                                                    id="outlined-basic" label="Name" variant="outlined" />
-                                                                </form>
+                                button
+                                onClick={()=>handleListItemClick('back')}
+                            >
+                                <ListItemText primary={'Categories'} />
+
+                                <ListItemIcon>
+                                    <SendIcon />
+                                </ListItemIcon>
+                            </ListItem>
+
+                            {sideBar.map(o=>
+                            <ListItem
+                                key={o}
+                                button
+                                onClick={()=>handleListItemClick(o)}
+                            >
+                                <ListItemText primary={o} />
+                                <ListItemIcon>
+                                    <SendIcon />
+                                </ListItemIcon>
+                            </ListItem>
+
+                            )}
 
 
-                                                            </DialogContent>
-                                                            <DialogActions>
-                                                                <Button autoFocus onClick={handleClose} color="primary">
-                                                                    Save changes
-                                                                 </Button>
-                                                            </DialogActions>
-                                                        </Dialog>
-                                                    </div>
-                                                    {/* <MuiPickersUtilsProvider utils={DateFnsUtils}>
-                                                        <Grid container justify="space-around" className={classes.dater}>
-                                                            <KeyboardDateTimePicker
-                                                                margin="normal"
-                                                                id="date-picker-dialog"
-                                                                label="Date picker dialog"
-                                                                format="MM/dd/yyyy"
-                                                                value={selectedDate}
-                                                                onChange={handleDateChange}
-                                                                KeyboardButtonProps={{
-                                                                    'aria-label': 'change date',
-                                                                }}
-                                                            />
-                                                        </Grid>
-                                                    </MuiPickersUtilsProvider> */}
-                                                </Col>
-                                            </Row>
-                                            <Row>
-                                                <Col size='md-12'>
-                                                    <Typography variant="subtitle1" color="textSecondary" className={classes.description}>
-                                                        Description: {servInfo ? servInfo[0].companyDescription : `Lorem ipsum dolor sit amet,
-                                             consectetur adipiscing elit.`}
-                                                    </Typography>
-                                                </Col>
-                                            </Row>
-                                        </CardContent>
-                                    </div>
-                                </Col>
+
+                        </List>
+                    </div> 
+                    :<div>Not</div>}
+                </Col>
+                {/* right col */}
+
+                <Col size="xs-12 sm-8 md-8 lg-10">
+                    <Card className={classes.card}>
+                        <Row>
+                            {/* Company img */}
+                            <Col size='xs-12 sm-12 md-12 lg-4 xl-4'>
+                                <div className={classes.cover}>
+                                    <img
+                                        className={classes.coverImage}
+                                        src="https://cdn.archpaper.com/wp-content/uploads/2018/09/portland_building_reconstruction-preview.jpg"
+                                        title="Live from space album cover"
+                                    />
+                                </div>
+                            </Col>
+                            <Col size='xs-12 sm-12 md-12 lg-8'>
+                                <div className={classes.details}>
+                                    <CardContent className={classes.content}>
+
+                                        <Row>
+                                            <Col size='xs-6 md-6'>
+                                                <Typography component="h3" variant="h3" className={classes.companyName}>
+                                                    Long Name Incorporated
+                                                </Typography>
+                                                <Typography variant="subtitle1" color="textSecondary" className={classes.companyINFO}>Category: Animals</Typography>
+                                                <Typography variant="subtitle1" color="textSecondary" className={classes.companyINFO}>Location: Nashville, TN </Typography>
+
+                                            </Col>
+                                            <Col size='xs-6 md-6'>
+                                                <MuiPickersUtilsProvider utils={DateFnsUtils}>
+                                                    <Grid container justify="space-around" className={classes.dater}>
+                                                        <KeyboardDateTimePicker
+                                                            disableToolbar
+                                                            margin="normal"
+                                                            id="date-picker-dialog"
+                                                            label="Date picker dialog"
+                                                            format="MM/dd/yyyy"
+                                                            value={selectedDate}
+                                                            onChange={handleDateChange}
+                                                            KeyboardButtonProps={{
+                                                                'aria-label': 'change date',
+                                                            }}
+                                                        />
+                                                    </Grid>
+                                                </MuiPickersUtilsProvider>
+
+                                            </Col>
+                                        </Row>
+                                        <Row>
+                                            <Col size='md-12'>
+                                                <Typography variant="subtitle1" color="textSecondary" className={classes.description}>Description: Lorem ipsum dolor sit amet,
+                                             consectetur adipiscing elit. Nulla tristique in turpis sit amet congue. Nam rhoncus,
+                                              dolor vel faucibus facilisis, turpis leo maximus mi, vitae tristique dui est vel dui.
+                                  Duis ligula tellus, venenatis a suscipit in, venenatis eu lectus. Donec eget ultrices tellus. Lorem ipsum dolor sit amet,
+                                             consectetur adipiscing elit. Nulla tristique in turpis sit amet congue. Nam rhoncus,
+                                              dolor vel faucibus facilisis, turpis leo maximus mi, vitae tristique dui est vel dui.
+                                  Duis ligula tellus, venenatis a suscipit in, venenatis eu lectus. Donec eget ultrices tellus. Lorem ipsum dolor sit amet,
+                                             consectetur adipiscing elit. Nulla tristique in turpis sit amet congue. Nam rhoncus,
+                                              dolor vel faucibus facilisis, turpis leo maximus mi, vitae tristique dui est vel dui.
+                                  Duis ligula tellus, venenatis a suscipit in, venenatis eu lectus. Donec eget ultrices tellus.Lorem ipsum dolor sit amet,
+                                             consectetur adipiscing elit. Nulla tristique in turpis sit amet congue. Nam rhoncus,
+                                              dolor vel faucibus facilisis, turpis leo maximus mi, vitae tristique dui est vel dui.
+                                  Duis ligula tellus, venenatis a suscipit in, venenatis eu lectus. Donec eget ultrices tellus.Lorem ipsum dolor sit amet,
+                                             consectetur adipiscing elit. Nulla tristique in turpis sit amet congue. Nam rhoncus,
+                                              dolor vel faucibus facilisis, turpis leo maximus mi, vitae tristique dui est vel dui.
+                                  Duis ligula tellus, venenatis a suscipit in, venenatis eu lectus. Donec eget ultrices tellus.Lorem ipsum dolor sit amet,
+                                             consectetur adipiscing elit. Nulla tristique in turpis sit amet congue. Nam rhoncus,
+                                              dolor vel faucibus facilisis, turpis leo maximus mi, vitae tristique dui est vel dui.
+                                  Duis ligula tellus, venenatis a suscipit in, venenatis eu lectus. Donec eget ultrices tellus.</Typography>
+
+                                            </Col>
+
+                                        </Row>
+                                    </CardContent>
+
+                                </div>
+                            </Col>
 
                             </Row>
-                            {/* <Container> */}
+                        {/* <Container> */}
                             <Row>
                                 <Col size="md-12">
                                     <div className={classes.gridList}>
@@ -506,14 +419,14 @@ export default function Search() {
                                         </GridList>
                                     </div>
                                 </Col>
+                            
+                        {/* </Container> */}
 
-                                {/* </Container> */}
-
-                            </Row>
-                        </Card>
-                    </Col>
-                </Row>
-            </Container>
+                        </Row>
+                    </Card>
+                </Col>
+            </Row>
+        </Container>
         </div>
     );
 }
