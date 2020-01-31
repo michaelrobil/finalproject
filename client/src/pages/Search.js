@@ -12,6 +12,7 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import SendIcon from '@material-ui/icons/Send';
+import Avatar from '@material-ui/core/Avatar';
 // IMGs
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
@@ -190,7 +191,15 @@ const useStyles = makeStyles(theme => ({
     // },
     MuiPickersToolbar: {
         backgroundColor: 'black',
-    }
+    },
+    small: {
+        width: theme.spacing(3),
+        height: theme.spacing(3),
+      },
+    large: {
+        width: theme.spacing(7),
+        height: theme.spacing(7),
+      },
 }));
 
 export default function Search() {
@@ -200,6 +209,7 @@ export default function Search() {
     const classes = useStyles();
     const [backBtn, setBackBtn] = useState('none');
     const [servInfo, setServInfo] = useState();
+    const [avatar, setAvatar] = useState('none')
 
     function handleListItemClick(value) {
         console.log(value)
@@ -212,6 +222,7 @@ export default function Search() {
             setSideBar(newArray)
         } else if(categories.includes(value)) {
             setBackBtn('block');
+            setAvatar('block');
             let selectedCategory = accounts.filter(o=> o.companyCategory === value)
             let companyList = selectedCategory.map(o=>{ return o.companyName })
             setSideBar(companyList)
@@ -288,6 +299,7 @@ export default function Search() {
                                 button
                                 onClick={()=>handleListItemClick(o)}
                             >
+                                <Avatar style={{display:avatar}}alt="Remy Sharp" src="https://www.pinclipart.com/picdir/big/97-976108_face-clipart-minion-minion-avatar-png-download.png" className={classes.small} />
                                 <ListItemText primary={o} />
                                 <ListItemIcon>
                                     <SendIcon />
