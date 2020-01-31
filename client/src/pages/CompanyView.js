@@ -195,14 +195,10 @@ console.log("here" ,companyImages)
     const userID = user.data.user._id
 
     useEffect(() => {
-        if (!companyImages) {
             API.getimages(user.data.user._id)
                 .then(res => setcompanyImages(res.data))
                 .catch(err => console.log(err));
-        } else {
-            console.log("we have images here")
-        }
-    }, [])
+    }, [companyImages])
 
     
     function loadpageimages() {
@@ -241,8 +237,9 @@ console.log("here" ,companyImages)
     }
 
     useEffect(() => {
-        getAccounts()
+        getAccounts();
         getAppointments();
+        loadpageimages();
     }, [])
 
     function renderRows() {
