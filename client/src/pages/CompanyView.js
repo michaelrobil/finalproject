@@ -245,9 +245,39 @@ export default function Search() {
     const [appointments, setAppointments] = useState([])
     const [pageImages, setPageImages] = useState()
     const [currentAccount, setCurrentAccount] = useState()
+    const [companyImages, setcompanyImages] = useState()
+
 
     const user = JSON.parse(localStorage.getItem('user'))
     const userID = user.data.user._id
+
+    useEffect(() => {
+        if (!companyImages) {
+            API.getimages(user.data.user._id)
+                .then(res => setcompanyImages(res.data.postImageURL))
+                .catch(err => console.log(err));
+        } else {
+            console.log("we have images here")
+        }
+    }, [])
+
+    
+    function loadpageimages() {
+     return companyImages ? companyImages.map(tile => (
+        <GridListTile key={tile.img} style={{ width: 300 }}>
+            <img className={classes.img} src={tile} alt={tile.title} />
+            <GridListTileBar
+                title={tile.title}
+                subtitle={<span>by: {tile.author}</span>}
+                actionIcon={
+                    <IconButton aria-label={`info about ${tile.title}`} className={classes.icon}>
+                        <InfoIcon />
+                    </IconButton>
+                }
+            />
+        </GridListTile>
+    )) : <img className={"anon"} src={Greentrees} alt={"placeholder"} />
+    } 
 
     function getAccounts() {
         API.getAccounts()
@@ -305,7 +335,6 @@ export default function Search() {
                                 className={classes.coverImage}
                                 src="https://cdn.archpaper.com/wp-content/uploads/2018/09/portland_building_reconstruction-preview.jpg"
                                 title="Live from space album cover"
-                            //{pageImages.companyImageURL}
                             />
                             <Main />
                         </div>
@@ -373,20 +402,7 @@ export default function Search() {
                                         }
                                     />
                                 </GridListTile>
-                                {tileData.map(tile => (
-                                    <GridListTile key={tile.img} style={{ width: 300 }}>
-                                        <img className={classes.img} src={tile.img} alt={tile.title} />
-                                        <GridListTileBar
-                                            title={tile.title}
-                                            subtitle={<span>by: {tile.author}</span>}
-                                            actionIcon={
-                                                <IconButton aria-label={`info about ${tile.title}`} className={classes.icon}>
-                                                    <InfoIcon />
-                                                </IconButton>
-                                            }
-                                        />
-                                    </GridListTile>
-                                ))}
+                             {loadpageimages()}
                             </GridList>
                         </div>
                     </Col>
