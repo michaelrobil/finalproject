@@ -62,51 +62,6 @@ const tileData = [
         author: 'author',
         img: Greentrees
     },
-    {
-        img: Greentrees,
-        title: 'Image',
-        author: 'author',
-    },
-    {
-        title: 'Image',
-        author: 'author',
-        img: Greentrees
-    },
-    {
-        title: 'Image',
-        author: 'author',
-        img: Greentrees
-    },
-    {
-        img: Greentrees,
-        title: 'Image',
-        author: 'author',
-    },
-    {
-        title: 'Image',
-        author: 'author',
-        img: Greentrees
-    },
-    {
-        title: 'Image',
-        author: 'author',
-        img: Greentrees
-    },
-    {
-        img: Greentrees,
-        title: 'Image',
-        author: 'author',
-    },
-    {
-        title: 'Image',
-        author: 'author',
-        img: Greentrees
-    },
-    {
-        title: 'Image',
-        author: 'author',
-        img: Greentrees
-    }
 ];
 
 
@@ -247,6 +202,9 @@ export default function Search() {
     const [avatar, setAvatar] = useState('none')
     const [appointName, setAppointName] = useState()
     const [open, setOpen] = React.useState(false);
+    const [companyImages, setcompanyImages] = useState()
+    const [selectedImages, setSelectedImages] = useState()
+
 
 
     function handleListItemClick(value) {
@@ -267,7 +225,11 @@ export default function Search() {
             setSideBar(companyList)
         } else {
             let selectedCompany = accounts.filter(o => o.companyName === value)
+            let selectedId = selectedCompany[0]._id
+            let imagesCopy = companyImages.filter(o => o.accountID === selectedId)
+            console.log(imagesCopy[0])
             setServInfo(selectedCompany);
+            setSelectedImages(imagesCopy[0])
         }
     };
     const DialogTitle = withStyles(styles)(props => {
@@ -309,8 +271,8 @@ export default function Search() {
     };
     function getposts() {
         API.getPosts()
-        // .then(res=> console.log(res.data))
-        // .catch(err => console.log(err));
+        .then(res=> setcompanyImages(res.data))
+        .catch(err => console.log(err));
     }
     function getAccounts() {
         API.getAccounts()
@@ -377,7 +339,7 @@ export default function Search() {
                                     <div className={classes.cover}>
                                         <img
                                             className={classes.coverImage}
-                                            src="https://cdn.archpaper.com/wp-content/uploads/2018/09/portland_building_reconstruction-preview.jpg"
+                                            src={selectedImages ? selectedImages.companyImageURL :"https://cdn.archpaper.com/wp-content/uploads/2018/09/portland_building_reconstruction-preview.jpg"}
                                             title="Live from space album cover"
                                         />
                                     </div>
@@ -437,21 +399,6 @@ export default function Search() {
                                                             </DialogActions>
                                                         </Dialog>
                                                     </div>
-                                                    {/* <MuiPickersUtilsProvider utils={DateFnsUtils}>
-                                                        <Grid container justify="space-around" className={classes.dater}>
-                                                            <KeyboardDateTimePicker
-                                                                margin="normal"
-                                                                id="date-picker-dialog"
-                                                                label="Date picker dialog"
-                                                                format="MM/dd/yyyy"
-                                                                value={selectedDate}
-                                                                onChange={handleDateChange}
-                                                                KeyboardButtonProps={{
-                                                                    'aria-label': 'change date',
-                                                                }}
-                                                            />
-                                                        </Grid>
-                                                    </MuiPickersUtilsProvider> */}
                                                 </Col>
                                             </Row>
                                             <Row>
@@ -472,20 +419,23 @@ export default function Search() {
                                 <Col size="md-12">
                                     <div className={classes.gridList}>
                                         <GridList cellHeight={200} cols={3} style={{ width: '200' }}>
-                                            {tileData.map(tile => (
-                                                <GridListTile key={tile.img} style={{ width: '200' }}>
-                                                    <img className={classes.img} src={tile.img} alt={tile.title} />
-                                                    <GridListTileBar
-                                                        title={tile.title}
-                                                        subtitle={<span>by: {tile.author}</span>}
+                                            {selectedImages ? selectedImages.postImageURL.map(tile => (
+                                                <GridListTile key={tile} style={{ width: '200' }}>
+                                                    <img className={classes.img} src={tile} alt={'Name'} />
+                                                    {/* <GridListTileBar
+                                                        title={'title'}
+                                                        subtitle={<span>by: {'name'}</span>}
                                                         actionIcon={
-                                                            <IconButton aria-label={`info about ${tile.title}`} className={classes.icon}>
+                                                            <IconButton aria-label={`info about ${'name'}`} className={classes.icon}>
                                                                 <InfoIcon />
                                                             </IconButton>
                                                         }
-                                                    />
+                                                    /> */}
                                                 </GridListTile>
-                                            ))}
+                                            )) :<p>No images found </p>
+
+                                            })
+                                        }
                                         </GridList>
                                     </div>
                                 </Col>
