@@ -63,16 +63,26 @@ const useStyles = makeStyles(theme => ({
         // flex: '1 0 auto',
     },
     cover: {
-        width: "60%",
+        // position: 'relative',
+        // width: "100%",
         // height: 250,
-        margin: '0% 20%',
+        // margin: '0% 20%',
         // borderRadius: 400,
         // overflow: "hidden"
     },
     coverImage: {
         width: "60%",
+        alignItems: 'center',
+        justifyContent: 'center',
         borderRadius: "360px",
         margin: '10% 20%',
+        boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)',
+
+        // position: 'absolute',
+        // display: 'inline-block',
+        // top: '50%',
+        // left: '50%',
+        // transform: 'translate(-50%,-50%)',
     },
     controls: {
         // display: 'flex',
@@ -81,14 +91,14 @@ const useStyles = makeStyles(theme => ({
         // paddingBottom: theme.spacing(1),
     },
     gridList: {
-        margin: '5vh auto',
+        // margin: '5vh auto',
     },
     icon: {
         color: 'rgba(255, 255, 255, 0.54)',
     },
     img: {
-        // width: '100%',
-        // height: 250,
+        width: 'auto',
+        height: 'auto',
     },
     btn: {
         // width: '100%',
@@ -109,6 +119,10 @@ const useStyles = makeStyles(theme => ({
     TOTtable: {
         marginBottom: '5vh',
     },
+    companyName: {
+        textAlign: 'center',
+        fontWeight: 'bolder',
+    },
     companyINFO: {
         marginBottom: '2vh',
     },
@@ -117,31 +131,31 @@ const useStyles = makeStyles(theme => ({
         height: '20vh',
         marginBottom: '5vh',
     },
-    image: {
-        position: 'relative',
-        height: 200,
-        [theme.breakpoints.down('xs')]: {
-            width: '100% !important', // Overrides inline-style
-            height: 100,
-        },
-        '&:hover, &$focusVisible': {
-            zIndex: 1,
-            '& $imageBackdrop': {
-                opacity: 0.15,
-            },
-            '& $imageMarked': {
-                opacity: 0,
-            },
-            '& $imageTitle': {
-                border: '4px solid currentColor',
-            },
-        },
-    },
-    focusVisible: {},
+    // image: {
+    //     position: 'relative',
+    //     height: 200,
+    //     [theme.breakpoints.down('xs')]: {
+    //         width: '100% !important', // Overrides inline-style
+    //         height: 100,
+    //     },
+    //     '&:hover, &$focusVisible': {
+    //         zIndex: 1,
+    //         '& $imageBackdrop': {
+    //             opacity: 0.15,
+    //         },
+    //         '& $imageMarked': {
+    //             opacity: 0,
+    //         },
+    //         '& $imageTitle': {
+    //             border: '4px solid currentColor',
+    //         },
+    //     },
+    // },
+    // focusVisible: {},
     imageButton: {
         position: 'absolute',
         left: 0,
-        right: 0,
+        right: '100px',
         top: 0,
         bottom: 0,
         display: 'flex',
@@ -149,38 +163,38 @@ const useStyles = makeStyles(theme => ({
         justifyContent: 'center',
         color: theme.palette.common.white,
     },
-    imageSrc: {
-        position: 'absolute',
-        left: 0,
-        right: 0,
-        top: 0,
-        bottom: 0,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center 40%',
-    },
-    imageBackdrop: {
-        position: 'absolute',
-        left: 0,
-        right: 0,
-        top: 0,
-        bottom: 0,
-        backgroundColor: theme.palette.common.black,
-        opacity: 0.4,
-        transition: theme.transitions.create('opacity'),
-    },
-    imageTitle: {
-        position: 'relative',
-        padding: `${theme.spacing(2)}px ${theme.spacing(4)}px ${theme.spacing(1) + 6}px`,
-    },
-    imageMarked: {
-        height: 3,
-        width: 18,
-        backgroundColor: theme.palette.common.white,
-        position: 'absolute',
-        bottom: -2,
-        left: 'calc(50% - 9px)',
-        transition: theme.transitions.create('opacity'),
-    },
+    // imageSrc: {
+    //     position: 'absolute',
+    //     left: 0,
+    //     right: 0,
+    //     top: 0,
+    //     bottom: 0,
+    //     backgroundSize: 'cover',
+    //     backgroundPosition: 'center 40%',
+    // },
+    // imageBackdrop: {
+    //     position: 'absolute',
+    //     left: 0,
+    //     right: 0,
+    //     top: 0,
+    //     bottom: 0,
+    //     backgroundColor: theme.palette.common.black,
+    //     opacity: 0.4,
+    //     transition: theme.transitions.create('opacity'),
+    // },
+    // imageTitle: {
+    //     position: 'relative',
+    //     padding: `${theme.spacing(2)}px ${theme.spacing(4)}px ${theme.spacing(1) + 6}px`,
+    // },
+    // imageMarked: {
+    //     height: 3,
+    //     width: 18,
+    //     backgroundColor: theme.palette.common.white,
+    //     position: 'absolute',
+    //     bottom: -2,
+    //     left: 'calc(50% - 9px)',
+    //     transition: theme.transitions.create('opacity'),
+    // },
 }));
 
 
@@ -207,15 +221,17 @@ console.log("here" ,companyImages)
     
     function loadpageimages() {
      return companyImages ? companyImages.postImageURL.map(tile => (
-        <GridListTile key={tile.img} style={{ width: 300 }}>
+        <GridListTile key={tile.img} 
+        style={{ width: 'auto' }}
+        >
             <img className={classes.img} src={tile} alt={tile.title} />
-            <GridListTileBar
+            {/* <GridListTileBar
                 title={tile.title}
                 subtitle={<span>by: {tile.author}</span>}
-                actionIcon={
-                    <IconButton aria-label={`info about ${tile.title}`} className={classes.icon}>
-                        <InfoIcon />
-                    </IconButton>
+                actionIcon={ */}
+                    {/* // <IconButton aria-label={`info about ${tile.title}`} className={classes.icon}>
+                    //     <InfoIcon />
+                    // </IconButton> */}
                 }
             />
         </GridListTile>
@@ -264,9 +280,13 @@ console.log("here" ,companyImages)
             <Grid>
                 <Row >
                     <Col size='xs-12 sm-12 md-12 lg-12'>
-                        <div className={classes.root}>
-                            {images.map(image => (
-                                <ButtonBase
+                        <div className={classes.cover}>
+                            <img
+                                className={classes.coverImage}
+                                src={companyImages ? companyImages.companyImageURL : Image}
+                                title="Live from space album cover"
+                            />
+                            <ButtonBase
                                     focusRipple
                                     key={image.title}
                                     className={classes.image}
@@ -286,25 +306,20 @@ console.log("here" ,companyImages)
                                         <Main />
                                     </span>
                                 </ButtonBase>
-                            ))}
-                        </div>
-                        <div className={classes.cover}>
-                            <img
-                                className={classes.coverImage}
-                                src={companyImages ? companyImages.companyImageURL : Image}
-                                title="Live from space album cover"
-                            />
-                            <Main />
                         </div>
                     </Col>
                 </Row>
             </Grid>
             <Grid>
                 <Row>
-                    <Col size='xs-12 xs-12 md-6 lg-6'>
-                        <Typography component="h3" variant="h3">
-                            {currentAccount ? currentAccount[0].companyName : 'Name'}
+                <Col size='xs-12 xs-12 md-12 lg-12' >
+            <Typography component="h3" variant="h3" className={classes.companyName}>
+                            {currentAccount ? currentAccount[0].companyName : 'Name'} <hr/>
                         </Typography>
+                        </Col> 
+                        </Row>
+                <Row>
+                    <Col size='xs-12 xs-12 md-6 lg-6'>                        
                         <Typography variant="subtitle1" color="textSecondary" className={classes.companyINFO}>
                             Category: {currentAccount ? currentAccount[0].companyCategory : 'Category'}
                         </Typography>
@@ -344,8 +359,15 @@ console.log("here" ,companyImages)
                 <Row>
                     <Col size="md-12">
                         <div className={classes.gridList}>
-                            <GridList cellHeight={160} cols={2} style={{ width: '100%' }}>
-                                <GridListTile key={image[0].title} style={{ width: 300 }}>
+                            <GridList 
+                            cellHeight={'auto'}
+                            cellWidth={'100%'}
+                            cols={3} 
+                            >
+                                <GridListTile 
+                                key={image[0].title} 
+                                style={{ width: 'auto' }}
+                                >
                                     <img className={classes.img} src={image[0].url} alt={image[0].title} />
                                     <GridListTileBar
                                         title={image[0].title}
