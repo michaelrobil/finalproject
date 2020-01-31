@@ -18,7 +18,7 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import Main from '../components/cloudinary/cloudtwo';
 import Main2 from '../components/cloudinary/cloudone';
-
+import ButtonBase from '@material-ui/core/ButtonBase';
 import Greentrees from '../components/images/greentrees.jpg'
 
 const image = [
@@ -108,71 +108,70 @@ const useStyles = makeStyles(theme => ({
         height: '20vh',
         marginBottom: '5vh',
     },
-    // image: {
-    //     position: 'relative',
-    //     height: 200,
-    //     [theme.breakpoints.down('xs')]: {
-    //         width: '100% !important', // Overrides inline-style
-    //         height: 'auto',
-    //     },
-    //     '&:hover, &$focusVisible': {
-    //         zIndex: 1,
-    //         '& $imageBackdrop': {
-    //             opacity: 0.15,
-    //         },
-    //         '& $imageMarked': {
-    //             opacity: 0,
-    //         },
-    //         '& $imageTitle': {
-    //             border: '4px solid currentColor',
-    //         },
-    //     },
-    // },
-    // focusVisible: {},
-    // imageButton: {
-    //     position: 'absolute',
-    //     left: 0,
-    //     right: 0,
-    //     top: 0,
-    //     bottom: 0,
-    //     display: 'flex',
-    //     alignItems: 'center',
-    //     justifyContent: 'center',
-    //     color: theme.palette.common.white,
-    // },
-    // imageSrc: {
-    //     position: 'absolute',
-    //     left: 0,
-    //     right: 0,
-    //     top: 0,
-    //     bottom: 0,
-    //     backgroundSize: 'cover',
-    //     backgroundPosition: 'center 40%',
-    // },
-    // imageBackdrop: {
-    //     position: 'absolute',
-    //     left: 0,
-    //     right: 0,
-    //     top: 0,
-    //     bottom: 0,
-    //     backgroundColor: theme.palette.common.black,
-    //     opacity: 0.4,
-    //     transition: theme.transitions.create('opacity'),
-    // },
-    // imageTitle: {
-    //     position: 'relative',
-    //     padding: `${theme.spacing(2)}px ${theme.spacing(4)}px ${theme.spacing(1) + 6}px`,
-    // },
-    // imageMarked: {
-    //     height: 3,
-    //     width: 18,
-    //     backgroundColor: theme.palette.common.white,
-    //     position: 'absolute',
-    //     bottom: -2,
-    //     left: 'calc(50% - 9px)',
-    //     transition: theme.transitions.create('opacity'),
-    // },
-
+    image: {
+        position: 'relative',
+        height: 200,
+        [theme.breakpoints.down('xs')]: {
+            width: '100% !important', // Overrides inline-style
+            height: 100,
+        },
+        '&:hover, &$focusVisible': {
+            zIndex: 1,
+            '& $imageBackdrop': {
+                opacity: 0.15,
+            },
+            '& $imageMarked': {
+                opacity: 0,
+            },
+            '& $imageTitle': {
+                border: '4px solid currentColor',
+            },
+        },
+    },
+    focusVisible: {},
+    imageButton: {
+        position: 'absolute',
+        left: 0,
+        right: 0,
+        top: 0,
+        bottom: 0,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        color: theme.palette.common.white,
+    },
+    imageSrc: {
+        position: 'absolute',
+        left: 0,
+        right: 0,
+        top: 0,
+        bottom: 0,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center 40%',
+    },
+    imageBackdrop: {
+        position: 'absolute',
+        left: 0,
+        right: 0,
+        top: 0,
+        bottom: 0,
+        backgroundColor: theme.palette.common.black,
+        opacity: 0.4,
+        transition: theme.transitions.create('opacity'),
+    },
+    imageTitle: {
+        position: 'relative',
+        padding: `${theme.spacing(2)}px ${theme.spacing(4)}px ${theme.spacing(1) + 6}px`,
+    },
+    imageMarked: {
+        height: 3,
+        width: 18,
+        backgroundColor: theme.palette.common.white,
+        position: 'absolute',
+        bottom: -2,
+        left: 'calc(50% - 9px)',
+        transition: theme.transitions.create('opacity'),
+    },
 }));
 
 
@@ -216,17 +215,17 @@ console.log("here" ,companyImages)
 
     function getAccounts() {
         API.getAccounts()
-        .then(res=> {
-         let userCompany = res.data.filter(o => o._id ===userID )
-         setCurrentAccount(userCompany)
-        })
-        .catch(err => console.log(err));
-    } 
+            .then(res => {
+                let userCompany = res.data.filter(o => o._id === userID)
+                setCurrentAccount(userCompany)
+            })
+            .catch(err => console.log(err));
+    }
 
     function getAppointments() {
         API.getAppts()
             .then(res => {
-                let currentCompanyAppoint = res.data.filter(o=> o.accountID === userID)
+                let currentCompanyAppoint = res.data.filter(o => o.accountID === userID)
                 console.log(res.data)
                 setAppointments(currentCompanyAppoint)
             }).catch(err => console.log(err));
@@ -238,7 +237,7 @@ console.log("here" ,companyImages)
     }, [])
 
     function renderRows() {
-        return appointments? appointments.map(o => (
+        return appointments ? appointments.map(o => (
             <TableRow key={o._id}>
                 <TableCell component="th" scope="row">
                     {o.fullName}
@@ -256,6 +255,30 @@ console.log("here" ,companyImages)
             <Grid>
                 <Row >
                     <Col size='xs-12 sm-12 md-12 lg-12'>
+                        <div className={classes.root}>
+                            {images.map(image => (
+                                <ButtonBase
+                                    focusRipple
+                                    key={image.title}
+                                    className={classes.image}
+                                    focusVisibleClassName={classes.focusVisible}
+                                    style={{
+                                        width: image.width,
+                                    }}
+                                >
+                                    <span
+                                        className={classes.imageSrc}
+                                        style={{
+                                            backgroundImage: `url(${image.url})`,
+                                        }}
+                                    />
+                                    <span className={classes.imageBackdrop} />
+                                    <span className={classes.imageButton}>
+                                        <Main />
+                                    </span>
+                                </ButtonBase>
+                            ))}
+                        </div>
                         <div className={classes.cover}>
                             <img
                                 className={classes.coverImage}
@@ -280,9 +303,9 @@ console.log("here" ,companyImages)
                             Location: {currentAccount ? `${currentAccount[0].companyCity}, ${currentAccount[0].companyState}` : 'Nashville, TN'}
                         </Typography>
                     </Col>
-                   <Col size='xs-12 xs-12 md-6 lg-6'>
+                    <Col size='xs-12 xs-12 md-6 lg-6'>
                         <Typography variant="subtitle1" color="textSecondary" className={classes.description}>
-                            Description: {currentAccount ? currentAccount[0].companyDescription : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'} 
+                            Description: {currentAccount ? currentAccount[0].companyDescription : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'}
                         </Typography>
                     </Col>
                 </Row>
