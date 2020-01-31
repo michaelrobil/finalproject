@@ -18,7 +18,7 @@ var userPostsSchema = new Schema({
     },
 
     postImageURL: {
-        type: String,  
+        type: Array,  
     },
 
     postedDate: {

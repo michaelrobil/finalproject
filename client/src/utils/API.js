@@ -14,6 +14,9 @@ export default {
         return axios.put('/api/posts/' + id, data)
     },
 
+    getimages: function (id) {
+        return axios.put('/api/posts/' + id)
+    },
 
     addPost: function (data) {
         return axios.post('/api/posts', data)
