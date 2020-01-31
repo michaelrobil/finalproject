@@ -28,78 +28,6 @@ const image = [
     },
 ]
 
-const images = [
-    {
-        url: 'https://cdn.archpaper.com/wp-content/uploads/2018/09/portland_building_reconstruction-preview.jpg',
-        title: 'Breakfast',
-        width: '40%',
-    },
-]
-
-const tileData = [
-    {
-        img: Greentrees,
-        title: 'Image',
-        author: 'author',
-    },
-    {
-        title: 'Image',
-        author: 'author',
-        img: Greentrees
-    },
-    {
-        title: 'Image',
-        author: 'author',
-        img: Greentrees
-    },
-    {
-        img: Greentrees,
-        title: 'Image',
-        author: 'author',
-    },
-    {
-        title: 'Image',
-        author: 'author',
-        img: Greentrees
-    },
-    {
-        title: 'Image',
-        author: 'author',
-        img: Greentrees
-    },
-    {
-        img: Greentrees,
-        title: 'Image',
-        author: 'author',
-    },
-    {
-        title: 'Image',
-        author: 'author',
-        img: Greentrees
-    },
-    {
-        title: 'Image',
-        author: 'author',
-        img: Greentrees
-    },
-    {
-        img: Greentrees,
-        title: 'Image',
-        author: 'author',
-    },
-    {
-        title: 'Image',
-        author: 'author',
-        img: Greentrees
-    },
-    {
-        title: 'Image',
-        author: 'author',
-        img: Greentrees
-    }
-];
-
-
 const useStyles = makeStyles(theme => ({
     root: {
         // width: '100%',
@@ -250,10 +178,9 @@ const useStyles = makeStyles(theme => ({
 export default function Search() {
     const classes = useStyles();
     const [appointments, setAppointments] = useState([])
-    const [pageImages, setPageImages] = useState()
     const [currentAccount, setCurrentAccount] = useState()
     const [companyImages, setcompanyImages] = useState()
-
+console.log("here" ,companyImages)
 
     const user = JSON.parse(localStorage.getItem('user'))
     const userID = user.data.user._id
@@ -261,7 +188,7 @@ export default function Search() {
     useEffect(() => {
         if (!companyImages) {
             API.getimages(user.data.user._id)
-                .then(res => setcompanyImages(res.data.postImageURL))
+                .then(res => setcompanyImages(res.data))
                 .catch(err => console.log(err));
         } else {
             console.log("we have images here")
@@ -270,7 +197,7 @@ export default function Search() {
 
     
     function loadpageimages() {
-     return companyImages ? companyImages.map(tile => (
+     return companyImages ? companyImages.postImageURL.map(tile => (
         <GridListTile key={tile.img} style={{ width: 300 }}>
             <img className={classes.img} src={tile} alt={tile.title} />
             <GridListTileBar
@@ -293,15 +220,6 @@ export default function Search() {
                 setCurrentAccount(userCompany)
             })
             .catch(err => console.log(err));
-    }
-
-    function getProfile() {
-        console.log(image)
-        API.getPosts()
-            .then(res => {
-                setPageImages(res.data)
-                console.log(res.data)
-            })
     }
 
     function getAppointments() {
@@ -364,7 +282,7 @@ export default function Search() {
                         <div className={classes.cover}>
                             <img
                                 className={classes.coverImage}
-                                src="https://cdn.archpaper.com/wp-content/uploads/2018/09/portland_building_reconstruction-preview.jpg"
+                                src={companyImages ? companyImages.companyImageURL : Image}
                                 title="Live from space album cover"
                             />
                             <Main />
