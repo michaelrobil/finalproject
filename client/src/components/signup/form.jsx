@@ -68,31 +68,6 @@ const inputLabel = React.useRef(null);
     setLabelWidth(inputLabel.current.offsetWidth);
   }, []);
 
-function uploadImage(e){
-  e.preventDefault();
-  // console.log(unitId);
-  // add an image
-  // const myWidget = cloudinary.createUploadWidget({
-  //     cloudName: 'ericnrgnash', 
-  //     uploadPreset: 'preset1'
-  // }, (error, result) => { 
-  //     console.log(result)
-  //     console.log(error)
-  //         // if (!error) { 
-  //         //     addPhoto(unitId, result.info.secure_url);
-  //         // }
-  //     }
-  // )
-  // myWidget.open();
-
- }
-
-// $(document).on('click', '.imgBtn', function(e){
-//   const unitId = $(this).data('id');
-  
-// })
-
-
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />

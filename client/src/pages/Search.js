@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
 import API from "../utils/API";
-import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import { Col, Row, Container } from "../components/Grid";
-import styled from 'styled-components';
-import { palette, spacing } from '@material-ui/system';
 import Grid from '@material-ui/core/Grid';
 import DateFnsUtils from '@date-io/date-fns';
 import { MuiPickersUtilsProvider, KeyboardDateTimePicker } from '@material-ui/pickers';
@@ -21,16 +19,14 @@ import GridListTileBar from '@material-ui/core/GridListTileBar';
 import IconButton from '@material-ui/core/IconButton';
 import InfoIcon from '@material-ui/icons/Info';
 import Greentrees from '../components/images/greentrees.jpg'
-
 import ListItemIcon from '@material-ui/core/ListItemIcon';
-import { AutoInit } from "materialize-css";
 
 
 // @MEDIA 
-import useMediaQuery from '@material-ui/core/useMediaQuery';
+// import useMediaQuery from '@material-ui/core/useMediaQuery';
 
-import TextField from '@material-ui/core/TextField';
-import { set } from "date-fns";
+// import TextField from '@material-ui/core/TextField';
+// import { set } from "date-fns";
 
 const categories = [
     "barbershop", "salon", "beauty", "tattoo", "nails", "piercings", "photography"
@@ -198,26 +194,12 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function Search() {
-
-    const NewBox = styled.div`
-  ${palette}
-  ${spacing}`;
     const [accounts, setAccounts] = useState([])
     const [sideBar, setSideBar] = useState()
     const [selectedDate, setSelectedDate] = useState(new Date());
     const classes = useStyles();
     const [backBtn, setBackBtn] = useState('none');
     const [servInfo, setServInfo] = useState();
-
-    function one(){
-        setBackBtn('none');
-        let categoryList = accounts.map(o=> o.companyCategory)
-        let newArray = categoryList.filter(function(item, pos, self) {
-            return self.indexOf(item) == pos;
-        })
-        setSideBar(newArray);
-    }
-
 
     function handleListItemClick(value) {
         console.log(value)
@@ -246,12 +228,15 @@ export default function Search() {
         let day = dateString.substring(0, 3);
         let dateOnly = dateString.substring(4, 15);
         let time = dateString.substring(16, 21);
-        API.addAppt({
-            fullName: enteredName,
-            day: day,
-            date: dateOnly,
-            time: time,
-        })
+        if(servInfo) {
+            API.addAppt({
+                fullName: enteredName,
+                day: day,
+                date: dateOnly,
+                time: time,
+                accountID: servInfo[0]._id
+            })
+        }
     };
     function getposts() {
         API.getPosts()
@@ -276,7 +261,6 @@ export default function Search() {
         getposts();
 
     }, [])
-console.log(servInfo)
 
     return (
         <div className={classes.root}>
@@ -290,17 +274,14 @@ console.log(servInfo)
                         <List component="nav" aria-label="main mailbox folders">
                         <ListItem style={{display:backBtn}}
                                 key={1}
-
                                 button
                                 onClick={()=>handleListItemClick('back')}
                             >
                                 <ListItemText primary={'Categories'} />
-
                                 <ListItemIcon>
                                     <SendIcon />
                                 </ListItemIcon>
                             </ListItem>
-
                             {sideBar.map(o=>
                             <ListItem
                                 key={o}
@@ -312,17 +293,12 @@ console.log(servInfo)
                                     <SendIcon />
                                 </ListItemIcon>
                             </ListItem>
-
                             )}
-
-
-
                         </List>
                     </div> 
                     :<div>Not</div>}
                 </Col>
                 {/* right col */}
-
                 <Col size="xs-12 sm-8 md-8 lg-10">
                     <Card className={classes.card}>
                         <Row>
@@ -339,15 +315,17 @@ console.log(servInfo)
                             <Col size='xs-12 sm-12 md-12 lg-8'>
                                 <div className={classes.details}>
                                     <CardContent className={classes.content}>
-
                                         <Row>
                                             <Col size='xs-6 md-6'>
                                                 <Typography component="h3" variant="h3" className={classes.companyName}>
-                                                    Long Name Incorporated
+                                                {servInfo ? servInfo[0].companyName:  'Long Name Incorporated'}
                                                 </Typography>
-                                                <Typography variant="subtitle1" color="textSecondary" className={classes.companyINFO}>Category: Animals</Typography>
-                                                <Typography variant="subtitle1" color="textSecondary" className={classes.companyINFO}>Location: Nashville, TN </Typography>
-
+                                                <Typography variant="subtitle1" color="textSecondary" className={classes.companyINFO}>
+                                                    Category: {servInfo ? servInfo[0].companyCategory:  'Animals'}
+                                                </Typography>
+                                                <Typography variant="subtitle1" color="textSecondary" className={classes.companyINFO}>
+                                                    Location: {servInfo ? `${servInfo[0].companyCity}, ${servInfo[0].companyState}`:  'Nashville, TN'}
+                                                </Typography>
                                             </Col>
                                             <Col size='xs-6 md-6'>
                                                 <MuiPickersUtilsProvider utils={DateFnsUtils}>
@@ -365,39 +343,19 @@ console.log(servInfo)
                                                         />
                                                     </Grid>
                                                 </MuiPickersUtilsProvider>
-
                                             </Col>
                                         </Row>
                                         <Row>
                                             <Col size='md-12'>
-                                                <Typography variant="subtitle1" color="textSecondary" className={classes.description}>Description: Lorem ipsum dolor sit amet,
-                                             consectetur adipiscing elit. Nulla tristique in turpis sit amet congue. Nam rhoncus,
-                                              dolor vel faucibus facilisis, turpis leo maximus mi, vitae tristique dui est vel dui.
-                                  Duis ligula tellus, venenatis a suscipit in, venenatis eu lectus. Donec eget ultrices tellus. Lorem ipsum dolor sit amet,
-                                             consectetur adipiscing elit. Nulla tristique in turpis sit amet congue. Nam rhoncus,
-                                              dolor vel faucibus facilisis, turpis leo maximus mi, vitae tristique dui est vel dui.
-                                  Duis ligula tellus, venenatis a suscipit in, venenatis eu lectus. Donec eget ultrices tellus. Lorem ipsum dolor sit amet,
-                                             consectetur adipiscing elit. Nulla tristique in turpis sit amet congue. Nam rhoncus,
-                                              dolor vel faucibus facilisis, turpis leo maximus mi, vitae tristique dui est vel dui.
-                                  Duis ligula tellus, venenatis a suscipit in, venenatis eu lectus. Donec eget ultrices tellus.Lorem ipsum dolor sit amet,
-                                             consectetur adipiscing elit. Nulla tristique in turpis sit amet congue. Nam rhoncus,
-                                              dolor vel faucibus facilisis, turpis leo maximus mi, vitae tristique dui est vel dui.
-                                  Duis ligula tellus, venenatis a suscipit in, venenatis eu lectus. Donec eget ultrices tellus.Lorem ipsum dolor sit amet,
-                                             consectetur adipiscing elit. Nulla tristique in turpis sit amet congue. Nam rhoncus,
-                                              dolor vel faucibus facilisis, turpis leo maximus mi, vitae tristique dui est vel dui.
-                                  Duis ligula tellus, venenatis a suscipit in, venenatis eu lectus. Donec eget ultrices tellus.Lorem ipsum dolor sit amet,
-                                             consectetur adipiscing elit. Nulla tristique in turpis sit amet congue. Nam rhoncus,
-                                              dolor vel faucibus facilisis, turpis leo maximus mi, vitae tristique dui est vel dui.
-                                  Duis ligula tellus, venenatis a suscipit in, venenatis eu lectus. Donec eget ultrices tellus.</Typography>
-
+                                                <Typography variant="subtitle1" color="textSecondary" className={classes.description}>
+                                                Description: {servInfo ? servInfo[0].companyDescription:  `Lorem ipsum dolor sit amet,
+                                             consectetur adipiscing elit.`}
+                                                </Typography>
                                             </Col>
-
                                         </Row>
                                     </CardContent>
-
                                 </div>
                             </Col>
-
                             </Row>
                         {/* <Container> */}
                             <Row>
