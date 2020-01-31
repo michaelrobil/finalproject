@@ -1,5 +1,8 @@
 # SERV App
 
+  * [Link to GitHub Repo](https://github.com/michaelrobil/finalproject)
+  * [Link to Live App](https://rocky-shore-67877.herokuapp.com/)
+  
 ---
 
 ## Objective
