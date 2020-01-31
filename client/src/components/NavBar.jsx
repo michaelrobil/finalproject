@@ -3,7 +3,6 @@ import Links from './Links'
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import { Link } from 'react-router-dom'
@@ -56,9 +55,7 @@ export default function MenuAppBar() {
     } else {
       return setIsLogin(true)
     }
-  }, [])
-
-
+  }, [user])
 
   const handleMenu = event => {
     setAnchorEl(event.currentTarget);
@@ -84,17 +81,13 @@ export default function MenuAppBar() {
           {/* SIGN UP/HOME  */}
           <Links />
           {/* TITLE */}
-
           <div className={classes.logoHorizontallyCenter}>
-            
             <img
               className={classes.logo}
               src="./servICON.png"
               title="Logo"
             />
-
           </div>
-
           {isLogin ?
             <div>
               <IconButton
@@ -124,8 +117,7 @@ export default function MenuAppBar() {
                 <MenuItem onClick={()=> profile()}>Profile</MenuItem>
                 <MenuItem onClick={() => logOut()}>Log Out</MenuItem>
               </Menu>
-            </div>
-            :
+            </div>:
             <div>
               <Link style={{ color: "white" }} to="/signin" className={'d-inline p-2 text-white'}>
                 Sign

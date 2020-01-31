@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
 import API from "../utils/API";
-import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import { Col, Row, Container } from "../components/Grid";
-import styled from 'styled-components';
-import { palette, spacing } from '@material-ui/system';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import GridList from '@material-ui/core/GridList';
@@ -18,8 +16,6 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import Button from '@material-ui/core/Button';
-import PhotoCamera from '@material-ui/icons/PhotoCamera';
 import Main from '../components/cloudinary/cloudtwo';
 import Main2 from '../components/cloudinary/cloudone';
 
@@ -243,31 +239,24 @@ const useStyles = makeStyles(theme => ({
 
 }));
 
-function createData(name, day, date, time) {
-    return { name, day, date, time };
-}
-
-const rows = [
-    createData('Eric', 'Sat', '1/28/2020', '1:17 PM'),
-    createData('Mario', 'Fri', '1/28/2020', '1:17 PM'),
-    createData('Trent', 'Tus', '1/28/2020', '1:17 PM'),
-    createData('Alek', 'Fri', '1/28/2020', '1:17 PM'),
-    createData('Mike', 'Sat', '1/28/2020', '1:17 PM'),
-
-];
 
 export default function Search() {
     const classes = useStyles();
     const [appointments, setAppointments] = useState([])
     const [pageImages, setPageImages] = useState()
+    const [currentAccount, setCurrentAccount] = useState()
 
-    // const user = JSON.parse(localStorage.getItem('user'))
-    // const userID = user.data.user._id
-    // useEffect(() => {
-    //     getProfile()
-    // })
+    const user = JSON.parse(localStorage.getItem('user'))
+    const userID = user.data.user._id
 
-
+    function getAccounts() {
+        API.getAccounts()
+        .then(res=> {
+         let userCompany = res.data.filter(o => o._id ===userID )
+         setCurrentAccount(userCompany)
+        })
+        .catch(err => console.log(err));
+    } 
 
     function getProfile() {
         console.log(image)
@@ -278,24 +267,22 @@ export default function Search() {
             })
     }
 
-
     function getAppointments() {
         API.getAppts()
             .then(res => {
-
+                let currentCompanyAppoint = res.data.filter(o=> o.accountID === userID)
                 console.log(res.data)
-
-                setAppointments(res.data)
-
+                setAppointments(currentCompanyAppoint)
             }).catch(err => console.log(err));
     }
 
     useEffect(() => {
+        getAccounts()
         getAppointments();
     }, [])
 
     function renderRows() {
-        return appointments.map(o => (
+        return appointments? appointments.map(o => (
             <TableRow key={o._id}>
                 <TableCell component="th" scope="row">
                     {o.fullName}
@@ -304,10 +291,9 @@ export default function Search() {
                 <TableCell align="right">{o.date}</TableCell>
                 <TableCell align="right">{o.time}</TableCell>
             </TableRow>
-        ));
+        )) : <p> No appointments found </p>
     }
 
-    console.log(appointments)
     return (
         <Container>
             {/* <h1>Company Page!</h1> */}
@@ -321,7 +307,6 @@ export default function Search() {
                                 title="Live from space album cover"
                             //{pageImages.companyImageURL}
                             />
-
                             <Main />
                         </div>
                     </Col>
@@ -330,14 +315,20 @@ export default function Search() {
             <Grid>
                 <Row>
                     <Col size='xs-12 xs-12 md-6 lg-6'>
-                        <Typography component="h3" variant="h3">Long Name Incorporated</Typography>
-                        <Typography variant="subtitle1" color="textSecondary" className={classes.companyINFO}>Category: Animals</Typography>
-                        <Typography variant="subtitle1" color="textSecondary" className={classes.companyINFO}>Location: Nashville, TN </Typography>
+                        <Typography component="h3" variant="h3">
+                            {currentAccount ? currentAccount[0].companyName : 'Name'}
+                        </Typography>
+                        <Typography variant="subtitle1" color="textSecondary" className={classes.companyINFO}>
+                            Category: {currentAccount ? currentAccount[0].companyCategory : 'Category'}
+                        </Typography>
+                        <Typography variant="subtitle1" color="textSecondary" className={classes.companyINFO}>
+                            Location: {currentAccount ? `${currentAccount[0].companyCity}, ${currentAccount[0].companyState}` : 'Nashville, TN'}
+                        </Typography>
                     </Col>
-
-                    <Col size='xs-12 xs-12 md-6 lg-6'>
+                   <Col size='xs-12 xs-12 md-6 lg-6'>
                         <Typography variant="subtitle1" color="textSecondary" className={classes.description}>
-                            Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla tristique in turpis sit amet congue. Nam rhoncus, dolor vel faucibus facilisis, turpis leo maximus mi, vitae tristique dui est vel dui. Duis ligula tellus, venenatis a suscipit in, venenatis eu lectus. Donec eget ultrices tellus.</Typography>
+                            Description: {currentAccount ? currentAccount[0].companyDescription : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'} 
+                        </Typography>
                     </Col>
                 </Row>
             </Grid>
@@ -381,7 +372,6 @@ export default function Search() {
                                             </IconButton>
                                         }
                                     />
-
                                 </GridListTile>
                                 {tileData.map(tile => (
                                     <GridListTile key={tile.img} style={{ width: 300 }}>
