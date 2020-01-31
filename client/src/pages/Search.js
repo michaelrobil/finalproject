@@ -30,6 +30,7 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogActions from '@material-ui/core/DialogActions';
 import CloseIcon from '@material-ui/icons/Close';
 import TextField from '@material-ui/core/TextField';
+import PhotoCamera from '@material-ui/icons/PhotoCamera';
 
 
 
@@ -332,7 +333,23 @@ export default function Search() {
     }, [])
 
     return (
+       
+   
+    
+    
+
         <div className={classes.root}>
+                <label htmlFor="outlined-button-file">
+        <Button variant="outlined" component="span">
+          Upload
+        </Button>
+      </label>
+      <input accept="image/*" className={classes.input} id="icon-button-file" type="file" />
+      <label htmlFor="icon-button-file">
+        <IconButton color="primary" aria-label="upload picture" component="span">
+          <PhotoCamera />
+        </IconButton>
+      </label>
             <Container fluid>
                 {/* <h1>Search Page!</h1> */}
                 <Row>
