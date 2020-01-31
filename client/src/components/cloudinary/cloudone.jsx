@@ -25,7 +25,6 @@ export default function Main() {
         API.editPost(user.data.user._id, {
             postImageURL: userImages,
         })
-        .then(({data}) => console.log(data))
         .catch(err => console.log(err));
     }, [userImages]);
 
@@ -40,7 +39,6 @@ export default function Main() {
             if (error) {
                 console.log(error);
             } else {
-                console.log("before", userImages)
                 setUserImages([...userImages, result[0].url]);
             }
         });

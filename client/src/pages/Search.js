@@ -288,8 +288,7 @@ export default function Search() {
     useEffect(() => {
         getAccounts()
         getposts();
-
-    }, [])
+    },[])
 
     return (
         <div className={classes.root}>
