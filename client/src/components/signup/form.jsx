@@ -11,11 +11,16 @@ import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
+import Snackbar from '@material-ui/core/Snackbar';
+import MuiAlert from '@material-ui/lab/Alert';
 
 const categories = [
   "barbershop", "salon", "beauty", "tattoo", "nails", "piercings", "photography"
 ];
 
+function Alert(props) {
+  return <MuiAlert elevation={6} variant="filled" {...props} />;
+}
 
 const useStyles = makeStyles(theme => ({
   paper: {
@@ -45,6 +50,18 @@ const useStyles = makeStyles(theme => ({
 
 export default function SignUp() {
   const classes = useStyles();
+  const [open, setOpen] = React.useState(false);
+
+  // const handleClick = () => {
+  // };
+
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+
+    setOpen(false);
+  };
 
   const [signUpCredentials, setSignUpCredentials] = useState({
     email: "",
@@ -59,40 +76,15 @@ export default function SignUp() {
 
 function submitSignup(e) {
   e.preventDefault();
-  console.log(signUpCredentials)
   API.userSignUp(signUpCredentials)
   .then(console.log("created !"));
+  setOpen(true);
 }
 const inputLabel = React.useRef(null);
   const [labelWidth, setLabelWidth] = React.useState(0);
   React.useEffect(() => {
     setLabelWidth(inputLabel.current.offsetWidth);
   }, []);
-
-function uploadImage(e){
-  e.preventDefault();
-  // console.log(unitId);
-  // add an image
-  // const myWidget = cloudinary.createUploadWidget({
-  //     cloudName: 'ericnrgnash', 
-  //     uploadPreset: 'preset1'
-  // }, (error, result) => { 
-  //     console.log(result)
-  //     console.log(error)
-  //         // if (!error) { 
-  //         //     addPhoto(unitId, result.info.secure_url);
-  //         // }
-  //     }
-  // )
-  // myWidget.open();
-
- }
-
-// $(document).on('click', '.imgBtn', function(e){
-//   const unitId = $(this).data('id');
-  
-// })
-
 
   return (
     <Container component="main" maxWidth="xs">
@@ -236,6 +228,13 @@ function uploadImage(e){
           </Grid>
         </form>
       </div>
+      <div className={classes.root}>
+      <Snackbar open={open} autoHideDuration={3000} onClose={handleClose}>
+        <Alert onClose={handleClose} severity="success">
+          You are signed up!
+        </Alert>
+      </Snackbar>
+    </div>
     </Container>
   );
 }

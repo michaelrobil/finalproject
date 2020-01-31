@@ -22,6 +22,10 @@ const apptSchema = new Schema({
         type: String,
         required: "appt time is required",
     },
+    accountID: {
+        type: String
+    },
+
 
 
 });

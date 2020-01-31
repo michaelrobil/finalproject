@@ -10,10 +10,13 @@ export default {
         return axios.delete('/api/posts/' + id)
     },
 
-    editPost: function (id) {
-        return axios.put('/api/posts/' + id)
+    editPost: function (id, data) {
+        return axios.put('/api/posts/' + id, data)
     },
 
+    getimages: function (id) {
+        return axios.put('/api/posts/' + id)
+    },
 
     addPost: function (data) {
         return axios.post('/api/posts', data)
