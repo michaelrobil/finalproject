@@ -32,6 +32,7 @@ import useMediaQuery from '@material-ui/core/useMediaQuery';
 import TextField from '@material-ui/core/TextField';
 import { set } from "date-fns";
 
+
 const categories = [
     "barbershop", "salon", "beauty", "tattoo", "nails", "piercings", "photography"
   ];
@@ -117,18 +118,20 @@ const useStyles = makeStyles(theme => ({
         // marginTop: '5vh',
         
 
-    },
+        },
     card: {
         // display: 'flex',
         paddingTop: '5vh',
         maxHeight: '90vh',
         overflowY: 'scroll',
         backgroundColor: 'rgba(187,208,213,0)',
+        // font-family: 'Courier New', Courier, monospace;
+        
     },
     details: {
         // display: 'flex',
         // flexDirection: 'column',
-        color: 'white',
+        // color: 'white',
         
     },
     content: {
@@ -161,10 +164,11 @@ const useStyles = makeStyles(theme => ({
         color: 'rgba(255, 255, 255, 0.54)',
     },
     img: {
-        margin: 'auto',
+        // margin: 'auto',
     },
     btn: {
         maxHeight: '85vh',
+        paddingTop: '5vh',
         // backgroundColor: theme.palette.background.paper,
 
     },
@@ -186,15 +190,8 @@ const useStyles = makeStyles(theme => ({
         color: '#4fa19a',
     },
     dater: {
-        marginBottom: '5vh',
-        
+        marginBottom: '5vh',        
     },
-    // dater : MuiPickersToolbar-toolbar: {
-    //     backgroundColor: 'black',
-    // },
-    MuiPickersToolbar: {
-        backgroundColor: 'black',
-    }
 }));
 
 export default function Search() {
@@ -353,6 +350,7 @@ console.log(servInfo)
                                                 <MuiPickersUtilsProvider utils={DateFnsUtils}>
                                                     <Grid container justify="space-around" className={classes.dater}>
                                                         <KeyboardDateTimePicker
+                                                            disableToolbar
                                                             margin="normal"
                                                             id="date-picker-dialog"
                                                             label="Date picker dialog"
@@ -403,9 +401,9 @@ console.log(servInfo)
                             <Row>
                                 <Col size="md-12">
                                     <div className={classes.gridList}>
-                                        <GridList cellHeight={300} cols={2} style={{ width: 'auto' }}>
+                                        <GridList cellHeight={200} cols={3} style={{ width: '200' }}>
                                             {tileData.map(tile => (
-                                                <GridListTile key={tile.img} style={{ width: 'auto' }}>
+                                                <GridListTile key={tile.img} style={{ width: '200' }}>
                                                     <img className={classes.img} src={tile.img} alt={tile.title} />
                                                     <GridListTileBar
                                                         title={tile.title}
