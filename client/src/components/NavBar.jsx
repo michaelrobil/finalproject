@@ -83,6 +83,7 @@ export default function MenuAppBar() {
           {/* TITLE */}
           <div className={classes.logoHorizontallyCenter}>
             <img
+              alt='logo'
               className={classes.logo}
               src="./servICON.png"
               title="Logo"
