@@ -161,8 +161,8 @@ const useStyles = makeStyles(theme => ({
         backgroundColor: 'black',
     },
     small: {
-        width: theme.spacing(3),
-        height: theme.spacing(3),
+        width: theme.spacing(5),
+        height: theme.spacing(5),
     },
     large: {
         width: theme.spacing(7),
@@ -317,7 +317,7 @@ export default function Search() {
                                             button
                                             onClick={() => handleListItemClick(o)}
                                         >
-                                            <Avatar style={{ display: avatar }} alt="Remy Sharp" src="https://www.pinclipart.com/picdir/big/97-976108_face-clipart-minion-minion-avatar-png-download.png" className={classes.small} />
+                                            <Avatar style={{ display: avatar }} alt="Remy Sharp" src="./s.png" className={classes.small} />
                                             <ListItemText primary={o} />
                                             <ListItemIcon>
                                                 <SendIcon />
@@ -337,7 +337,7 @@ export default function Search() {
                                     <div className={classes.cover}>
                                         <img
                                             className={classes.coverImage}
-                                            src={selectedImages ? selectedImages.companyImageURL :"https://cdn.archpaper.com/wp-content/uploads/2018/09/portland_building_reconstruction-preview.jpg"}
+                                            src={selectedImages ? selectedImages.companyImageURL :"./group2.jpg"}
                                             title="Live from space album cover"
                                         />
                                     </div>
@@ -348,10 +348,10 @@ export default function Search() {
                                             <Row>
                                                 <Col size='xs-6 md-6'>
                                                     <Typography component="h3" variant="h3" className={classes.companyName}>
-                                                        {servInfo ? servInfo[0].companyName : 'Long Name Incorporated'}
+                                                        {servInfo ? servInfo[0].companyName : 'Serv Team'}
                                                     </Typography>
                                                     <Typography variant="subtitle1" color="textSecondary" className={classes.companyINFO}>
-                                                        Category: {servInfo ? servInfo[0].companyCategory : 'Animals'}
+                                                        Team: {servInfo ? servInfo[0].companyCategory : 'Animals'}
                                                     </Typography>
                                                     <Typography variant="subtitle1" color="textSecondary" className={classes.companyINFO}>
                                                         Location: {servInfo ? `${servInfo[0].companyCity}, ${servInfo[0].companyState}` : 'Nashville, TN'}
@@ -402,8 +402,7 @@ export default function Search() {
                                             <Row>
                                                 <Col size='md-12'>
                                                     <Typography variant="subtitle1" color="textSecondary" className={classes.description}>
-                                                        Description: {servInfo ? servInfo[0].companyDescription : `Lorem ipsum dolor sit amet,
-                                             consectetur adipiscing elit.`}
+                                                        Description: {servInfo ? servInfo[0].companyDescription : `Our team at Serv wanted to bring the services of trademen and women to one place where you can find them and they can showcase their craft.`}
                                                     </Typography>
                                                 </Col>
                                             </Row>
