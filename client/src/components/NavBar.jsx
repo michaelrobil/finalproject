@@ -32,7 +32,7 @@ const useStyles = makeStyles(theme => ({
   logo: {
     margin: 'auto',
     textAlign: 'center',    
-    height: '8vh',  
+    height: '6vh',  
   },
   logoHorizontallyCenter: {
     position: 'absolute', 
