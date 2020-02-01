@@ -3,7 +3,7 @@
         "email": "Pasteryman@totallyrealemail.com",
         "password": "Iamtherealgingerbreadman",
         "companyImageURL": "https://image.shutterstock.com/image-vector/blank-avatar-photo-place-holder-600w-1095249842.jpg",
-        "companyCategory": "salon",
+        "companyCategory": "Salon",
         "companyName": "Bread Head",
         "companyDescription": "I will put yeast in your hair",
         "companyCity": "Loaf Town",
@@ -78,7 +78,7 @@
         "email": "SleepyBoy@hotemail.com",
         "password": "469205",
         "companyImageURL": "https://image.shutterstock.com/image-vector/blank-avatar-photo-place-holder-600w-1095249842.jpg",
-        "companyCategory": "barbershop",
+        "companyCategory": "Barbershop",
         "companyName": "Clips and Snips",
         "companyDescription": "Very soft and sweet boy",
         "companyCity": "Middletown",
@@ -91,7 +91,7 @@
     //     "profile": {
     //             "profilePicture": "",
     //             "companyName": "",
-    //             "catagory": "Barber",
+    //             "catagory": "Barbershop",
     //             "description": "",
     //             "city": "",
     //             "state": ""
@@ -104,7 +104,7 @@
     //     "profile": {
     //             "profilePicture": "",
     //             "companyName": "",
-    //             "catagory": "Barber",
+    //             "catagory": "Barbershop",
     //             "description": "",
     //             "city": "",
     //             "state": ""
@@ -117,7 +117,7 @@
     //     "profile": {
     //             "profilePicture": "",
     //             "companyName": "",
-    //             "catagory": "Barber",
+    //             "catagory": "Barbershop",
     //             "description": "",
     //             "city": "",
     //             "state": ""
@@ -130,7 +130,7 @@
     //     "profile": {
     //             "profilePicture": "",
     //             "companyName": "",
-    //             "catagory": "Barber",
+    //             "catagory": "Barbershop",
     //             "description": "",
     //             "city": "",
     //             "state": ""
@@ -143,7 +143,7 @@
     //     "profile": {
     //             "profilePicture": "",
     //             "companyName": "",
-    //             "catagory": "Barber",
+    //             "catagory": "Barbershop",
     //             "description": "",
     //             "city": "",
     //             "state": ""
@@ -153,7 +153,7 @@
         "email": "Email123@email.com",
         "password": "Password123",
         "companyImageURL": "https://image.shutterstock.com/image-vector/blank-avatar-photo-place-holder-600w-1095249842.jpg",
-        "companyCategory": "beauty",
+        "companyCategory": "Beauty",
         "companyName": "Beauty Inc",
         "companyDescription": "High end beauty salon",
         "companyCity": "Hollywood",
@@ -228,7 +228,7 @@
         "email": "Ieatchildren@tastychildren.com",
         "password": "123456",
         "companyImageURL": "https://image.shutterstock.com/image-vector/blank-avatar-photo-place-holder-600w-1095249842.jpg",
-        "companyCategory": "tattoo",
+        "companyCategory": "Tattoo",
         "companyName": "Dink it & Ink it",
         "companyDescription": "Dink Donk",
         "companyCity": "Miami",
@@ -303,7 +303,7 @@
         "email": "Email456@email.com",
         "password": "Password123",
         "companyImageURL": "https://image.shutterstock.com/image-vector/blank-avatar-photo-place-holder-600w-1095249842.jpg",
-        "companyCategory": "nails",
+        "companyCategory": "Nails",
         "companyName": "Nail Salon",
         "companyDescription": "We do nails",
         "companyCity": "Antioch",
@@ -378,7 +378,7 @@
         "email": "Email789@email.com",
         "password": "Password123",
         "companyImageURL": "https://image.shutterstock.com/image-vector/blank-avatar-photo-place-holder-600w-1095249842.jpg",
-        "companyCategory": "piercings",
+        "companyCategory": "Piercings",
         "companyName": "Body Piercing",
         "companyDescription": "We do body piercings",
         "companyCity": "Azusa",
@@ -453,7 +453,7 @@
         "email": "Number1DekuFan@googlemail.com",
         "password": "GiveMeSeafoam",
         "companyImageURL": "https://image.shutterstock.com/image-vector/blank-avatar-photo-place-holder-600w-1095249842.jpg",
-        "companyCategory": "photography",
+        "companyCategory": "Photography",
         "companyName": "Snap & Smile",
         "companyDescription": "That sounds like a you problem",
         "companyCity": "Nashville",
