@@ -12,7 +12,7 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/servproject");
     email: "Pasteryman@totallyrealemail.com",
     password: "Iamtherealgingerbreadman",
     companyName: "Bread Head",
-    companyCategory: "salon",
+    companyCategory: "Salon",
     companyDescription: "I will put yeast in your hair",
     companyCity: "Loaf Town",
     companyState: "TN"
@@ -30,7 +30,7 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/servproject");
   password: "Password123",
   companyCategory: "Beauty",
   companyName: "Beauty Inc",
-  companyDescription: "High end Beauty salon",
+  companyDescription: "High end Beauty Salon",
   companyCity: "Hollywood",
   companyState: "CA"
 },
