@@ -203,8 +203,6 @@ export default function Search() {
     const [appointments, setAppointments] = useState([])
     const [currentAccount, setCurrentAccount] = useState()
     const [companyImages, setcompanyImages] = useState()
-console.log("here" ,companyImages)
-
     const user = JSON.parse(localStorage.getItem('user'))
     const userID = user.data.user._id
 
@@ -282,7 +280,6 @@ console.log("here" ,companyImages)
                             <img
                                 className={classes.coverImage}
                                 src={companyImages ? companyImages.companyImageURL : Image}
-                                title="Live from space album cover"
                             />
                             <ButtonBase
                                     focusRipple

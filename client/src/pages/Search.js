@@ -206,7 +206,6 @@ export default function Search() {
 
 
     function handleListItemClick(value) {
-        console.log(value)
         if (value === 'back') {
             setBackBtn('none');
             setAvatar('none');
@@ -225,7 +224,6 @@ export default function Search() {
             let selectedCompany = accounts.filter(o => o.companyName === value)
             let selectedId = selectedCompany[0]._id
             let imagesCopy = companyImages.filter(o => o.accountID === selectedId)
-            console.log(imagesCopy[0])
             setServInfo(selectedCompany);
             setSelectedImages(imagesCopy[0])
         }
@@ -288,8 +286,7 @@ export default function Search() {
     useEffect(() => {
         getAccounts()
         getposts();
-
-    }, [])
+    },[])
 
     return (
         <div className={classes.root}>
@@ -318,7 +315,7 @@ export default function Search() {
                                             onClick={() => handleListItemClick(o)}
                                         >
                                             <Avatar style={{ display: avatar }} alt="Remy Sharp" src="./s.png" className={classes.small} />
-                                            <ListItemText primary={o} />
+                                            <ListItemText primary={o.replace(/^\w/, c => c.toUpperCase())} />
                                             <ListItemIcon>
                                                 <SendIcon />
                                             </ListItemIcon>
