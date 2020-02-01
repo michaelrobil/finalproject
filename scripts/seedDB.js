@@ -19,7 +19,7 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/servproject");
 },    {
   email: "SleepyBoy@hotemail.com",
   password: "469205",
-  companyCategory: "barbershop",
+  companyCategory: "Barbershop",
   companyName: "Clips and Snips",
   companyDescription: "Very soft and sweet boy",
   companyCity: "Middletown",
@@ -28,16 +28,16 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/servproject");
 {
   email: "Email123@email.com",
   password: "Password123",
-  companyCategory: "beauty",
+  companyCategory: "Beauty",
   companyName: "Beauty Inc",
-  companyDescription: "High end beauty salon",
+  companyDescription: "High end Beauty salon",
   companyCity: "Hollywood",
   companyState: "CA"
 },
 {
   email: "Ieatchildren@tastychildren.com",
   password: "123456",
-  companyCategory: "tattoo",
+  companyCategory: "Tattoo",
   companyName: "Dink it & Ink it",
   companyDescription: "Dink Donk",
   companyCity: "Miami",
@@ -46,7 +46,7 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/servproject");
 {
   email: "Ieatchildren@one.com",
   password: "123456",
-  companyCategory: "tattoo",
+  companyCategory: "Tattoo",
   companyName: "Ink it",
   companyDescription: "Ink it",
   companyCity: "Nashville",
@@ -56,7 +56,7 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/servproject");
 {
   email: "one@tastychildren.com",
   password: "123456",
-  companyCategory: "tattoo",
+  companyCategory: "Tattoo",
   companyName: "Dink Donk",
   companyDescription: "Dink Donk",
   companyCity: "Miami",
@@ -64,15 +64,15 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/servproject");
 },    {
   email: "Email456@email.com",
   password: "Password123",
-  companyCategory: "nails",
+  companyCategory: "Nails",
   companyName: "Nail Salon",
-  companyDescription: "We do nails",
+  companyDescription: "We do Nails",
   companyCity: "Antioch",
   companyState: "TN"
 },    {
   email: "Email789@email.com",
   password: "Password123",
-  companyCategory: "piercings",
+  companyCategory: "Piercings",
   companyName: "Body Piercing",
   companyDescription: "We do body piercings",
   companyCity: "Azusa",
@@ -80,7 +80,7 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/servproject");
 },    {
   email: "Number1DekuFan@googlemail.com",
   password: "GiveMeSeafoam",
-  companyCategory: "photography",
+  companyCategory: "Photography",
   companyName: "Snap & Smile",
   companyDescription: "That sounds like a you problem",
   companyCity: "Nashville",
@@ -88,7 +88,7 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/servproject");
 },{
   email: "fan@googlemail.com",
   password: "GiveMeSeafoam",
-  companyCategory: "photography",
+  companyCategory: "Photography",
   companyName: "Smile",
   companyDescription: "That sounds like a you problem",
   companyCity: "Murfreesboro",
