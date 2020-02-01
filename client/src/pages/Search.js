@@ -39,7 +39,7 @@ import TextField from '@material-ui/core/TextField';
 
 
 const categories = [
-    "barbershop", "salon", "beauty", "tattoo", "nails", "piercings", "photography"
+    "Barbershop", "Salon", "Beauty", "Tattoo", "Nails", "Piercings", "Photography"
 ];
 
 
