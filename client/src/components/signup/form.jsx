@@ -15,7 +15,7 @@ import Snackbar from '@material-ui/core/Snackbar';
 import MuiAlert from '@material-ui/lab/Alert';
 
 const categories = [
-  "barbershop", "salon", "beauty", "tattoo", "nails", "piercings", "photography"
+  "Barbershop", "Salon", "Beauty", "Tattoo", "Nails", "Piercings", "Photography"
 ];
 
 function Alert(props) {
