@@ -8,7 +8,6 @@ import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
 import GridListTileBar from '@material-ui/core/GridListTileBar';
 import IconButton from '@material-ui/core/IconButton';
-import InfoIcon from '@material-ui/icons/Info';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -24,17 +23,17 @@ import Greentrees from '../components/images/greentrees.jpg'
 const image = [
     {
         url: 'https://cdn.shopify.com/s/files/1/0533/2089/files/placeholder-images-image_large.png?format=webp&v=1530129081',
-        title: 'Breakfast',
+        title: '',
     },
     
 ]
-const images = [
-    {
-        url: 'https://cdn.shopify.com/s/files/1/0533/2089/files/placeholder-images-image_large.png?format=webp&v=1530129081',
-        title: 'Breakfast',
-        width: '40%',
-    },
-]
+// const images = [
+//     {
+//         url: 'https://cdn.shopify.com/s/files/1/0533/2089/files/placeholder-images-image_large.png?format=webp&v=1530129081',
+//         title: 'Breakfast',
+//         width: '40%',
+//     },
+// ]
 
 
 const useStyles = makeStyles(theme => ({
@@ -210,23 +209,16 @@ export default function Search() {
             API.getimages(user.data.user._id)
                 .then(res => setcompanyImages(res.data))
                 .catch(err => console.log(err));
-    }, [companyImages])
+    }, [userID])
 
 
     
     function loadpageimages() {
      return companyImages ? companyImages.postImageURL.map(tile => (
-        <GridListTile key={tile.img} 
+        <GridListTile key={tile} 
         style={{ width: 'auto' }}
         >
             <img className={classes.img} src={tile} alt={tile.title} />
-            {/* <GridListTileBar
-                title={tile.title}
-                subtitle={<span>by: {tile.author}</span>}
-                actionIcon={ */}
-                    {/* // <IconButton aria-label={`info about ${tile.title}`} className={classes.icon}>
-                    //     <InfoIcon />
-                    // </IconButton> */}
                 }
             />
         </GridListTile>
@@ -246,28 +238,39 @@ export default function Search() {
         API.getAppts()
             .then(res => {
                 let currentCompanyAppoint = res.data.filter(o => o.accountID === userID)
-                console.log(res.data)
                 setAppointments(currentCompanyAppoint)
             }).catch(err => console.log(err));
     }
 
     useEffect(() => {
         getAccounts();
-        getAppointments();
+    },[userID])
+
+    useEffect(() => {
         loadpageimages();
-    }, [])
+    },[companyImages])
+
+
+    useEffect(() => {
+        getAppointments();
+    },[userID])
+
 
     function renderRows() {
-        return appointments ? appointments.map(o => (
-            <TableRow key={o._id}>
-                <TableCell component="th" scope="row">
-                    {o.fullName}
-                </TableCell>
-                <TableCell align="right">{o.day}</TableCell>
-                <TableCell align="right">{o.date}</TableCell>
-                <TableCell align="right">{o.time}</TableCell>
-            </TableRow>
-        )) : <p> No appointments found </p>
+        if(appointments.length >= 1) {
+            return  appointments.map(o => (
+                <TableRow key={o._id}>
+                    <TableCell component="th" scope="row">
+                        {o.fullName}
+                    </TableCell>
+                    <TableCell align="right">{o.day}</TableCell>
+                    <TableCell align="right">{o.date}</TableCell>
+                    <TableCell align="right">{o.time}</TableCell>
+                </TableRow>
+            ))
+        } else {
+            return <TableRow><TableCell align='center'> {'No appointments found'} </TableCell></TableRow>
+        }
     }
 
     return (
@@ -277,10 +280,17 @@ export default function Search() {
                 <Row >
                     <Col size='xs-12 sm-12 md-12 lg-12'>
                         <div className={classes.cover}>
+                            {companyImages ? 
                             <img
+                                alt='cover'
                                 className={classes.coverImage}
-                                src={companyImages ? companyImages.companyImageURL : Image}
-                            />
+                                src={companyImages.companyImageURL}
+                            /> : 
+                            <img
+                                alt='cover'
+                                className={classes.coverImage}
+                                src={image.url}
+                            />}
                             <ButtonBase
                                     focusRipple
                                     key={image.title}

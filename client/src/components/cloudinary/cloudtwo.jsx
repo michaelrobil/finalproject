@@ -35,8 +35,9 @@ export default function Main2() {
     return (
         <div className="main" style={{display: uploadProfilePic}}>
             <div className="upload">
-                <button onClick={uploadWidget} className="upload-button">
-<PhotoCamera/>            </button>
+                {/* <button > */}
+                    <PhotoCamera onClick={uploadWidget} className="upload-button"/>            
+                {/* </button> */}
             </div>
         </div>
     );
