@@ -5,6 +5,7 @@ import API from '../../utils/API';
 //this file is for the companies profile image
 export default function Main2() {
     const [image, setImage] = useState({url: ""});
+    const [uploadProfilePic, setUploadProfilePic] = useState('block')
 
     function uploadImage(){
         console.log(image)
@@ -26,12 +27,13 @@ export default function Main2() {
                 API.addPost({
                     accountID: user.data.user._id,
                     companyImageURL:result[0].url})
+                    setUploadProfilePic('none')
             }
         });
     };
 
     return (
-        <div className="main">
+        <div className="main" style={{display: uploadProfilePic}}>
             <div className="upload">
                 <button onClick={uploadWidget} className="upload-button">
 <PhotoCamera/>            </button>
