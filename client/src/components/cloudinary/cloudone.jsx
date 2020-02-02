@@ -19,14 +19,14 @@ export default function Main() {
         } else {
             console.log("we have images here")
         }
-    }, [])
+    }, [userImages, user.data.user._id])
 
     useEffect(() => {
         API.editPost(user.data.user._id, {
             postImageURL: userImages,
         })
         .catch(err => console.log(err));
-    }, [userImages]);
+    }, [userImages,user.data.user._id]);
 
 
     const uploadWidget = () => {
@@ -48,8 +48,9 @@ export default function Main() {
     return (
         <div className="main">
             <div className="upload">
-                <button onClick={uploadWidget} className="upload-button">
-                    <PhotoCamera />            </button>
+                {/* <button onClick={uploadWidget} className="upload-button"> */}
+                    <PhotoCamera onClick={uploadWidget} className="upload-button"/>  
+              {/* </button> */}
             </div>
         </div>
     );

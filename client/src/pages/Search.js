@@ -16,7 +16,6 @@ import Avatar from '@material-ui/core/Avatar';
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
 import IconButton from '@material-ui/core/IconButton';
-import Greentrees from '../components/images/greentrees.jpg'
 import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
@@ -56,9 +55,12 @@ const useStyles = makeStyles(theme => ({
         maxHeight: '90vh',
         overflowY: 'scroll',
         backgroundColor: 'rgba(187,208,213,0)',
+        // font-family: 'Courier New', Courier, monospace;
     },
     details: {
-        color: 'white',
+        // display: 'flex',
+        // flexDirection: 'column',
+        color: 'White',
     },
     content: {
         // flex: '1 0 auto',
@@ -99,16 +101,21 @@ const useStyles = makeStyles(theme => ({
     },
     companyName: {
         marginBottom: '2vh',
+        // fontWeight: 'bold',
+        textShadow: '2px 2px 4px #000000',
+
     },
     companyINFO: {
         marginBottom: '2vh',
+        color: 'white',
+        fontWeight: 'bold',
+        fontSize: '1.5rem',
     },
     senders: {
         color: '#4fa19a',
     },
     dater: {
         marginBottom: '5vh',
-
     },
     MuiPickersToolbar: {
         backgroundColor: 'black',
@@ -162,7 +169,7 @@ export default function Search() {
             setAvatar('none');
             let categoryList = accounts.map(o => { return o.companyCategory })
             let newArray = categoryList.filter(function (item, pos, self) {
-                return self.indexOf(item) == pos;
+                return self.indexOf(item) === pos;
             })
             setSideBar(newArray)
         } else if (categories.includes(value)) {
@@ -227,7 +234,7 @@ export default function Search() {
                 setAccounts(res.data)
                 let categorysList = res.data.map(o => o.companyCategory)
                 let newArray = categorysList.filter(function (item, pos, self) {
-                    return self.indexOf(item) == pos;
+                    return self.indexOf(item) === pos;
                 })
                 setSideBar(newArray)
             })
@@ -265,7 +272,7 @@ export default function Search() {
                                             <Avatar style={{ display: avatar }} alt="Remy Sharp" src="./s.png" className={classes.small} /><ListItemText primary={o.replace(/^\w/, c => c.toUpperCase())} />
                                         </ListItem>
                                     )}
-                                </List>
+                                </List>                                
                             </div>
                             : <div></div>}
                     </Col>
@@ -277,6 +284,7 @@ export default function Search() {
                                 <Col size='xs-12 sm-12 md-12 lg-4 xl-4'>
                                     <div className={classes.cover}>
                                         <img
+                                            alt= 'cover'
                                             className={classes.coverImage}
                                             src={selectedImages ? selectedImages.companyImageURL :"./group2.jpg"}
                                             title="Live from space album cover"
@@ -299,8 +307,9 @@ export default function Search() {
                                                     </Typography>
                                                 </Col>
                                                 <Col size='xs-6 md-6'>
+                                                    {servInfo ? 
                                                     <div>
-                                                        <Button variant="outlined" color="primary" onClick={handleClickOpen}>
+                                                        <Button variant="outlined" style={{borderColor: 'white', color: 'white'}} color="secondary" onClick={handleClickOpen}>
                                                             Appointment
                                                         </Button>
                                                         <Dialog onClose={handleClose} aria-labelledby="customized-dialog-title" open={open}>
@@ -337,7 +346,12 @@ export default function Search() {
                                                                  </Button>
                                                             </DialogActions>
                                                         </Dialog>
-                                                    </div>
+                                                    </div> :
+                                                    <div>
+                                                       <Button variant="outlined" disabled>
+                                                            Appointment
+                                                        </Button>
+                                                    </div>}
                                                 </Col>
                                             </Row>
                                             <Row>
