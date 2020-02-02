@@ -138,7 +138,6 @@ const useStyles = makeStyles(theme => ({
 
 const styles = theme => ({
     root: {
-        margin-bottom: '50px',
         margin: 0,
         padding: theme.spacing(2),
     },
