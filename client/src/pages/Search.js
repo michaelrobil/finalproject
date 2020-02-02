@@ -38,7 +38,7 @@ import TextField from '@material-ui/core/TextField';
 
 
 const categories = [
-    "Barbershop", "Salon", "Beauty", "Tattoo", "Nails", "Piercings", "Photography"
+    "barbershop", "salon", "beauty", "tattoo", "nails", "piercings", "photography"
 ];
 
 
@@ -293,7 +293,7 @@ export default function Search() {
                                             button
                                             onClick={() => handleListItemClick(o)}
                                         >
-                                            <Avatar style={{ display: avatar }} alt="Remy Sharp" src="./s.png" className={classes.small} />
+                                            <Avatar style={{ display: avatar }} alt="Remy Sharp" src="https://res.cloudinary.com/ericnrgnash/image/upload/v1580676864/serv/s_xhmmky.png" className={classes.small} />
                                             <ListItemText primary={o.replace(/^\w/, c => c.toUpperCase())} />
                                             <ListItemIcon>
                                                 <SendIcon />
