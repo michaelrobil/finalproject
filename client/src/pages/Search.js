@@ -268,7 +268,8 @@ export default function Search() {
                                             button
                                             onClick={() => handleListItemClick(o)}
                                         >      
-                                            <Avatar style={{ display: avatar }} alt="Remy Sharp" src="./s.png" className={classes.small} /><ListItemText primary={o.replace(/^\w/, c => c.toUpperCase())} />
+                                            <Avatar style={{ display: avatar }} alt="Remy Sharp" src="./s.png" className={classes.small} />
+                                            <ListItemText primary={o.replace(/^\w/, c => c.toUpperCase())} />
                                         </ListItem>
                                     )}
                                 </List>                                
