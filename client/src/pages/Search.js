@@ -85,13 +85,14 @@ const useStyles = makeStyles(theme => ({
         maxHeight: '90vh',
         overflowY: 'scroll',
         backgroundColor: 'rgba(187,208,213,0)',
+        
         // font-family: 'Courier New', Courier, monospace;
         
     },
     details: {
         // display: 'flex',
         // flexDirection: 'column',
-        color: 'white',
+        color: 'White',
 
     },
     content: {
@@ -125,6 +126,7 @@ const useStyles = makeStyles(theme => ({
     },
     img: {
         // margin: 'auto',
+        // height: '100%',
     },
     btn: {
         maxHeight: '85vh',
@@ -142,21 +144,22 @@ const useStyles = makeStyles(theme => ({
     },
     companyName: {
         marginBottom: '2vh',
+        // fontWeight: 'bold',
+        textShadow: '2px 2px 4px #000000',
+
     },
     companyINFO: {
         marginBottom: '2vh',
+        color: 'white',
+        fontWeight: 'bold',
+        fontSize: '1.5rem',
     },
     senders: {
         color: '#4fa19a',
     },
     dater: {
-
         marginBottom: '5vh',
-
-    },
-    // dater : MuiPickersToolbar-toolbar: {
-    //     backgroundColor: 'black',
-    // },
+    },    
     MuiPickersToolbar: {
         backgroundColor: 'black',
     },
@@ -174,7 +177,6 @@ const useStyles = makeStyles(theme => ({
         top: theme.spacing(1),
         color: theme.palette.grey[500],
     },
-
 }));
 
 const styles = theme => ({
@@ -322,9 +324,9 @@ export default function Search() {
                                             <ListItemIcon>
                                                 <SendIcon />
                                             </ListItemIcon>
-                                        </ListItem>
+                                        </ListItem>                                        
                                     )}
-                                </List>
+                                </List>                                
                             </div>
                             : <div>Not</div>}
                     </Col>
