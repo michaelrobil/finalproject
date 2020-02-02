@@ -15,7 +15,7 @@ import Snackbar from '@material-ui/core/Snackbar';
 import MuiAlert from '@material-ui/lab/Alert';
 
 const categories = [
-  "Barbershop", "Salon", "Beauty", "Tattoo", "Nails", "Piercings", "Photography"
+  "barbershop", "salon", "beauty", "tattoo", "nails", "piercings", "photography"
 ];
 
 function Alert(props) {
@@ -51,10 +51,6 @@ const useStyles = makeStyles(theme => ({
 export default function SignUp() {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
-
-  // const handleClick = () => {
-  // };
-
   const handleClose = (event, reason) => {
     if (reason === 'clickaway') {
       return;
@@ -73,7 +69,6 @@ export default function SignUp() {
     companyState: "",
   });
 
-
 function submitSignup(e) {
   e.preventDefault();
   API.userSignUp(signUpCredentials)
@@ -90,7 +85,6 @@ const inputLabel = React.useRef(null);
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
-        
         <Typography component="h1" variant="h5">
           Sign up
         </Typography>
@@ -193,7 +187,6 @@ const inputLabel = React.useRef(null);
         </Select>
       </FormControl>
             </Grid>
-
         <Grid item xs={12}>
         <TextField
           id="outlined-multiline-static"
@@ -207,7 +200,6 @@ const inputLabel = React.useRef(null);
             companyDescription: e.target.value
           })}
         /> </Grid>
-
           </Grid>
           <Button
             type="submit"
@@ -220,11 +212,6 @@ const inputLabel = React.useRef(null);
             Sign Up
           </Button>
           <Grid container justify="flex-end">
-            {/* <Grid item>
-              <Link href="#" variant="body2">
-                Already have an account? Sign in
-              </Link>
-            </Grid> */}
           </Grid>
         </form>
       </div>

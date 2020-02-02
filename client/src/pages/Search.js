@@ -17,7 +17,6 @@ import Avatar from '@material-ui/core/Avatar';
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
 import IconButton from '@material-ui/core/IconButton';
-import Greentrees from '../components/images/greentrees.jpg'
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 
 import { withStyles } from '@material-ui/core/styles';
@@ -40,26 +39,6 @@ import TextField from '@material-ui/core/TextField';
 
 const categories = [
     "Barbershop", "Salon", "Beauty", "Tattoo", "Nails", "Piercings", "Photography"
-];
-
-
-
-const tileData = [
-    {
-        img: Greentrees,
-        title: 'Image',
-        author: 'author',
-    },
-    {
-        title: 'Image',
-        author: 'author',
-        img: Greentrees
-    },
-    {
-        title: 'Image',
-        author: 'author',
-        img: Greentrees
-    },
 ];
 
 
@@ -211,7 +190,7 @@ export default function Search() {
             setAvatar('none');
             let categoryList = accounts.map(o => { return o.companyCategory })
             let newArray = categoryList.filter(function (item, pos, self) {
-                return self.indexOf(item) == pos;
+                return self.indexOf(item) === pos;
             })
             setSideBar(newArray)
         } else if (categories.includes(value)) {
@@ -276,7 +255,7 @@ export default function Search() {
                 setAccounts(res.data)
                 let categorysList = res.data.map(o => o.companyCategory)
                 let newArray = categorysList.filter(function (item, pos, self) {
-                    return self.indexOf(item) == pos;
+                    return self.indexOf(item) === pos;
                 })
                 setSideBar(newArray)
             })
@@ -333,6 +312,7 @@ export default function Search() {
                                 <Col size='xs-12 sm-12 md-12 lg-4 xl-4'>
                                     <div className={classes.cover}>
                                         <img
+                                            alt= 'cover'
                                             className={classes.coverImage}
                                             src={selectedImages ? selectedImages.companyImageURL :"./group2.jpg"}
                                             title="Live from space album cover"
@@ -355,8 +335,9 @@ export default function Search() {
                                                     </Typography>
                                                 </Col>
                                                 <Col size='xs-6 md-6'>
+                                                    {servInfo ? 
                                                     <div>
-                                                        <Button variant="outlined" color="primary" onClick={handleClickOpen}>
+                                                        <Button variant="outlined" style={{borderColor: 'white', color: 'white'}} color="secondary" onClick={handleClickOpen}>
                                                             Appointment
                                                         </Button>
                                                         <Dialog onClose={handleClose} aria-labelledby="customized-dialog-title" open={open}>
@@ -393,7 +374,12 @@ export default function Search() {
                                                                  </Button>
                                                             </DialogActions>
                                                         </Dialog>
-                                                    </div>
+                                                    </div> :
+                                                    <div>
+                                                       <Button variant="outlined" disabled>
+                                                            Appointment
+                                                        </Button>
+                                                    </div>}
                                                 </Col>
                                             </Row>
                                             <Row>
