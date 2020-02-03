@@ -77,6 +77,7 @@ const useStyles = makeStyles(theme => ({
         color: 'rgba(255, 255, 255, 0.54)',
     },
     img: {
+        height: 200
     },
     btn: {
         maxHeight: '85vh',
@@ -361,7 +362,7 @@ export default function Search() {
                                     <div className={classes.gridList}>
                                         <GridList cellHeight={200} cols={3} style={{ width: '200' }}>
                                             {selectedImages ? selectedImages.postImageURL.map(tile => (
-                                                <GridListTile key={tile} style={{ width: '200' }}>
+                                                <GridListTile key={tile} style={{ width: 300 }}>
                                                     <img className={classes.img} src={tile} alt={'Name'} />
                                                 </GridListTile>
                                             )) :<p>No images found </p>
