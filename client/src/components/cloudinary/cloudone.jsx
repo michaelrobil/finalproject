@@ -26,7 +26,7 @@ export default function Main() {
             postImageURL: userImages,
         })
         .catch(err => console.log(err));
-    }, [userImages,user.data.user._id]);
+    }, [userImages]);
 
 
     const uploadWidget = () => {

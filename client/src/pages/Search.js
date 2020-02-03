@@ -25,15 +25,6 @@ import DialogActions from '@material-ui/core/DialogActions';
 import CloseIcon from '@material-ui/icons/Close';
 import TextField from '@material-ui/core/TextField';
 
-
-
-// @MEDIA 
-// import useMediaQuery from '@material-ui/core/useMediaQuery';
-
-// import TextField from '@material-ui/core/TextField';
-// import { set } from "date-fns";
-
-
 const categories = [
     "barbershop", "salon", "beauty", "tattoo", "nails", "piercings", "photography"
 ];
