@@ -206,18 +206,21 @@ export default function Search() {
     const [companyImages, setcompanyImages] = useState()
     const user = JSON.parse(localStorage.getItem('user'))
     const userID = user.data.user._id
+    const [newImages, setNewImages] = useState();
 
     useEffect(() => {
             API.getimages(user.data.user._id)
                 .then(res => setcompanyImages(res.data))
                 .catch(err => console.log(err));
-    }, [])
-
+    }, [newImages])
+    function childDidMount(data) {
+        setNewImages(data);
+    }
 
     
     function loadpageimages() {
      return companyImages ? companyImages.postImageURL.map(tile => (
-        <GridListTile key={tile} 
+        <GridListTile key={tile}
         style={{ width: '50%', height: 'inherit' }}
         >
             <img className={classes.img} src={tile} alt={tile.title} />
@@ -250,7 +253,7 @@ export default function Search() {
 
     useEffect(() => {
         loadpageimages();
-    },[companyImages])
+    },[])
 
 
     useEffect(() => {
@@ -310,7 +313,7 @@ export default function Search() {
                                     />
                                     <span className={classes.imageBackdrop} />
                                     <span className={classes.imageButton}>
-                                        <Main />
+                                        <Main callback={childDidMount}/>
                                     </span>
                                 </ButtonBase>
                         </div>
@@ -383,7 +386,7 @@ export default function Search() {
                                             <IconButton aria-label={`info about ${image[0].title}`} className={classes.icon}>
                                                 <input accept="image/*" className={classes.input} id="icon-button-file" type="file" />
                                                 <label htmlFor="icon-button-file">
-                                                    <Main2 />
+                                                    <Main2 callback={childDidMount}/>
                                                 </label>
                                             </IconButton>
                                         }
