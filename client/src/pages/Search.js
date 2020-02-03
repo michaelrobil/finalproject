@@ -11,14 +11,11 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
-import SendIcon from '@material-ui/icons/Send';
 import Avatar from '@material-ui/core/Avatar';
 // IMGs
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
 import IconButton from '@material-ui/core/IconButton';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-
 import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
@@ -41,10 +38,7 @@ const categories = [
     "barbershop", "salon", "beauty", "tattoo", "nails", "piercings", "photography"
 ];
 
-
 const useStyles = makeStyles(theme => ({
-
-
     root: {
         // width: '100%',
         // maxWidth: 360,
@@ -55,23 +49,18 @@ const useStyles = makeStyles(theme => ({
         // overflow: 'hidden',
         // marginTop: 10
         // marginTop: '5vh',
-
-
         },
     card: {
-        // display: 'flex',
         paddingTop: '5vh',
         maxHeight: '90vh',
         overflowY: 'scroll',
         backgroundColor: 'rgba(187,208,213,0)',
         // font-family: 'Courier New', Courier, monospace;
-        
     },
     details: {
         // display: 'flex',
         // flexDirection: 'column',
-        color: 'white',
-
+        color: 'White',
     },
     content: {
         // flex: '1 0 auto',
@@ -79,10 +68,6 @@ const useStyles = makeStyles(theme => ({
     cover: {
         width: "100%",
         height: '100%',
-
-        // margin: '5vh',
-        // borderRadius: 400,
-        // overflow: "hidden",
     },
     coverImage: {
         boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)',
@@ -91,25 +76,20 @@ const useStyles = makeStyles(theme => ({
         margin: '5% 5%',
     },
     controls: {
-
     },
     gridList: {
         margin: '5vh auto',
         backgroundColor: 'rgba(255, 255, 255, 0)',
         width: '100%',
-
     },
     icon: {
         color: 'rgba(255, 255, 255, 0.54)',
     },
     img: {
-        // margin: 'auto',
     },
     btn: {
         maxHeight: '85vh',
         paddingTop: '5vh',
-        // backgroundColor: theme.palette.background.paper,
-
     },
     nested: {
         // paddingLeft: theme.spacing(4),
@@ -121,21 +101,22 @@ const useStyles = makeStyles(theme => ({
     },
     companyName: {
         marginBottom: '2vh',
+        // fontWeight: 'bold',
+        textShadow: '2px 2px 4px #000000',
+
     },
     companyINFO: {
         marginBottom: '2vh',
+        color: 'white',
+        fontWeight: 'bold',
+        fontSize: '1.5rem',
     },
     senders: {
         color: '#4fa19a',
     },
     dater: {
-
         marginBottom: '5vh',
-
     },
-    // dater : MuiPickersToolbar-toolbar: {
-    //     backgroundColor: 'black',
-    // },
     MuiPickersToolbar: {
         backgroundColor: 'black',
     },
@@ -153,7 +134,6 @@ const useStyles = makeStyles(theme => ({
         top: theme.spacing(1),
         color: theme.palette.grey[500],
     },
-
 }));
 
 const styles = theme => ({
@@ -182,8 +162,6 @@ export default function Search() {
     const [companyImages, setcompanyImages] = useState()
     const [selectedImages, setSelectedImages] = useState()
 
-
-
     function handleListItemClick(value) {
         if (value === 'back') {
             setBackBtn('none');
@@ -197,7 +175,7 @@ export default function Search() {
             setBackBtn('block');
             setAvatar('block');
             let selectedCategory = accounts.filter(o => o.companyCategory === value)
-            let companyList = selectedCategory.map(o => { return o.companyName })
+            let companyList = selectedCategory.map(o => { return  o.companyName })
             setSideBar(companyList)
         } else {
             let selectedCompany = accounts.filter(o => o.companyName === value)
@@ -270,9 +248,7 @@ export default function Search() {
     return (
         <div className={classes.root}>
             <Container fluid>
-                {/* <h1>Search Page!</h1> */}
                 <Row>
-                    {/* left col  */}
                     <Col size="xs-12 sm-4 md-4 lg-2">
                         {sideBar ?
                             <div className={classes.btn}>
@@ -283,9 +259,8 @@ export default function Search() {
                                         onClick={() => handleListItemClick('back')}
                                     >
                                         <ListItemText primary={'Categories'} />
-                                        <ListItemIcon>
-                                            <SendIcon />
-                                        </ListItemIcon>
+                                        <hr></hr>
+                                      
                                     </ListItem>
                                     {sideBar.map(o =>
                                         <ListItem
@@ -295,14 +270,11 @@ export default function Search() {
                                         >
                                             <Avatar style={{ display: avatar }} alt="Remy Sharp" src="https://res.cloudinary.com/ericnrgnash/image/upload/v1580676864/serv/s_xhmmky.png" className={classes.small} />
                                             <ListItemText primary={o.replace(/^\w/, c => c.toUpperCase())} />
-                                            <ListItemIcon>
-                                                <SendIcon />
-                                            </ListItemIcon>
                                         </ListItem>
                                     )}
-                                </List>
+                                </List>                                
                             </div>
-                            : <div>Not</div>}
+                            : <div></div>}
                     </Col>
                     {/* right col */}
                     <Col size="xs-12 sm-8 md-8 lg-10">
@@ -328,7 +300,7 @@ export default function Search() {
                                                         {servInfo ? servInfo[0].companyName : 'Serv Team'}
                                                     </Typography>
                                                     <Typography variant="subtitle1" color="textSecondary" className={classes.companyINFO}>
-                                                        Team: {servInfo ? servInfo[0].companyCategory : 'Animals'}
+                                                        Category: {servInfo ? servInfo[0].companyCategory : 'Serv'}
                                                     </Typography>
                                                     <Typography variant="subtitle1" color="textSecondary" className={classes.companyINFO}>
                                                         Location: {servInfo ? `${servInfo[0].companyCity}, ${servInfo[0].companyState}` : 'Nashville, TN'}
@@ -392,9 +364,7 @@ export default function Search() {
                                         </CardContent>
                                     </div>
                                 </Col>
-
                             </Row>
-                            {/* <Container> */}
                             <Row>
                                 <Col size="md-12">
                                     <div className={classes.gridList}>
@@ -402,15 +372,6 @@ export default function Search() {
                                             {selectedImages ? selectedImages.postImageURL.map(tile => (
                                                 <GridListTile key={tile} style={{ width: '200' }}>
                                                     <img className={classes.img} src={tile} alt={'Name'} />
-                                                    {/* <GridListTileBar
-                                                        title={'title'}
-                                                        subtitle={<span>by: {'name'}</span>}
-                                                        actionIcon={
-                                                            <IconButton aria-label={`info about ${'name'}`} className={classes.icon}>
-                                                                <InfoIcon />
-                                                            </IconButton>
-                                                        }
-                                                    /> */}
                                                 </GridListTile>
                                             )) :<p>No images found </p>
 
@@ -419,9 +380,6 @@ export default function Search() {
                                         </GridList>
                                     </div>
                                 </Col>
-
-                                {/* </Container> */}
-
                             </Row>
                         </Card>
                     </Col>

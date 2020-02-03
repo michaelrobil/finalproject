@@ -209,7 +209,7 @@ export default function Search() {
             API.getimages(user.data.user._id)
                 .then(res => setcompanyImages(res.data))
                 .catch(err => console.log(err));
-    }, [userID])
+    }, [])
 
 
     

@@ -1,7 +1,8 @@
 #BG {
     /* background-color:#bbd0d5; */
-    background-image: linear-gradient(#bbd0d5,#1f3236);
+    background-image: linear-gradient(#bbd0d5,#365f68);
     min-height: 100%;
+    
 }
 
 html {
