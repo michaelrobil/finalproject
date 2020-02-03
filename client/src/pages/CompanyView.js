@@ -90,14 +90,15 @@ const useStyles = makeStyles(theme => ({
         // paddingBottom: theme.spacing(1),
     },
     gridList: {
-        // margin: '5vh auto',
+        margin: '5vh auto',
+        width:'100%'
     },
     icon: {
         color: 'rgba(255, 255, 255, 0.54)',
     },
     img: {
-        width: 'auto',
-        height: 'auto',
+        width: '100%',
+        // height: 'auto',
     },
     btn: {
         // width: '100%',
@@ -130,6 +131,7 @@ const useStyles = makeStyles(theme => ({
         height: '20vh',
         marginBottom: '5vh',
     },
+
     // image: {
     //     position: 'relative',
     //     height: 200,
@@ -216,7 +218,7 @@ export default function Search() {
     function loadpageimages() {
      return companyImages ? companyImages.postImageURL.map(tile => (
         <GridListTile key={tile} 
-        style={{ width: 'auto' }}
+        style={{ width: '50%', height: 'inherit' }}
         >
             <img className={classes.img} src={tile} alt={tile.title} />
                 }
@@ -371,7 +373,7 @@ export default function Search() {
                             >
                                 <GridListTile 
                                 key={image[0].title} 
-                                style={{ width: 'auto' }}
+                                style={{ width: '50%', height: 'inherit' }}
                                 >
                                     <img className={classes.img} src={image[0].url} alt={image[0].title} />
                                     <GridListTileBar
