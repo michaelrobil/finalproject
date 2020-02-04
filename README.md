@@ -48,7 +48,7 @@ Your profile page will display your company information on the top section, foll
 To save a new post to your profile page, click on the small "camera" icon in the top left image card within your posts section. Once you click the button, a new form will pop up where you will add the image file or the image url. Once you click "save" the post will automatically appear on your profile page. (If it doesn't, refresh your browser)
 
 ### As a Developer
-If you wish to copy and edit the code, you will need to run - npm install to retrieve the necessary dependencies.
+If you wish to copy and edit the code, you will need to run ```npm install``` to retrieve the necessary dependencies.
 
 
 ## Technologies Used
