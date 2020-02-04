@@ -56,7 +56,7 @@ If you wish to copy and edit the code, you will need to run npm install to retri
 This is a full MERN app. (Mongo, Express, React, Node)
 
 - Material UI (CSS Framework)
-- Cloudify (Third Party API)
+- Cloudinary (Third Party API)
 - Github
 - Heroku
 
