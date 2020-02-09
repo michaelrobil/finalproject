@@ -14,7 +14,7 @@ By creating an account in the application, the business owners are able to creat
 Potential customers have the option to schedule an appointment by providing their contact information.Business owners can see it and the appointment will be added to the appointments section in their profile page.
 
 ---
-## Application ScreenShot
+## Application Screenshots
 ![serv](https://user-images.githubusercontent.com/56613553/74096475-2f40a580-4ac5-11ea-9d30-67f7dbbdda29.jpg)
 
 ## How to use this App
