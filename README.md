@@ -15,7 +15,7 @@ Potential customers have the option to schedule an appointment by providing thei
 
 ---
 ## Application ScreenShot
-![01-serv](https://user-images.githubusercontent.com/56613553/74096267-4a5de600-4ac2-11ea-834a-e356db39523e.png)
+![serv](https://user-images.githubusercontent.com/56613553/74096475-2f40a580-4ac5-11ea-9d30-67f7dbbdda29.jpg)
 
 ## How to use this App
 
