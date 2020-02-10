@@ -30,31 +30,14 @@ const categories = [
 ];
 
 const useStyles = makeStyles(theme => ({
-    root: {
-        // width: '100%',
-        // maxWidth: 360,
-        // backgroundColor: theme.palette.background.paper,
-        // display: 'flex',
-        // flexWrap: 'wrap',
-        // justifyContent: 'space-around',
-        // overflow: 'hidden',
-        // marginTop: 10
-        // marginTop: '5vh',
-        },
     card: {
         paddingTop: '5vh',
         maxHeight: '90vh',
         overflowY: 'scroll',
         backgroundColor: 'rgba(187,208,213,0)',
-        // font-family: 'Courier New', Courier, monospace;
     },
     details: {
-        // display: 'flex',
-        // flexDirection: 'column',
         color: 'White',
-    },
-    content: {
-        // flex: '1 0 auto',
     },
     cover: {
         width: "100%",
@@ -83,19 +66,13 @@ const useStyles = makeStyles(theme => ({
         maxHeight: '85vh',
         paddingTop: '5vh',
     },
-    nested: {
-        // paddingLeft: theme.spacing(4),
-    },
     description: {
         overflowY: 'scroll',
         height: '20vh',
-        // marginBottom: '5vh',
     },
     companyName: {
         marginBottom: '2vh',
-        // fontWeight: 'bold',
         textShadow: '2px 2px 4px #000000',
-
     },
     companyINFO: {
         marginBottom: '2vh',
@@ -252,7 +229,6 @@ export default function Search() {
                                     >
                                         <ListItemText primary={'Categories'} />
                                         <hr></hr>
-                                      
                                     </ListItem>
                                     {sideBar.map(o =>
                                         <ListItem
@@ -329,8 +305,6 @@ export default function Search() {
                                                                     <TextField onChange={(e) => setAppointName(e.target.value)}
                                                                     id="outlined-basic" label="Name" variant="outlined" />
                                                                 </form>
-
-
                                                             </DialogContent>
                                                             <DialogActions>
                                                                 <Button autoFocus onClick={handleClose} color="primary">
